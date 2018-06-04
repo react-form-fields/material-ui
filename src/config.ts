@@ -1,4 +1,4 @@
-import { ErrorMessages } from 'validatorjs';
+import { ErrorMessages, getDefaultLang, getMessages } from 'validatorjs';
 
 import { IMask, register as registerMasks } from './mask';
 import * as validator from './validator';
@@ -27,7 +27,10 @@ export function setConfig(customConfig: IConfig) {
 
 function configValidation(config: IConfig['validation']) {
   if (config && config.customMessages) {
-    validator.addLang(config.lang, config.customMessages);
+    validator.addLang(config.lang, {
+      ...getMessages(getDefaultLang()),
+      ...config.customMessages,
+    });
   }
 
   validator.useLang(config.lang);
