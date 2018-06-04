@@ -1,8 +1,8 @@
 import { TextFieldProps } from '@material-ui/core/TextField';
 import React, { PureComponent } from 'react';
 
-import { FieldValidation, IFieldValidationContext } from '../validationContext';
 import { validate } from '../validator';
+import { FieldValidation, IFieldValidationContext } from '../validator/context';
 
 export interface IStateFieldBase {
   touched: boolean;
@@ -54,7 +54,7 @@ export default abstract class FieldBase<
     };
   }
 
-  public serFormSubmitted(submitted: boolean) {
+  public setFormSubmitted(submitted: boolean) {
     this.setState({ submitted });
   }
 

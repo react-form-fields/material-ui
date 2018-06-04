@@ -1,6 +1,7 @@
 import { CircularProgress, InputAdornment, TextField } from '@material-ui/core';
 import React, { Fragment } from 'react';
 
+import { getMask, IMaskFunction } from '../mask';
 import FieldBase, { IPropsFieldBase } from './Base';
 
 interface IProps extends IPropsFieldBase {
@@ -9,23 +10,16 @@ interface IProps extends IPropsFieldBase {
 }
 
 export default class FieldText extends FieldBase<IProps> {
-  private readonly masks: any = {
-    phone: {
-      apply: (value: string) => {
-        if (!value) return value;
+  get mask(): IMaskFunction {
+    let mask = getMask(this.props.mask);
 
-        const regexp = value.length > 10 ?
-          /^(\d{0,2})(\d{0,5})(\d{0,4}).*/ :
-          /^(\d{0,2})(\d{0,4})(\d{0,4}).*/;
+    if (!mask) {
+      mask = { apply: v => v, clean: v => v };
+      console.warn(`material-ui-form-fields: Mask '${this.props.mask}' not found`)
+    }
 
-        const result = value.length > 2 ?
-          '($1) $2-$3' : '($1$2$3';
-
-        return value.replace(regexp, result).replace(/-$/, '');
-      },
-      clean: (value: string) => value.replace(/\D/gi, '').substr(0, 11)
-    },
-  };
+    return mask;
+  }
 
   onChange(event: any) {
     const value = this.cleanValue(event.target ? event.target.value : event);
@@ -33,17 +27,11 @@ export default class FieldText extends FieldBase<IProps> {
   }
 
   getValue(): string {
-    const { value, mask } = this.props;
-
-    const maskFunc = this.masks[mask];
-    return !maskFunc ? value : maskFunc.apply(value);
+    return this.mask.apply(this.props.value);
   }
 
   cleanValue(value: string) {
-    const { mask } = this.props;
-
-    const maskFunc = this.masks[mask];
-    return !maskFunc ? value : maskFunc.clean(value);
+    return this.mask.clean(value);
   }
 
   render() {

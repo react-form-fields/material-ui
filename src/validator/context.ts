@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FieldBase from './components/Base';
+import FieldBase from '../components/Base';
 
 export interface IFieldValidationContext {
   bind: (field: FieldBase<any, any>) => void;
