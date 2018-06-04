@@ -3,7 +3,7 @@
     "outDir": "dist",
     "declaration": true,
     "declarationDir": "dist",
-    "module": "esnext",
+    "module": "es6",
     "target": "es5",
     "experimentalDecorators": true,
     "lib": [

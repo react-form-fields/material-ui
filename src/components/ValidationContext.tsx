@@ -3,12 +3,8 @@ import React, { PureComponent } from 'react';
 import { FieldValidation, IFieldValidationContext } from '../validator/context';
 import FieldBase from './Base';
 
-interface IState {
-  formSubmitted: boolean;
-}
-
-export default class ValidationContext extends PureComponent<{}, IState> {
-  public fields: FieldBase<any, any>[];
+export default class ValidationContext extends PureComponent<{}> {
+  public fields: FieldBase<any, any>[] = [];
   private registerFields: IFieldValidationContext = {
     bind: field => {
       this.fields.push(field);
@@ -18,11 +14,6 @@ export default class ValidationContext extends PureComponent<{}, IState> {
       this.fields.splice(index, 1);
     }
   };
-
-  constructor(props: {}) {
-    super(props);
-    this.state = { formSubmitted: true };
-  }
 
   public render(): React.ReactNode {
     return (
@@ -34,9 +25,11 @@ export default class ValidationContext extends PureComponent<{}, IState> {
 
   public isValid(formSubmitted: boolean = true): boolean {
     this.fields.forEach(f => f.setFormSubmitted(formSubmitted));
-    this.setState({ formSubmitted });
-
     return this.checkValidation();
+  }
+
+  public reset(): void {
+    this.fields.forEach(f => f.setFormSubmitted(false));
   }
 
   private checkValidation(): boolean {

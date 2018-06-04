@@ -13,7 +13,7 @@ export interface IMaskFunction {
 
 const container: IMaskContainer = {};
 
-export function register(...masks: IMask[]): void {
+export function register(masks: IMask[]): void {
   masks.forEach(({ name, ...funcs }) => {
     container[name] = funcs;
   });

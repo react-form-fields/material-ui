@@ -52,7 +52,7 @@ interface IProps extends IPropsFieldBase {
     marginRight: -15
   }
 }))
-export default class IntegrationAutosuggest extends FieldBase<IProps, IState> {
+export default class FieldAutocomplete extends FieldBase<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = { ...this.state, term: '', suggestions: [] };
@@ -138,13 +138,13 @@ export default class IntegrationAutosuggest extends FieldBase<IProps, IState> {
             endAdornment: (!term ?
               <InputAdornment position='end'>
                 <IconButton disabled={true} className={classes.adornment}>
-                  <SearchIcon.default />
+                  <SearchIcon />
                 </IconButton>
               </InputAdornment>
               :
               <InputAdornment position='end' onClick={this.handleClearValue.bind(this)}>
                 <IconButton disabled={disabled} className={classes.adornment}>
-                  <CloseIcon.default />
+                  <CloseIcon />
                 </IconButton>
               </InputAdornment>
             )
