@@ -9,6 +9,7 @@
     "url": "https://github.com/danieloprado/material-ui-form-fields"
   },
   "scripts": {
+    "build-docs": "sh docs/build.sh",
     "precommit": "yarn tsc --noEmit",
     "prepare": "rm -rf dist && yarn tsc && cp ./src/components/Html/style.css ./dist/components/Html/style.css"
   },
