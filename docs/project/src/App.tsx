@@ -11,6 +11,7 @@ import {
   IconButton,
   Snackbar,
   Toolbar,
+  Tooltip,
   Typography,
 } from '@material-ui/core';
 import {
@@ -24,7 +25,7 @@ import {
   FieldText,
   ValidationContext,
 } from 'material-ui-form-fields';
-import { CloseIcon, GithubCircleIcon } from 'mdi-react';
+import { CloseIcon, CodeTagsIcon, GithubCircleIcon } from 'mdi-react';
 import * as React from 'react';
 
 export default class App extends React.Component {
@@ -62,9 +63,18 @@ export default class App extends React.Component {
                 <Typography variant='title' color='inherit'>Material UI Form Fields</Typography>
               </Grid>
               <Grid item xs={false}>
-                <IconButton color='inherit' target='_blank' href='https://github.com/danieloprado/material-ui-form-fields'>
-                  <GithubCircleIcon size={30} />
-                </IconButton>
+                <Tooltip title='Sample code'>
+                  <IconButton color='inherit' target='_blank' href='https://github.com/danieloprado/material-ui-form-fields/blob/master/docs/project/src/App.tsx'>
+                    <CodeTagsIcon size={30} />
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+              <Grid item xs={false}>
+                <Tooltip title='Github'>
+                  <IconButton color='inherit' target='_blank' href='https://github.com/danieloprado/material-ui-form-fields'>
+                    <GithubCircleIcon size={30} />
+                  </IconButton>
+                </Tooltip>
               </Grid>
             </Grid>
           </Toolbar>

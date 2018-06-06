@@ -94,6 +94,27 @@ setConfig({
 
 See [validatorjs](https://github.com/skaterdav85/validatorjs)
 
+Validation Context
+
+```jsx
+<FieldDate
+  label='Begin Date'
+  name='begin'
+  value={model.beginDate}
+  validation='date'
+  onChange={(v => this.setState({ model: { ...model, beginDate: v } }))}
+/>
+
+<FieldDate
+  label='End Date'
+  name='end'
+  value={model.endDate}
+  validation='date|after_or_equal:begin date' //after_or_equal needs a value from other prop (ex: 'begin date')
+  validationContext={{ 'begin date': model.beginDate }} // build the dependency object as you needed
+  onChange={(v => this.setState({ model: { ...model, endDate: v } }))}
+/>
+```
+
 ## Mask
 
 Only FieldText has mask prop;
