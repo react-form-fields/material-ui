@@ -3,6 +3,12 @@ Material UI Form Fields
 
 See [API.md](https://github.com/danieloprado/material-ui-form-fields/blob/master/API.md) for details
 
+## Requirements 
+
+* React >= 16.0.0
+* Material-ui >= 1.0.0
+
+
 ## Install
 
 ```bash
