@@ -2,6 +2,7 @@
   "name": "docs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://danieloprado.github.io/material-ui-form-fields",
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",

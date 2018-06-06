@@ -6,3 +6,5 @@ BASEDIR=$(cd `dirname $0` && pwd)
 
 rm -rf $BASEDIR/build
 rsync -avzP $BASEDIR/project/build/ $BASEDIR/
+
+rm -rf $BASEDIR/project/build
