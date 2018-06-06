@@ -8,7 +8,6 @@ See [API.md](https://github.com/danieloprado/material-ui-form-fields/blob/master
 * React >= 16.0.0
 * Material-ui >= 1.0.0
 
-
 ## Install
 
 ```bash
