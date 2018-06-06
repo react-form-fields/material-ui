@@ -77,8 +77,12 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
 
   handleBlur() {
     const { value, options } = this.props;
-    const term: string = (options.find(o => o.value === value) || { label: null }).label;
 
+    if (!this.state.term) {
+      return this.handleClearValue();
+    }
+
+    const term: string = (options.find(o => o.value === value) || { label: null }).label;
     this.setState({ term });
   }
 
@@ -99,6 +103,7 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
   }
 
   handleClearValue() {
+    this.setState({ term: null });
     super.onChange(null);
   }
 

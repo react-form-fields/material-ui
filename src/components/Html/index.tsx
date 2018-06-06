@@ -18,8 +18,9 @@ interface IState extends IStateFieldBase {
   focused: boolean;
 }
 
-interface IProps extends IPropsFieldBase<string> {
+interface IProps extends IPropsFieldBase {
   value: string;
+  onChange: (value: string) => void;
 }
 
 @WithStyles(theme => ({
@@ -97,14 +98,14 @@ export default class FieldHtml extends FieldBase<IProps, IState> {
           toolbar={{
             inline: { options: ['bold', 'italic'] },
             list: { options: ['unordered', 'ordered'] },
-            embedded: { className: 'hide' },
-            fontSize: { className: 'hide' },
-            blockType: { className: 'hide' },
-            remove: { className: 'hide' },
-            colorPicker: { className: 'hide' },
-            fontFamily: { className: 'hide' },
-            textAlign: { className: 'hide' },
-            emoji: { className: 'hide' }
+            embedded: { className: styles.hide },
+            fontSize: { className: styles.hide },
+            blockType: { className: styles.hide },
+            remove: { className: styles.hide },
+            colorPicker: { className: styles.hide },
+            fontFamily: { className: styles.hide },
+            textAlign: { className: styles.hide },
+            emoji: { className: styles.hide }
           }}
           localization={{
             locale: 'pt'

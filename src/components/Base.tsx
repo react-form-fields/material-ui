@@ -10,16 +10,15 @@ export interface IStateFieldBase {
   submitted: boolean;
 }
 
-// @ts-ignore
-export interface IPropsFieldBase<V = any> extends TextFieldProps {
+export interface IPropsFieldBase extends TextFieldProps {
   label: string;
   disabled?: boolean;
-  value?: V;
+  value?: any;
   classes?: any;
   validation?: string;
   validationContext?: Object;
   errorMessage?: string;
-  onChange: (value: V) => void;
+  onChange: (value: any) => void;
 }
 
 export default abstract class FieldBase<
@@ -46,8 +45,8 @@ export default abstract class FieldBase<
     return (this.props.validation || '').includes('required');
   }
 
-  static getDerivedStateFromProps({ value, validation, validationContext }: IPropsFieldBase, currentState: IStateFieldBase): IStateFieldBase {
-    const error = validate(value, validation, validationContext);
+  static getDerivedStateFromProps({ name, value, validation, validationContext }: IPropsFieldBase, currentState: IStateFieldBase): IStateFieldBase {
+    const error = validate(name, value, validation, validationContext);
 
     return {
       ...currentState,

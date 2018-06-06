@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://danieloprado.github.io/material-ui-form-fields",
   "dependencies": {
+    "@material-ui/core": "^1.2.0",
+    "@material-ui/icons": "^1.1.0",
+    "material-ui-form-fields": "1.0.27",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts-ts": "2.16.0"

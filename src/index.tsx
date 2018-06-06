@@ -9,6 +9,8 @@ import FieldSwitchComponent from './components/Switch';
 import FieldTextComponent from './components/Text';
 import ValidationContextComponent from './components/ValidationContext';
 
+export * from './config';
+
 export const FieldColor = FieldColorComponent;
 export const FieldText = FieldTextComponent;
 export const FieldSelect = FieldSelectComponent;
@@ -20,3 +22,4 @@ export const FieldAutocomplete = FieldAutocompleteComponent;
 export const FieldHtml = FieldHtmlComponent;
 
 export const ValidationContext = ValidationContextComponent;
+

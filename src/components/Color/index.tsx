@@ -9,7 +9,11 @@ interface IState extends IStateFieldBase {
   showPicker: boolean;
 }
 
-export default class FieldColor extends FieldBase<IPropsFieldBase<string>, IState> {
+interface IProps extends IPropsFieldBase {
+  onChange: (value: string) => void;
+}
+
+export default class FieldColor extends FieldBase<IProps, IState> {
   constructor(props: IPropsFieldBase) {
     super(props);
     this.state = { ...this.state, showPicker: false };
