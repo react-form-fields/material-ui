@@ -13,7 +13,6 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core';
-import { Close as CloseIcon } from '@material-ui/icons';
 import {
   FieldAutocomplete,
   FieldCheckbox,
@@ -25,6 +24,7 @@ import {
   FieldText,
   ValidationContext,
 } from 'material-ui-form-fields';
+import { CloseIcon, GithubCircleIcon } from 'mdi-react';
 import * as React from 'react';
 
 export default class App extends React.Component {
@@ -57,7 +57,16 @@ export default class App extends React.Component {
         <CssBaseline />
         <AppBar elevation={1}>
           <Toolbar>
-            <Typography variant='title' color='inherit'>Material UI Form Fields</Typography>
+            <Grid container spacing={24} style={{ alignItems: 'center' }}>
+              <Grid item xs={true}>
+                <Typography variant='title' color='inherit'>Material UI Form Fields</Typography>
+              </Grid>
+              <Grid item xs={false}>
+                <IconButton color='inherit' target='_blank' href='https://github.com/danieloprado/material-ui-form-fields'>
+                  <GithubCircleIcon size={30} />
+                </IconButton>
+              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
 
