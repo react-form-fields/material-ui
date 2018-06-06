@@ -1,6 +1,8 @@
 Material UI Form Fields
 -----------------------
 
+See [API.md](https://github.com/danieloprado/material-ui-form-fields/blob/master/API.md) for details
+
 ## Install
 
 ```bash
@@ -9,7 +11,7 @@ yarn add material-ui-form-fields
 
 ## Usage
 
-### Individual
+### Individual field
 
 ```jsx
   // import

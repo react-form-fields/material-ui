@@ -15,15 +15,15 @@ API
 
 ### Base (Common props)
 
-| Props             | Required | Type                   | Description                                   |
-|-------------------|----------|------------------------|-----------------------------------------------|
-| label             | true     | string                 |                                               |
-| value             | true     | any                    |                                               |
-| helperText        | false    | string                 |                                               |
-| disabled          | false    | boolean                |                                               |
-| validation        | false    | string                 | rules of validation                           |
-| validationContext | false    | object { prop: value } | extra fields for validation bind              |
-| errorMessage      | false    | string                 | custom error message from external validation |
+| Props             | Required | Type                   | Description                                        |
+|-------------------|----------|------------------------|----------------------------------------------------|
+| label             | true     | string                 |                                                    |
+| value             | true     | any                    |                                                    |
+| helperText        | false    | string                 |                                                    |
+| disabled          | false    | boolean                |                                                    |
+| validation        | false    | string                 | rules of validation                                |
+| validationContext | false    | object { prop: value } | extra fields for validation bind (ex. required_if) |
+| errorMessage      | false    | string                 | custom error message from external validation      |
 
 #### Text
 
