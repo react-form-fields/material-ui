@@ -18,7 +18,7 @@ interface IState extends IStateFieldBase {
   focused: boolean;
 }
 
-interface IProps extends IPropsFieldBase {
+interface IProps extends IPropsFieldBase<string> {
   value: string;
 }
 
