@@ -26,6 +26,8 @@ export function setConfig(customConfig: IConfig) {
 }
 
 function configValidation(config: IConfig['validation']) {
+  if (!config) return;
+
   if (config && config.customMessages) {
     validator.addLang(config.lang, config.customMessages);
   }

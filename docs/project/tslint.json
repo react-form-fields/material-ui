@@ -4,7 +4,8 @@
     "tslint-config-prettier"
   ],
   "rules": {
-    "member-access": false
+    "member-access": false,
+    "ordered-imports": false
   },
   "linterOptions": {
     "exclude": [
