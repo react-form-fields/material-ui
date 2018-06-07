@@ -79,9 +79,9 @@ yarn add material-ui-form-fields
 Global Setup example:
 
 ```js
-import { setConfig } from 'material-ui-form-fields/dist/config';
-import commonMasks from 'material-ui-form-fields/dist/mask/common/pt-br';
-import validationMessage from 'material-ui-form-fields/dist/validator/custom-languages/pt-br';
+import { setConfig } from 'material-ui-form-fields/config';
+import commonMasks from 'material-ui-form-fields/mask/common/pt-br';
+import validationMessage from 'material-ui-form-fields/validator/custom-languages/pt-br';
 
 setConfig({
   masks: commonMasks,

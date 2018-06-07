@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": ".",
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": ".",
     "module": "es6",
     "target": "es5",
     "experimentalDecorators": true,
@@ -13,7 +13,6 @@
     "sourceMap": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -25,10 +24,17 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*"
+    "**/*.ts",
+    "**/*.tsx",
+    "declarations/**/*.d.ts",
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "docs",
+    "*.d.ts",
+    "components/*.d.ts",
+    "decorations/*.d.ts",
+    "mask/*.d.ts",
+    "validator/*.d.ts",
   ]
 }

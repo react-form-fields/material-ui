@@ -1,4 +1,25 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "tslint.enable": false
+  "tslint.enable": false,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.js": {
+      "when": "$(basename).ts"
+    },
+    "**/*?.js": {
+      "when": "$(basename).tsx"
+    },
+    "components/**/*.d.ts": true,
+    "decorators/**/*.d.ts": true,
+    "mask/**/*.d.ts": true,
+    "validator/**/*.d.ts": true,
+    "*.d.ts": true,
+    "**/*.map": {
+      "when": "$(basename)"
+    },
+  }
 }

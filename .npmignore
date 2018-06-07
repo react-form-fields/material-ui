@@ -1,5 +1,12 @@
-/src
+/**/*.tsx
+/**/*.ts
+!/**/*.d.ts
+/declarations
+/.git
 /node_modules
 /.vscode
 /tsconfig.json
 /docs
+*.tgz
+*.log
+*.lock

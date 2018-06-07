@@ -19,8 +19,7 @@
   "scripts": {
     "docs:dev": "(cd docs/project && yarn && yarn start)",
     "docs:build": "sh docs/build.sh",
-    "precommit": "yarn tsc --noEmit",
-    "prepare": "rm -rf dist && yarn tsc && cp ./src/components/Html/style.css ./dist/components/Html/style.css"
+    "precommit": "yarn tsc --noEmit"
   },
   "dependencies": {
     "@material-ui/core": "^1.0.0",
