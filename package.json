@@ -1,6 +1,14 @@
 {
   "name": "material-ui-form-fields",
   "description": "Material UI Form Fields",
+  "keywords": [
+    "material-ui",
+    "react",
+    "react-form",
+    "form",
+    "validation",
+    "material"
+  ],
   "version": "1.1.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
