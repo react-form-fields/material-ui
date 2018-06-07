@@ -1,7 +1,7 @@
 {
   "name": "material-ui-form-fields",
   "description": "Material UI Form Fields",
-  "version": "1.0.28",
+  "version": "1.1.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
