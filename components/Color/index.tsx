@@ -54,7 +54,7 @@ export default class FieldColor extends FieldBase<IProps, IState> {
         />
         {showPicker && (
           <PickerDialog
-            value={value}
+            value={value || ''}
             onDismiss={() => this.setShowPicker(false)}
             onChange={e => this.onChange(e)}
           />
