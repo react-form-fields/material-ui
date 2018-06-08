@@ -37,14 +37,14 @@ export default class FieldSelectionBase extends FieldBase<IProps> {
     if ((event || {} as any).target) {
       value = event.target.type === 'checkbox' ?
         event.target.checked :
-        event.target.value;
+        this.props.value;
     }
 
     super.onChange(value);
   }
 
   render() {
-    const { value, label, checked, helperText, classes, Component } = this.props;
+    const { value, label, checked, helperText, classes, disabled, Component } = this.props;
 
     return (
       <FormControlLabel
@@ -52,6 +52,7 @@ export default class FieldSelectionBase extends FieldBase<IProps> {
         control={
           <Component
             checked={checked}
+            disabled={disabled}
             onChange={this.onChange.bind(this)}
             value={value}
           />
