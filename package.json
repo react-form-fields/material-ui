@@ -9,7 +9,7 @@
     "validation",
     "material"
   ],
-  "version": "1.1.1",
+  "version": "1.1.4",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
@@ -27,7 +27,8 @@
   "scripts": {
     "docs:dev": "(cd docs/project && yarn && yarn start)",
     "docs:build": "sh docs/build.sh",
-    "precommit": "yarn tsc --noEmit"
+    "precommit": "yarn tsc --noEmit",
+    "prepare": "yarn tsc"
   },
   "dependencies": {
     "@material-ui/core": "^1.0.0",

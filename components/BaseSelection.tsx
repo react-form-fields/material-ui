@@ -54,7 +54,7 @@ export default class FieldSelectionBase extends FieldBase<IProps> {
             checked={checked}
             disabled={disabled}
             onChange={this.onChange.bind(this)}
-            value={value}
+            value={(value || '').toString()}
           />
         }
         label={
