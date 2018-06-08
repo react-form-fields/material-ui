@@ -24,24 +24,24 @@ const language: IConfig['validation'] = {
     },
     required: 'Obrigatório',
     required_if: 'Obrigatório se :other',
-    accepted: 'O :attribute precisa ser aceito.',
-    alpha: 'O campo :attribute só pode conter letras.',
-    alpha_dash: 'O campo :attribute só pode conter letras, números, hífens e sublinha.',
-    alpha_num: 'O campo :attribute só pode conter letras e números.',
-    between: 'O campo :attribute precisa estar entre :min e :max.',
-    def: 'O atributo :attribute contém erros.',
-    digits: 'O atributo :attribute precisa ter :digits dígitos.',
+    accepted: 'Precisa ser aceito.',
+    alpha: 'Só pode conter letras.',
+    alpha_dash: 'Só pode conter letras, números, hífens e sublinha.',
+    alpha_num: 'Só pode conter letras e números.',
+    between: 'Precisa estar entre :min e :max.',
+    def: 'Contém erros.',
+    digits: 'Precisa ter :digits dígitos.',
     different: 'O :attribute e :different precisam ser diferentes.',
-    not_in: 'O :attribute selecionado é inválido.',
-    numeric: 'O :attribute precisa ser um número.',
+    not_in: 'Inválido.',
+    numeric: 'Precisa ser um número.',
     present: 'O campo :attribute deve estar presente (mas pode estar vazio).',
     size: {
-      numeric: 'O :attribute precisa ser :size.',
-      string: 'O :attribute precisa ter :size caracteres.'
+      numeric: 'Precisa ser :size.',
+      string: 'Precisa ter :size caracteres.'
     },
-    string: 'O :attribute precisa ser uma palavra.',
-    url: 'O formato de :attribute é inválido.',
-    regex: 'O formato de :attribute é inválido.',
+    string: 'Precisa ser uma palavra.',
+    url: 'Inválido.',
+    regex: 'Inválido.',
     attributes: {}
   }
 };
