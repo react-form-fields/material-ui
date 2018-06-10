@@ -2224,6 +2224,23 @@ dotenv@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
 
+draft-js-import-element@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/draft-js-import-element/-/draft-js-import-element-1.2.1.tgz#9a6a56d74690d48d35d8d089564e6d710b4926eb"
+  dependencies:
+    draft-js-utils "^1.2.0"
+    synthetic-dom "^1.2.0"
+
+draft-js-import-html@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/draft-js-import-html/-/draft-js-import-html-1.2.1.tgz#88adb8ce5dbe1a5a777663b1893cee6a35239eaa"
+  dependencies:
+    draft-js-import-element "^1.2.1"
+
+draft-js-utils@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/draft-js-utils/-/draft-js-utils-1.2.0.tgz#f5cb23eb167325ffed3d79882fdc317721d2fd12"
+
 draft-js@^0.10.5:
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/draft-js/-/draft-js-0.10.5.tgz#bfa9beb018fe0533dbb08d6675c371a6b08fa742"
@@ -4550,14 +4567,15 @@ material-colors@^1.2.1:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
 
-material-ui-form-fields@1.0.28:
-  version "1.0.28"
-  resolved "https://registry.yarnpkg.com/material-ui-form-fields/-/material-ui-form-fields-1.0.28.tgz#c5712712231acdebabd63b1895ff93f2e5693d69"
+material-ui-form-fields@1.1.10:
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/material-ui-form-fields/-/material-ui-form-fields-1.1.10.tgz#9ecc1534502bf37a7713716f91ca3e2538c91340"
   dependencies:
     "@material-ui/core" "^1.0.0"
     "@material-ui/icons" "^1.0.0"
     autosuggest-highlight "^3.0.0"
     draft-js "^0.10.5"
+    draft-js-import-html "^1.2.1"
     draftjs-to-html "^0.8.0"
     html-to-draftjs "^1.0.0"
     material-ui-pickers "^1.0.0-rc.9"
@@ -7006,6 +7024,10 @@ symbol-observable@^1.0.4, symbol-observable@^1.1.0:
 symbol-tree@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
+
+synthetic-dom@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/synthetic-dom/-/synthetic-dom-1.2.0.tgz#f3589aafe2b5e299f337bb32973a9be42dd5625e"
 
 tapable@^0.2.7:
   version "0.2.8"

@@ -6,7 +6,7 @@ import { IPropsFieldBase } from './Base';
 import FieldSelectionBase from './BaseSelection';
 
 interface IProps extends IPropsFieldBase {
-  value: void;
+  value?: void;
   checked: boolean;
   helperText?: React.ReactNode;
   classes?: any;

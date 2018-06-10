@@ -60,6 +60,7 @@ declare module "react-draft-wysiwyg" {
     onChange?: (editorState: any) => void;
     onEditorStateChange?: (editorState: any) => void;
     onContentStateChange?: (editorState: any) => void;
+    handlePastedText?: any;
     defaultContentState?: any;
     contentState?: any;
     editorState?: any;

@@ -1,7 +1,8 @@
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 import { InputLabel, Typography } from '@material-ui/core';
-import { ContentState, convertToRaw, EditorState } from 'draft-js';
+import { ContentState, convertToRaw, EditorState, Modifier } from 'draft-js';
+import { stateFromHTML } from 'draft-js-import-html';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import React from 'react';
@@ -68,6 +69,18 @@ export default class FieldHtml extends FieldBase<IProps, IState> {
     this.setState({ focused });
   }
 
+  handlePastedText(text: string, html: string): boolean {
+    const { editorState } = this.state;
+
+    const blockMap = stateFromHTML(html || text).blockMap;
+    const newState = Modifier.replaceWithFragment(editorState.getCurrentContent(), editorState.getSelection(), blockMap);
+
+    this.onChange(EditorState.push(editorState, newState, 'insert-fragment'));
+
+    return true
+  }
+
+
   render() {
     const { editorState, focused } = this.state;
     const { classes, label, helperText, disabled } = this.props;
@@ -89,6 +102,7 @@ export default class FieldHtml extends FieldBase<IProps, IState> {
           readOnly={disabled}
           placeholder='Nenhum conteúdo'
           editorState={editorState}
+          handlePastedText={this.handlePastedText.bind(this)}
           onFocus={this.onBlurFocus.bind(this, true)}
           onBlur={this.onBlurFocus.bind(this, false)}
           onEditorStateChange={this.onChange.bind(this)}
