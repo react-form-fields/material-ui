@@ -19,6 +19,7 @@ import SuggestionsContainer from './SuggestionsContainer';
 
 interface IState extends IStateFieldBase {
   term: string;
+  value: string;
   suggestions: IProps['options'][0][];
 }
 
@@ -58,12 +59,18 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
     this.state = { ...this.state, term: '', suggestions: [] };
   }
 
-  static getDerivedStateFromProps(nextProps: IProps, currentState: IState) {
-    const term: string = (nextProps.options.find(o => o.value === nextProps.value) || { label: null }).label;
+  static getDerivedStateFromProps(nextProps: IProps, currentState: IState): IState {
+    let term = currentState.term;
+
+    if (nextProps.value !== currentState.value || term === undefined) {
+      term = (nextProps.options.find(o => o.value === nextProps.value) || { label: undefined }).label;
+    }
+
     return {
       ...currentState,
-      term,
-      ...FieldBase.getDerivedStateFromProps(nextProps, currentState)
+      ...FieldBase.getDerivedStateFromProps(nextProps, currentState),
+      value: nextProps.value,
+      term
     };
   }
 
