@@ -63,7 +63,8 @@ export default class FieldText extends FieldBase<IProps> {
               <InputAdornment position='end'>
                 <CircularProgress color='secondary' size={25} />
               </InputAdornment>
-            )
+            ),
+            ...(extraProps.InputProps || {})
           }}
         />
       </Fragment>
