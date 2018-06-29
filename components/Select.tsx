@@ -9,9 +9,11 @@ interface IProps extends IPropsFieldBase {
 }
 
 export default class FieldSelect extends FieldBase<IProps> {
-  onChange(event: any) {
+  onChange = (event: any) => {
     const value = event.target ? event.target.value : event;
-    super.onChange(value);
+
+    this.setState({ touched: true });
+    this.props.onChange(value);
   }
 
   render() {

@@ -74,15 +74,20 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
     };
   }
 
-  getSuggestionValue(suggestion: IProps['options'][0]) {
+  onChange = (value: any) => {
+    this.setState({ touched: true });
+    this.props.onChange(value);
+  }
+
+  getSuggestionValue = (suggestion: IProps['options'][0]) => {
     return suggestion.label;
   }
 
-  handleChange(event: React.FormEvent<any>, params?: ChangeEvent) {
+  handleChange = (event: React.FormEvent<any>, params?: ChangeEvent) => {
     this.setState({ term: params.newValue });
   }
 
-  handleBlur() {
+  handleBlur = () => {
     const { value, options } = this.props;
 
     if (!this.state.term) {
@@ -93,11 +98,11 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
     this.setState({ term });
   }
 
-  handleSelected(event: React.FormEvent<any>, data: SuggestionSelectedEventData<IProps['options'][0]>) {
-    super.onChange(data.suggestion.value);
+  handleSelected = (event: React.FormEvent<any>, data: SuggestionSelectedEventData<IProps['options'][0]>) => {
+    this.onChange(data.suggestion.value);
   }
 
-  handleSuggestionsFetchRequested({ value }: SuggestionsFetchRequestedParams) {
+  handleSuggestionsFetchRequested = ({ value }: SuggestionsFetchRequestedParams) => {
     const suggestions = this.props.options
       .filter(o => o.label.toLowerCase().includes(value.toLowerCase()))
       .slice(0, 10);
@@ -105,13 +110,13 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
     this.setState({ suggestions });
   }
 
-  handleSuggestionsClearRequested() {
+  handleSuggestionsClearRequested = () => {
     this.setState({ suggestions: [] });
   }
 
-  handleClearValue() {
+  handleClearValue = () => {
     this.setState({ term: null });
-    super.onChange(null);
+    this.onChange(null);
   }
 
   render() {
@@ -133,11 +138,11 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
           renderInputComponent={Input}
           renderSuggestionsContainer={SuggestionsContainer}
           shouldRenderSuggestions={() => true}
-          onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested.bind(this)}
-          onSuggestionsClearRequested={this.handleSuggestionsClearRequested.bind(this)}
-          getSuggestionValue={this.getSuggestionValue.bind(this)}
-          renderSuggestion={this.renderSuggestion.bind(this)}
-          onSuggestionSelected={this.handleSelected.bind(this)}
+          onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
+          getSuggestionValue={this.getSuggestionValue}
+          renderSuggestion={this.renderSuggestion}
+          onSuggestionSelected={this.handleSelected}
           inputProps={{
             ...this.props as any,
             errorMessage: this.errorMessage,
@@ -145,8 +150,8 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
             placeholder: placeholder || 'Pesquisar...',
             required: this.isRequired,
             value: term || '',
-            onBlur: this.handleBlur.bind(this),
-            onChange: this.handleChange.bind(this),
+            onBlur: this.handleBlur,
+            onChange: this.handleChange,
             endAdornment: (!term ?
               <InputAdornment position='end'>
                 <IconButton disabled={true} className={classes.adornment}>
@@ -154,7 +159,7 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
                 </IconButton>
               </InputAdornment>
               :
-              <InputAdornment position='end' onClick={this.handleClearValue.bind(this)}>
+              <InputAdornment position='end' onClick={this.handleClearValue}>
                 <IconButton disabled={disabled} className={classes.adornment}>
                   <CloseIcon />
                 </IconButton>

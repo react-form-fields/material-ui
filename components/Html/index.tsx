@@ -19,9 +19,7 @@ interface IState extends IStateFieldBase {
   focused: boolean;
 }
 
-interface IProps extends IPropsFieldBase {
-  value: string;
-  onChange: (value: string) => void;
+interface IProps extends IPropsFieldBase<string> {
 }
 
 @WithStyles(theme => ({
@@ -57,19 +55,23 @@ export default class FieldHtml extends FieldBase<IProps, IState> {
     };
   }
 
-  onChange(editorState: EditorState) {
+  onChange = (editorState: EditorState) => {
     let lastValue = draftToHtml(convertToRaw(editorState.getCurrentContent())).trim();
     if (lastValue === '<p></p>') lastValue = null;
 
-    this.setState({ editorState, lastValue });
-    super.onChange(lastValue);
+    this.setState({ editorState, lastValue, touched: true });
+    this.props.onChange(lastValue);
   }
 
-  onBlurFocus(focused: boolean) {
-    this.setState({ focused });
+  onBlur = () => {
+    this.setState({ focused: false });
   }
 
-  handlePastedText(text: string, html: string): boolean {
+  onFocus = () => {
+    this.setState({ focused: true });
+  }
+
+  handlePastedText = (text: string, html: string): boolean => {
     const { editorState } = this.state;
 
     const blockMap = stateFromHTML(html || text).blockMap;
@@ -102,10 +104,10 @@ export default class FieldHtml extends FieldBase<IProps, IState> {
           readOnly={disabled}
           placeholder='Nenhum conteúdo'
           editorState={editorState}
-          handlePastedText={this.handlePastedText.bind(this)}
-          onFocus={this.onBlurFocus.bind(this, true)}
-          onBlur={this.onBlurFocus.bind(this, false)}
-          onEditorStateChange={this.onChange.bind(this)}
+          handlePastedText={this.handlePastedText}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          onEditorStateChange={this.onChange}
           wrapperClassName={`${styles.fullWrapper} ${classes.fullWrapper} ${focused ? ' focused ' : ''} ${disabled ? ' disabled ' : ''}`}
           toolbarClassName={`${styles.toolbarWrapper} ${classes.toolbarWrapper}`}
           editorClassName={`${styles.editorWrapper} ${classes.editorWrapper} ${disabled ? ' disabled ' : ''}`}

@@ -108,9 +108,17 @@ export default class App extends React.Component {
 
                 <FieldSwitch
                   label='Yep! I Do'
-                  checked={model.spamConfirm}
-                  onChange={(v => this.setState({ model: { ...model, spamConfirm: v } }))}
+                  checked={model.spam}
+                  onChange={(v => this.setState({ model: { ...model, spam: v } }))}
                 />
+
+                <FieldCheckbox
+                  checked={model.spam}
+                  onChange={(v => this.setState({ model: { ...model, spam: v } }))}
+                >
+                  <Typography>Children!</Typography>
+                  <Typography>Children!</Typography>
+                </FieldCheckbox>
 
                 <FieldSelect
                   label='Combo'

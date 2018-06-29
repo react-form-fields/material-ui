@@ -9,19 +9,21 @@ import React, { Fragment } from 'react';
 import { getConfig } from '../config';
 import FieldBase, { IPropsFieldBase } from './Base';
 
-interface IProps extends IPropsFieldBase {
+interface IProps extends IPropsFieldBase<Date> {
   minDate?: Date;
   maxDate?: Date;
   disablePast?: boolean;
   disableFuture?: boolean;
   format?: string;
   locale?: string;
-  onChange: (value: Date) => void;
 }
 
 export default class FieldDate extends FieldBase<IProps> {
-  onChange(value: Moment) {
-    super.onChange(value ? value.startOf('day').toDate() : null);
+  onChange = (value: Moment) => {
+    const date = value ? value.startOf('day').toDate() : null;
+
+    this.setState({ touched: true });
+    this.props.onChange(date);
   }
 
   render() {

@@ -15,28 +15,28 @@ export default class ValidationContext extends PureComponent<{}> {
     }
   };
 
+  public isValid = (formSubmitted: boolean = true): boolean => {
+    this.fields.forEach(f => f.setFormSubmitted(formSubmitted));
+    return this.checkValidation();
+  }
+
+  public reset = (): void => {
+    this.fields.forEach(f => f.setFormSubmitted(false));
+  }
+
+  private checkValidation = (): boolean => {
+    if (!this.fields.length) {
+      console.warn('material-ui-form-fields: There is no field registred');
+    }
+
+    return this.fields.every(f => f.isValid());
+  }
+
   public render(): React.ReactNode {
     return (
       <FieldValidation.Provider value={this.registerFields}>
         {this.props.children}
       </FieldValidation.Provider>
     )
-  }
-
-  public isValid(formSubmitted: boolean = true): boolean {
-    this.fields.forEach(f => f.setFormSubmitted(formSubmitted));
-    return this.checkValidation();
-  }
-
-  public reset(): void {
-    this.fields.forEach(f => f.setFormSubmitted(false));
-  }
-
-  private checkValidation(): boolean {
-    if (!this.fields.length) {
-      console.warn('material-ui-form-fields: There is no field registred');
-    }
-
-    return this.fields.every(f => f.isValid());
   }
 }

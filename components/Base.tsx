@@ -10,15 +10,15 @@ export interface IStateFieldBase {
   submitted: boolean;
 }
 
-export interface IPropsFieldBase extends TextFieldProps {
-  label: string;
+// @ts-ignore
+export interface IPropsFieldBase<T = any> extends TextFieldProps {
   disabled?: boolean;
-  value?: any;
+  value: T;
   classes?: any;
   validation?: string;
   validationContext?: Object;
   errorMessage?: string;
-  onChange: (value: any) => void;
+  onChange: (value: T) => void;
 }
 
 export default abstract class FieldBase<
@@ -54,19 +54,19 @@ export default abstract class FieldBase<
     };
   }
 
-  public setFormSubmitted(submitted: boolean) {
-    this.setState({ submitted });
-  }
-
-  public isValid() {
-    return !this.state.errorMessage && !this.props.errorMessage;
-  }
-
   public componentWillUnmount() {
     this.validationContext && this.validationContext.unbind(this);
   }
 
-  public setContext(newContext: IFieldValidationContext): React.ReactNode {
+  public setFormSubmitted = (submitted: boolean) => {
+    this.setState({ submitted });
+  }
+
+  public isValid = () => {
+    return !this.state.errorMessage && !this.props.errorMessage;
+  }
+
+  public setContext = (newContext: IFieldValidationContext): React.ReactNode => {
     if (newContext === this.validationContext) return null;
 
     this.validationContext && this.validationContext.unbind(this);
@@ -85,10 +85,5 @@ export default abstract class FieldBase<
         {context => this.setContext(context)}
       </FieldValidation.Consumer>
     );
-  }
-
-  protected onChange(value: any) {
-    this.setState({ touched: true });
-    this.props.onChange(value);
   }
 }

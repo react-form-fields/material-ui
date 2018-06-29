@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import { getMask, IMaskFunction } from '../mask';
 import FieldBase, { IPropsFieldBase } from './Base';
 
-interface IProps extends IPropsFieldBase {
+interface IProps extends IPropsFieldBase<string> {
   mask?: 'phone';
   loading?: boolean;
 }
@@ -21,9 +21,11 @@ export default class FieldText extends FieldBase<IProps> {
     return mask;
   }
 
-  onChange(event: any) {
+  onChange = (event: any) => {
     const value = this.cleanValue(event.target ? event.target.value : event);
-    super.onChange(value);
+
+    this.setState({ touched: true });
+    this.props.onChange(value);
   }
 
   getValue(): string {

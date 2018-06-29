@@ -25,13 +25,12 @@ interface IProps extends IPropsFieldBase {
     marginTop: 14
   },
   helperText: {
-    marginTop: 5,
     opacity: 0.7,
     fontSize: '95%'
   }
 })
 export default class FieldSelectionBase extends FieldBase<IProps> {
-  onChange(event: ChangeEvent<any>) {
+  onChange = (event: ChangeEvent<any>) => {
     let value = event;
 
     if ((event || {} as any).target) {
@@ -40,7 +39,8 @@ export default class FieldSelectionBase extends FieldBase<IProps> {
         this.props.value;
     }
 
-    super.onChange(value);
+    this.setState({ touched: true });
+    this.props.onChange(value);
   }
 
   render() {
@@ -50,21 +50,33 @@ export default class FieldSelectionBase extends FieldBase<IProps> {
       <FormControlLabel
         className={helperText ? classes.containerAlign : null}
         control={
-          <Component
-            checked={checked}
-            disabled={disabled}
-            onChange={this.onChange.bind(this)}
-            value={(value || '').toString()}
-          />
+          checked ? //force recreation 
+            <Component
+              checked={true}
+              disabled={disabled}
+              onChange={this.onChange}
+              value={(value || '').toString()}
+            /> :
+            <Component
+              checked={false}
+              disabled={disabled}
+              onChange={this.onChange}
+              value={(value || '').toString()}
+            />
         }
         label={
           <Fragment>
-            <Typography className={helperText ? classes.labelAlign : null}>{label}</Typography>
-            {!!helperText &&
-              <Typography className={classes.helperText}>
-                {helperText}
-              </Typography>
+            {!!label &&
+              <Fragment>
+                <Typography className={helperText ? classes.labelAlign : null}>{label}</Typography>
+                {!!helperText &&
+                  <Typography className={classes.helperText}>
+                    {helperText}
+                  </Typography>
+                }
+              </Fragment>
             }
+            {this.props.children}
           </Fragment>
         }
 

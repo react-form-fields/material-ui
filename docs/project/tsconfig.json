@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "build/dist",
-    "module": "esnext",
+    "module": "es6",
     "target": "es5",
     "lib": [
       "es6",
@@ -17,11 +17,16 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true
   },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ],
   "exclude": [
     "node_modules",
     "build",

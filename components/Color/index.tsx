@@ -1,6 +1,5 @@
 import { TextField } from '@material-ui/core';
 import React, { Fragment } from 'react';
-import { ColorResult } from 'react-color';
 
 import FieldBase, { IPropsFieldBase, IStateFieldBase } from '../Base';
 import PickerDialog from './PickerDialog';
@@ -9,8 +8,7 @@ interface IState extends IStateFieldBase {
   showPicker: boolean;
 }
 
-interface IProps extends IPropsFieldBase {
-  onChange: (value: string) => void;
+interface IProps extends IPropsFieldBase<string> {
 }
 
 export default class FieldColor extends FieldBase<IProps, IState> {
@@ -19,12 +17,13 @@ export default class FieldColor extends FieldBase<IProps, IState> {
     this.state = { ...this.state, showPicker: false };
   }
 
-  setShowPicker(showPicker: boolean) {
+  setShowPicker = (showPicker: boolean) => {
     this.setState({ showPicker });
   }
 
-  onChange(e: ColorResult) {
-    super.onChange(e.hex);
+  onChange = (event: any) => {
+    this.setState({ touched: true });
+    this.props.onChange(event.hex);
   }
 
   render() {
@@ -44,7 +43,7 @@ export default class FieldColor extends FieldBase<IProps, IState> {
             value: (value === undefined || value === null ? '' : value).toString(),
             error: !!this.errorMessage,
             helperText: this.errorMessage || helperText,
-            onChange: this.onChange.bind(this),
+            onChange: this.onChange,
             submitted: null,
             touched: null,
             loading: null
