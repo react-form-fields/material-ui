@@ -6,6 +6,7 @@ import FieldBase, { IPropsFieldBase } from './Base';
 interface IProps extends IPropsFieldBase {
   options?: { value: string | number, label: string }[];
   loading?: boolean;
+  onChange: (value: any) => void;
 }
 
 export default class FieldSelect extends FieldBase<IProps> {

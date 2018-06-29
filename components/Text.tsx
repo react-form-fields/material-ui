@@ -4,9 +4,11 @@ import React, { Fragment } from 'react';
 import { getMask, IMaskFunction } from '../mask';
 import FieldBase, { IPropsFieldBase } from './Base';
 
-interface IProps extends IPropsFieldBase<string> {
+interface IProps extends IPropsFieldBase {
   mask?: 'phone';
   loading?: boolean;
+  value: any;
+  onChange: (value: any) => void;
 }
 
 export default class FieldText extends FieldBase<IProps> {

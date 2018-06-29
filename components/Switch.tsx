@@ -5,12 +5,11 @@ import React from 'react';
 import { IPropsFieldBase } from './Base';
 import FieldSelectionBase from './BaseSelection';
 
-// @ts-ignore
-interface IProps extends IPropsFieldBase<boolean> {
-  value?: void;
+interface IProps extends IPropsFieldBase {
+  value?: never;
   checked: boolean;
   helperText?: React.ReactNode;
-  classes?: any;
+  onChange: (value: boolean) => void;
 }
 
 export default class FieldSwitch extends PureComponent<IProps> {

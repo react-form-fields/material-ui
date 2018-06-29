@@ -19,7 +19,9 @@ interface IState extends IStateFieldBase {
   focused: boolean;
 }
 
-interface IProps extends IPropsFieldBase<string> {
+interface IProps extends IPropsFieldBase {
+  value: string;
+  onChange: (value: string) => void;
 }
 
 @WithStyles(theme => ({

@@ -8,7 +8,9 @@ interface IState extends IStateFieldBase {
   showPicker: boolean;
 }
 
-interface IProps extends IPropsFieldBase<string> {
+interface IProps extends IPropsFieldBase {
+  value: string;
+  onChange: (value: string) => void;
 }
 
 export default class FieldColor extends FieldBase<IProps, IState> {

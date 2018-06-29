@@ -19,6 +19,7 @@ import {
   FieldCheckbox,
   FieldColor,
   FieldDate,
+  FieldHidden,
   FieldHtml,
   FieldSelect,
   FieldSwitch,
@@ -119,6 +120,13 @@ export default class App extends React.Component {
                   <Typography>Children!</Typography>
                   <Typography>Children!</Typography>
                 </FieldCheckbox>
+
+                <Typography>Hidden Email (usefull for manual data check, ex. Array length):</Typography>
+                <FieldHidden
+                  name='email hidden'
+                  value={model.email}
+                  validation='required'
+                />
 
                 <FieldSelect
                   label='Combo'

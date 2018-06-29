@@ -10,15 +10,14 @@ export interface IStateFieldBase {
   submitted: boolean;
 }
 
-// @ts-ignore
-export interface IPropsFieldBase<T = any> extends TextFieldProps {
+export interface IPropsFieldBase extends TextFieldProps {
   disabled?: boolean;
-  value: T;
+  value?: any;
   classes?: any;
   validation?: string;
   validationContext?: Object;
   errorMessage?: string;
-  onChange: (value: T) => void;
+  onChange?: (value: any) => void;
 }
 
 export default abstract class FieldBase<

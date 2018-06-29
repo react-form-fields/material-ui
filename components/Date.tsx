@@ -9,7 +9,9 @@ import React, { Fragment } from 'react';
 import { getConfig } from '../config';
 import FieldBase, { IPropsFieldBase } from './Base';
 
-interface IProps extends IPropsFieldBase<Date> {
+interface IProps extends IPropsFieldBase {
+  value: Date;
+  onChange: (value: Date) => void;
   minDate?: Date;
   maxDate?: Date;
   disablePast?: boolean;

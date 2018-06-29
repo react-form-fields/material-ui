@@ -4,7 +4,8 @@ import React, { Fragment } from 'react';
 import FieldBase, { IPropsFieldBase } from './Base';
 
 interface IProps extends IPropsFieldBase {
-  onChange: never;
+  value: any;
+  onChange?: never;
 }
 
 export default class FieldHidden extends FieldBase<IProps> {

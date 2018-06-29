@@ -2,6 +2,7 @@ import FieldAutocompleteComponent from './components/Autocomplete';
 import FieldCheckboxComponent from './components/Checkbox';
 import FieldColorComponent from './components/Color';
 import FieldDateComponent from './components/Date';
+import FieldHiddenComponent from './components/Hidden';
 import FieldHtmlComponent from './components/Html';
 import FieldRadioComponent from './components/Radio';
 import FieldSelectComponent from './components/Select';
@@ -20,6 +21,7 @@ export const FieldSwitch = FieldSwitchComponent;
 export const FieldDate = FieldDateComponent;
 export const FieldAutocomplete = FieldAutocompleteComponent;
 export const FieldHtml = FieldHtmlComponent;
+export const FieldHidden = FieldHiddenComponent;
 
 export const ValidationContext = ValidationContextComponent;
 

@@ -24,6 +24,8 @@ interface IState extends IStateFieldBase {
 }
 
 interface IProps extends IPropsFieldBase {
+  value: any;
+  onChange: (value: any) => void;
   options: { value: any, label: string }[];
 }
 
