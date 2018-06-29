@@ -12,13 +12,13 @@ API
 * [Color](#color)
 * [Autocomplete](#autocomplete)
 * [Html](#html)
+* [Hidden](#hidden)
 
 ### Base (Common props)
 
 | Props             | Required | Type                   | Description                                        |
 |-------------------|----------|------------------------|----------------------------------------------------|
-| label             | true     | string                 |                                                    |
-| value             | true     | any                    |                                                    |
+| label             | false    | string                 |                                                    |
 | helperText        | false    | string                 |                                                    |
 | disabled          | false    | boolean                |                                                    |
 | validation        | false    | string                 | rules of validation                                |
@@ -31,6 +31,7 @@ All [material-ui](https://material-ui.com/api/text-field/) props and:
 
 | Props    | Required | Type                    | Description                          |
 |----------|----------|-------------------------|--------------------------------------|
+| value    | true     | any                     |                                      |
 | mask     | false    | string                  |                                      |
 | onChange | true     | Function(string/number) |                                      |
 | loading  | false    | boolean                 | if true will add a progress at right |
@@ -42,11 +43,12 @@ All material-ui
 [switch](https://material-ui.com/api/switch/) 
  props and:
 
-| Props      | Required | Type              | Description |
-|------------|----------|-------------------|-------------|
-| checked    | true     | boolean           |             |
-| helperText | false    | string            |             |
-| onChange   | true     | Function(boolean) |             |
+| Props      | Required | Type                                     | Description                   |
+|------------|----------|------------------------------------------|-------------------------------|
+| value      | false    | any                                      | if null will return a boolean |
+| checked    | true     | boolean                                  |                               |
+| helperText | false    | string                                   |                               |
+| onChange   | true     | Function(value (if provided) or boolean) |                               |
 
 ### Radio 
 
@@ -66,6 +68,7 @@ All [material-ui-pickers](https://github.com/dmtrKovalenko/material-ui-pickers) 
 
 | Props         | Required | Type           | Description                      |
 |---------------|----------|----------------|----------------------------------|
+| value         | true     | Date           |                                  |
 | minDate       | false    | Date           |                                  |
 | maxDate       | false    | Date           |                                  |
 | disablePast   | false    | boolean        |                                  |
@@ -80,6 +83,7 @@ All [material-ui](https://material-ui.com/api/select/) props and:
 
 | Props    | Required | Type                                           | Description                          |
 |----------|----------|------------------------------------------------|--------------------------------------|
+| value    | true     | any                                            |                                      |
 | options  | true     | object { value: string/number, label: string } |                                      |
 | onChange | true     | Function(string/number)                        |                                      |
 | loading  | false    | boolean                                        | if true will add a progress at right |
@@ -88,6 +92,7 @@ All [material-ui](https://material-ui.com/api/select/) props and:
 
 | Props    | Required | Type             | Description |
 |----------|----------|------------------|-------------|
+| value    | true     | string           |             |
 | onChange | true     | Function(string) |             |
 
 
@@ -95,6 +100,7 @@ All [material-ui](https://material-ui.com/api/select/) props and:
 
 | Props    | Required | Type                                           | Description |
 |----------|----------|------------------------------------------------|-------------|
+| value    | true     | any                                            |             |
 | options  | true     | object { value: string/number, label: string } |             |
 | onChange | true     | Function(string/number)                        |             |
 
@@ -102,4 +108,11 @@ All [material-ui](https://material-ui.com/api/select/) props and:
 
 | Props    | Required | Type             | Description |
 |----------|----------|------------------|-------------|
+| value    | true     | string           |             |
 | onChange | true     | Function(string) |             |
+
+#### Hidden
+
+| Props | Required | Type | Description |
+|-------|----------|------|-------------|
+| value | true     | any  |             |

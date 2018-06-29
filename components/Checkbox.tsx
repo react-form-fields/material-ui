@@ -6,10 +6,10 @@ import { IPropsFieldBase } from './Base';
 import FieldSelectionBase from './BaseSelection';
 
 interface IProps extends IPropsFieldBase {
-  value?: never;
+  value?: any;
+  onChange: (value: any) => void;
   checked: boolean;
   helperText?: React.ReactNode;
-  onChange: (value: boolean) => void;
 }
 
 export default class FieldCheckbox extends PureComponent<IProps> {

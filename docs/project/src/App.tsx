@@ -7,6 +7,7 @@ import {
   CardActions,
   CardContent,
   CssBaseline,
+  Divider,
   Grid,
   IconButton,
   Snackbar,
@@ -21,6 +22,7 @@ import {
   FieldDate,
   FieldHidden,
   FieldHtml,
+  FieldRadio,
   FieldSelect,
   FieldSwitch,
   FieldText,
@@ -114,12 +116,32 @@ export default class App extends React.Component {
                 />
 
                 <FieldCheckbox
-                  checked={model.spam}
-                  onChange={(v => this.setState({ model: { ...model, spam: v } }))}
+                  value='selected!'
+                  checked={model.checkValue}
+                  onChange={(v => this.setState({ model: { ...model, checkValue: v } }))}
                 >
                   <Typography>Children!</Typography>
-                  <Typography>Children!</Typography>
+                  <Typography>Check Value: {model.checkValue}</Typography>
                 </FieldCheckbox>
+
+                <Divider />
+
+                <FieldRadio
+                  label='Radio 1'
+                  value='1'
+                  checked={model.radio === '1'}
+                  onChange={(v => this.setState({ model: { ...model, radio: v } }))}
+                />
+
+                <FieldRadio
+                  label="Radio 2"
+                  value='2'
+                  checked={model.radio === '2'}
+                  onChange={(v => this.setState({ model: { ...model, radio: v } }))}
+                />
+
+                <Divider />
+
 
                 <Typography>Hidden Email (usefull for manual data check, ex. Array length):</Typography>
                 <FieldHidden
@@ -128,8 +150,11 @@ export default class App extends React.Component {
                   validation='required'
                 />
 
+                <Divider />
+
+
                 <FieldSelect
-                  label='Combo'
+                  label='Select'
                   name='combo'
                   value={model.comboId}
                   validation='required'

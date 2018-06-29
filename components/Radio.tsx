@@ -6,10 +6,10 @@ import { IPropsFieldBase } from './Base';
 import FieldSelectionBase from './BaseSelection';
 
 interface IProps extends IPropsFieldBase {
-  value?: never;
+  value?: any;
   checked: boolean;
   helperText?: React.ReactNode;
-  onChange: (value: boolean) => void;
+  onChange: (value: any) => void;
 }
 
 export default class FieldRadio extends PureComponent<IProps> {

@@ -31,12 +31,12 @@ interface IProps extends IPropsFieldBase {
 })
 export default class FieldSelectionBase extends FieldBase<IProps> {
   onChange = (event: ChangeEvent<any>) => {
-    let value = event;
+    let value = this.props.value;
 
-    if ((event || {} as any).target) {
-      value = event.target.type === 'checkbox' ?
-        event.target.checked :
-        this.props.value;
+    if ((event || {} as any).target && event.target.type === 'checkbox') {
+      value = this.props.value ?
+        (event.target.checked ? this.props.value : null) :
+        event.target.checked;
     }
 
     this.setState({ touched: true });
