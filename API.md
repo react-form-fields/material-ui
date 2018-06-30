@@ -13,6 +13,7 @@ API
 * [Autocomplete](#autocomplete)
 * [Html](#html)
 * [Hidden](#hidden)
+* [Custom Message](#custom-message)
 
 ### Base (Common props)
 
@@ -116,3 +117,10 @@ All [material-ui](https://material-ui.com/api/select/) props and:
 | Props | Required | Type | Description |
 |-------|----------|------|-------------|
 | value | true     | any  |             |
+
+#### Custom Message
+
+| Props    | Required | Type   | Description        |
+|----------|----------|--------|--------------------|
+| rules    | true     | string | separated by comma |
+| children | true     | string | message            |

@@ -115,6 +115,20 @@ Validation Context
 />
 ```
 
+Custom Message
+
+```jsx
+<FieldDate
+  label='Begin Date'
+  name='begin'
+  value={model.beginDate}
+  validation='date'
+  onChange={(v => this.setState({ model: { ...model, beginDate: v } }))}
+>
+  <CustomMessage rules='date'>This not a date!</CustomMessage>
+</FieldDate>
+```
+
 ## Mask
 
 Only FieldText has mask prop;
