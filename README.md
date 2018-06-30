@@ -1,9 +1,9 @@
 Material UI Form Fields
 -----------------------
 
-See [Demo](https://danieloprado.github.io/material-ui-form-fields)
+See [Demo](https://react-form-fields.github.io/material-ui)
 
-See [API.md](https://github.com/danieloprado/material-ui-form-fields/blob/master/API.md) for details
+See [API.md](https://github.com/react-form-fields/material-ui/blob/master/API.md) for details
 
 ## Requirements 
 

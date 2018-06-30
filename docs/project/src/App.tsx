@@ -72,14 +72,14 @@ export default class App extends React.Component {
               </Grid>
               <Grid item xs={false}>
                 <Tooltip title='Sample code'>
-                  <IconButton color='inherit' target='_blank' href='https://github.com/danieloprado/material-ui-form-fields/blob/master/docs/project/src/App.tsx'>
+                  <IconButton color='inherit' target='_blank' href='https://github.com/react-form-fields/material-ui/blob/master/docs/project/src/App.tsx'>
                     <CodeTagsIcon size={30} />
                   </IconButton>
                 </Tooltip>
               </Grid>
               <Grid item xs={false}>
                 <Tooltip title='Github'>
-                  <IconButton color='inherit' target='_blank' href='https://github.com/danieloprado/material-ui-form-fields'>
+                  <IconButton color='inherit' target='_blank' href='https://github.com/react-form-fields/material-ui'>
                     <GithubCircleIcon size={30} />
                   </IconButton>
                 </Tooltip>

@@ -19,10 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danieloprado/material-ui-form-fields"
+    "url": "https://github.com/react-form-fields/material-ui"
   },
   "bugs": {
-    "url": "https://github.com/danieloprado/material-ui-form-fields/issues"
+    "url": "https://github.com/react-form-fields/material-ui/issues"
   },
   "scripts": {
     "docs:dev": "(cd docs/project && yarn && yarn start)",
@@ -40,7 +40,7 @@
     "html-to-draftjs": "^1.0.0",
     "material-ui-pickers": "^1.0.0-rc.9",
     "moment": "^2.0.0",
-    "react": "^16.0.0",
+    "react": "^16.3.0",
     "react-autosuggest": "^9.0.0",
     "react-color": "^2.14.1",
     "react-draft-wysiwyg": "^1.12.13",

@@ -61,6 +61,26 @@
   dependencies:
     recompose "^0.26.0 || ^0.27.0"
 
+"@react-form-fields/material-ui@1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@react-form-fields/material-ui/-/material-ui-1.4.1.tgz#696ad330c8e161f4732bdf7950ea346a57edab97"
+  dependencies:
+    "@material-ui/core" "^1.0.0"
+    "@material-ui/icons" "^1.0.0"
+    autosuggest-highlight "^3.0.0"
+    draft-js "^0.10.5"
+    draft-js-import-html "^1.2.1"
+    draftjs-to-html "^0.8.0"
+    html-to-draftjs "^1.0.0"
+    material-ui-pickers "^1.0.0-rc.9"
+    moment "^2.0.0"
+    react "^16.0.0"
+    react-autosuggest "^9.0.0"
+    react-color "^2.14.1"
+    react-draft-wysiwyg "^1.12.13"
+    tslib "^1.9.2"
+    validatorjs "^3.0.0"
+
 "@types/jest@^23.0.0":
   version "23.0.0"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.0.0.tgz#760cac74f00bb9c3075587716d2b3b4435663bc0"
@@ -4572,26 +4592,6 @@ map-visit@^1.0.0:
 material-colors@^1.2.1:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
-
-material-ui-form-fields@1.1.10:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/material-ui-form-fields/-/material-ui-form-fields-1.1.10.tgz#9ecc1534502bf37a7713716f91ca3e2538c91340"
-  dependencies:
-    "@material-ui/core" "^1.0.0"
-    "@material-ui/icons" "^1.0.0"
-    autosuggest-highlight "^3.0.0"
-    draft-js "^0.10.5"
-    draft-js-import-html "^1.2.1"
-    draftjs-to-html "^0.8.0"
-    html-to-draftjs "^1.0.0"
-    material-ui-pickers "^1.0.0-rc.9"
-    moment "^2.0.0"
-    react "^16.0.0"
-    react-autosuggest "^9.0.0"
-    react-color "^2.14.1"
-    react-draft-wysiwyg "^1.12.13"
-    tslib "^1.9.2"
-    validatorjs "^3.0.0"
 
 material-ui-pickers@^1.0.0-rc.9:
   version "1.0.0-rc.9"
