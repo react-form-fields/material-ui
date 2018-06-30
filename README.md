@@ -1,5 +1,5 @@
-Material UI Form Fields
------------------------
+React Form Fields: Material UI
+------------------------------
 
 See [Demo](https://react-form-fields.github.io/material-ui)
 
