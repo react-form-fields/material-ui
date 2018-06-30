@@ -26,7 +26,7 @@ export default class ValidationContext extends PureComponent<{}> {
 
   private checkValidation = (): boolean => {
     if (!this.fields.length) {
-      console.warn('material-ui-form-fields: There is no field registred');
+      console.warn('@react-form-fields/material-ui: There is no field registred');
     }
 
     return this.fields.every(f => f.isValid());

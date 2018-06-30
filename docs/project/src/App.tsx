@@ -28,7 +28,7 @@ import {
   FieldSwitch,
   FieldText,
   ValidationContext,
-} from 'material-ui-form-fields';
+} from '@react-form-fields/material-ui';
 import { CloseIcon, CodeTagsIcon, GithubCircleIcon } from 'mdi-react';
 import * as React from 'react';
 

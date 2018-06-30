@@ -5,7 +5,7 @@
   "homepage": "https://danieloprado.github.io/material-ui-form-fields",
   "dependencies": {
     "@material-ui/core": "^1.2.0",
-    "material-ui-form-fields": "1.1.10",
+    "@react-form-fields/material-ui": "1.4.1",
     "mdi-react": "^3.4.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",

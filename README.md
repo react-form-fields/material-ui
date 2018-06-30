@@ -13,7 +13,7 @@ See [API.md](https://github.com/danieloprado/material-ui-form-fields/blob/master
 ## Install
 
 ```bash
-yarn add material-ui-form-fields
+yarn add @react-form-fields/material-ui
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ yarn add material-ui-form-fields
 
 ```jsx
   // import
-  import FieldText from 'material-ui-form-fields/components/Text';
+  import FieldText from '@react-form-fields/material-ui/components/Text';
 
   // render()
   <FieldText
@@ -45,8 +45,8 @@ yarn add material-ui-form-fields
 
 ```jsx
   // import
-  import ValidationContext from 'material-ui-form-fields/components/ValidationContext';
-  import FieldText from 'material-ui-form-fields/components/Text';
+  import ValidationContext from '@react-form-fields/material-ui/components/ValidationContext';
+  import FieldText from '@react-form-fields/material-ui/components/Text';
 
   // render()
   <ValidationContext ref={ref=> this.validation = ref}>
@@ -79,9 +79,9 @@ yarn add material-ui-form-fields
 Global Setup example:
 
 ```js
-import { setConfig } from 'material-ui-form-fields/config';
-import commonMasks from 'material-ui-form-fields/mask/common/pt-br';
-import validationMessage from 'material-ui-form-fields/validator/custom-languages/pt-br';
+import { setConfig } from '@react-form-fields/material-ui/config';
+import commonMasks from '@react-form-fields/material-ui/mask/common/pt-br';
+import validationMessage from '@react-form-fields/material-ui/validator/custom-languages/pt-br';
 
 setConfig({
   masks: commonMasks,
@@ -135,10 +135,10 @@ Only FieldText has mask prop;
 
 ```js
   // register
-  import { register } from 'material-ui-form-fields/mask';
+  import { register } from '@react-form-fields/material-ui/mask';
    
   // -optional
-  import commonMasks from 'material-ui-form-fields/mask/common/pt-br';
+  import commonMasks from '@react-form-fields/material-ui/mask/common/pt-br';
 
   register([
     ...commonMasks, // -optional

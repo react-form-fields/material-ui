@@ -17,7 +17,7 @@ export default class FieldText extends FieldBase<IProps> {
 
     if (!mask) {
       mask = { apply: v => v, clean: v => v };
-      this.props.mask && console.warn(`material-ui-form-fields: Mask '${this.props.mask}' not found`)
+      this.props.mask && console.warn(`@react-form-fields/material-ui: Mask '${this.props.mask}' not found`)
     }
 
     return mask;
