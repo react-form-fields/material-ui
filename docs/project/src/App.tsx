@@ -16,6 +16,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import {
+  CustomMessage,
   FieldAutocomplete,
   FieldCheckbox,
   FieldColor,
@@ -32,7 +33,11 @@ import { CloseIcon, CodeTagsIcon, GithubCircleIcon } from 'mdi-react';
 import * as React from 'react';
 
 export default class App extends React.Component {
-  state: any = { model: {}, message: null };
+  state = {
+    array: [] as string[],
+    model: {} as any,
+    message: null as string
+  };
   validationContext: any;
 
   onSubmit(event: any) {
@@ -54,7 +59,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { model, message } = this.state;
+    const { model, message, array } = this.state;
 
     return (
       <div className='root'>
@@ -85,8 +90,8 @@ export default class App extends React.Component {
 
         <form onSubmit={this.onSubmit.bind(this)} noValidate>
           <Card style={{ overflow: 'visible' }}>
-            <CardContent>
-              <ValidationContext ref={(ref: any) => this.validationContext = ref}>
+            <ValidationContext ref={(ref: any) => this.validationContext = ref}>
+              <CardContent>
                 <FieldText
                   label='Name'
                   name='name'
@@ -95,71 +100,152 @@ export default class App extends React.Component {
                   onChange={(v => this.setState({ model: { ...model, name: v } }))}
                 />
 
-                <FieldText
-                  label='Email'
-                  name='email'
-                  value={model.email}
-                  validation='required|email'
-                  onChange={(v => this.setState({ model: { ...model, email: v } }))}
-                />
+                <Grid container spacing={24}>
 
-                <FieldCheckbox
-                  label='I agreed to receive spam'
-                  checked={model.spam}
-                  onChange={(v => this.setState({ model: { ...model, spam: v } }))}
-                />
+                  <Grid item xs={12} sm={6}>
+                    <FieldText
+                      label='Email'
+                      name='email'
+                      value={model.email}
+                      validation='required|email'
+                      onChange={(v => this.setState({ model: { ...model, email: v } }))}
+                    />
+                  </Grid>
 
-                <FieldSwitch
-                  label='Yep! I Do'
-                  checked={model.spam}
-                  onChange={(v => this.setState({ model: { ...model, spam: v } }))}
-                />
+                  <Grid item xs={12} sm={6}>
+                    <FieldSelect
+                      label='Select'
+                      name='select'
+                      value={model.comboId}
+                      validation='required'
+                      options={[{ value: 1, label: 'Combo 1' }, { value: 2, label: 'Combo 2' }, { value: 3, label: 'Combo 3' }]}
+                      onChange={(v => this.setState({ model: { ...model, comboId: v } }))}
+                    />
+                  </Grid>
 
-                <FieldCheckbox
-                  value='selected!'
-                  checked={model.checkValue}
-                  onChange={(v => this.setState({ model: { ...model, checkValue: v } }))}
-                >
-                  <Typography>Children!</Typography>
-                  <Typography>Check Value: {model.checkValue}</Typography>
-                </FieldCheckbox>
+                </Grid>
 
-                <Divider />
+              </CardContent>
+              <Divider />
+              <CardContent>
 
-                <FieldRadio
-                  label='Radio 1'
-                  value='1'
-                  checked={model.radio === '1'}
-                  onChange={(v => this.setState({ model: { ...model, radio: v } }))}
-                />
+                <Grid container>
 
-                <FieldRadio
-                  label="Radio 2"
-                  value='2'
-                  checked={model.radio === '2'}
-                  onChange={(v => this.setState({ model: { ...model, radio: v } }))}
-                />
+                  <Grid item xs={12} sm={4}>
+                    <FieldCheckbox
+                      label='I agreed to receive spam'
+                      checked={model.spam}
+                      onChange={(v => this.setState({ model: { ...model, spam: v } }))}
+                    />
+                  </Grid>
 
-                <Divider />
+                  <Grid item xs={12} sm={4}>
+                    <FieldSwitch
+                      label='Yep! I Do'
+                      checked={model.spam}
+                      onChange={(v => this.setState({ model: { ...model, spam: v } }))}
+                    />
+                  </Grid>
 
+                  <Grid item xs={12} sm={4}>
+                    <FieldCheckbox
+                      value='selected!'
+                      checked={model.checkValue}
+                      onChange={(v => this.setState({ model: { ...model, checkValue: v } }))}
+                    >
+                      <Typography>Children!</Typography>
+                      <Typography variant='caption'>Check Value: {model.checkValue}</Typography>
+                    </FieldCheckbox>
+                  </Grid>
 
-                <Typography>Hidden Email (usefull for manual data check, ex. Array length):</Typography>
-                <FieldHidden
-                  name='email hidden'
-                  value={model.email}
+                </Grid>
+
+              </CardContent>
+              <Divider />
+              <CardContent>
+
+                <Grid container>
+
+                  <Grid item xs={12} sm={4}>
+                    <FieldRadio
+                      label='Radio 1'
+                      value='1'
+                      checked={model.radio === '1'}
+                      onChange={(v => this.setState({ model: { ...model, radio: v } }))}
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} sm={4}>
+                    <FieldRadio
+                      label="Radio 2"
+                      value='2'
+                      checked={model.radio === '2'}
+                      onChange={(v => this.setState({ model: { ...model, radio: v } }))}
+                    />
+                  </Grid>
+
+                </Grid>
+
+              </CardContent>
+              <Divider />
+              <CardContent>
+                <Grid container>
+
+                  <Grid item>
+                    <Button onClick={() => this.setState({ array: [...array, 'data'] })}>+</Button>
+                    <Typography style={{ display: 'inline' }}>{array.length}</Typography>
+                    <Button onClick={() => this.setState({ array: array.slice(1) })}>-</Button>
+                  </Grid>
+
+                  <Grid item xs={12} sm={4}>
+                    <Typography>Hidden Array min 3</Typography>
+                    <Typography variant='caption'>(usefull for manual data check, ex. Array length)</Typography>
+
+                    <FieldHidden
+                      name='array'
+                      value={array.length}
+                      validation='required|numeric|min:3'
+                    >
+                      <CustomMessage rules='min'>Custom message: Array.length > 2</CustomMessage>
+                    </FieldHidden>
+                  </Grid>
+
+                </Grid>
+
+              </CardContent>
+              <Divider />
+              <CardContent>
+                <Typography variant='subheading'>Complex Components</Typography>
+
+                <Grid container spacing={24}>
+                  <Grid item xs={12} sm={6}>
+                    <FieldDate
+                      label='Begin Date'
+                      name='begin'
+                      value={model.beginDate}
+                      validation='date'
+                      onChange={(v => this.setState({ model: { ...model, beginDate: v } }))}
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} sm={6}>
+                    <FieldDate
+                      label='End Date'
+                      name='end'
+                      value={model.endDate}
+                      validation='date|after_or_equal:begin date'
+                      validationContext={{ 'begin date': model.beginDate }}
+                      onChange={(v => this.setState({ model: { ...model, endDate: v } }))}
+                    />
+                  </Grid>
+                </Grid>
+
+                <FieldColor
+                  label='Color'
+                  name='color'
+                  value={model.color}
                   validation='required'
-                />
-
-                <Divider />
-
-
-                <FieldSelect
-                  label='Select'
-                  name='combo'
-                  value={model.comboId}
-                  validation='required'
-                  options={[{ value: 1, label: 'Combo 1' }, { value: 2, label: 'Combo 2' }, { value: 3, label: 'Combo 3' }]}
-                  onChange={(v => this.setState({ model: { ...model, comboId: v } }))}
+                  onChange={(v => this.setState({ model: { ...model, color: v } }))}
                 />
 
                 <FieldAutocomplete
@@ -172,37 +258,6 @@ export default class App extends React.Component {
                   onChange={(v => this.setState({ model: { ...model, autocompleteId: v } }))}
                 />
 
-                <FieldColor
-                  label='Color'
-                  name='color'
-                  value={model.color}
-                  validation='required'
-                  onChange={(v => this.setState({ model: { ...model, color: v } }))}
-                />
-
-                <Grid container spacing={24}>
-                  <Grid item xs={true}>
-                    <FieldDate
-                      label='Begin Date'
-                      name='begin'
-                      value={model.beginDate}
-                      validation='date'
-                      onChange={(v => this.setState({ model: { ...model, beginDate: v } }))}
-                    />
-                  </Grid>
-
-                  <Grid item xs={true}>
-                    <FieldDate
-                      label='End Date'
-                      name='end'
-                      value={model.endDate}
-                      validation='date|after_or_equal:begin date'
-                      validationContext={{ 'begin date': model.beginDate }}
-                      onChange={(v => this.setState({ model: { ...model, endDate: v } }))}
-                    />
-                  </Grid>
-                </Grid>
-
                 <FieldHtml
                   label='Html'
                   name='html'
@@ -211,9 +266,10 @@ export default class App extends React.Component {
                   onChange={(v => this.setState({ model: { ...model, html: v } }))}
                 />
 
-              </ValidationContext>
 
-            </CardContent>
+              </CardContent>
+            </ValidationContext>
+
             <CardActions style={{ justifyContent: 'flex-end' }}>
               <Button onClick={this.handleClear.bind(this)}>Clear</Button>
               <Button type='submit' color='secondary' variant='raised'>Save</Button>
@@ -223,7 +279,7 @@ export default class App extends React.Component {
           <Snackbar
             open={!!message}
             onClose={this.handleSnackbarClose.bind(this)}
-            message={message}
+            message={message as any}
             action={[
               <IconButton color="inherit" onClick={this.handleSnackbarClose.bind(this)}>
                 <CloseIcon />

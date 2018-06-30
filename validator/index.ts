@@ -1,10 +1,10 @@
 import validator, { ErrorMessages } from 'validatorjs';
 
-export function validate(fieldName: string, value: any, rule: string, context: any = {}): { valid: boolean, message?: string } {
-  if (!rule) return { valid: true };
+export function validate(fieldName: string, value: any, rules: string, context: any = {}, customMessages: ErrorMessages = null): { valid: boolean, message?: string } {
+  if (!rules) return { valid: true };
 
   fieldName = fieldName || 'value';
-  const result = new validator({ [fieldName]: value, ...context }, { [fieldName]: rule });
+  const result = new validator({ [fieldName]: value, ...context }, { [fieldName]: rules }, customMessages);
 
   if (result.passes()) {
     return { valid: true };

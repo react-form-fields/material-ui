@@ -1,6 +1,7 @@
 import FieldAutocompleteComponent from './components/Autocomplete';
 import FieldCheckboxComponent from './components/Checkbox';
 import FieldColorComponent from './components/Color';
+import CustomMessageComponent from './components/CustomMessage';
 import FieldDateComponent from './components/Date';
 import FieldHiddenComponent from './components/Hidden';
 import FieldHtmlComponent from './components/Html';
@@ -23,5 +24,6 @@ export const FieldAutocomplete = FieldAutocompleteComponent;
 export const FieldHtml = FieldHtmlComponent;
 export const FieldHidden = FieldHiddenComponent;
 
+export const CustomMessage = CustomMessageComponent;
 export const ValidationContext = ValidationContextComponent;
 

@@ -1,8 +1,10 @@
 import { TextFieldProps } from '@material-ui/core/TextField';
 import React, { PureComponent } from 'react';
+import { ErrorMessages } from 'validatorjs';
 
 import { validate } from '../validator';
 import { FieldValidation, IFieldValidationContext } from '../validator/context';
+import CustomMessage from './CustomMessage';
 
 export interface IStateFieldBase {
   touched: boolean;
@@ -44,8 +46,20 @@ export default abstract class FieldBase<
     return (this.props.validation || '').includes('required');
   }
 
-  static getDerivedStateFromProps({ name, value, validation, validationContext }: IPropsFieldBase, currentState: IStateFieldBase): IStateFieldBase {
-    const error = validate(name, value, validation, validationContext);
+  static getDerivedStateFromProps({ name, value, validation, validationContext, children }: IPropsFieldBase, currentState: IStateFieldBase): IStateFieldBase {
+    const customMessages = React.Children
+      .toArray(children)
+      .reduce<ErrorMessages>((acc, child: any) => {
+        if (child.type === CustomMessage) {
+          child.props.rules.split(',').forEach((rule: string ) => {
+            acc[rule] = child.props.children;
+          });
+        }
+
+        return acc;
+      }, {});
+
+    const error = validate(name, value, validation, validationContext, customMessages);
 
     return {
       ...currentState,
