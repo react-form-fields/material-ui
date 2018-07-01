@@ -1,36 +1,13 @@
-import { ErrorMessages } from 'validatorjs';
+import * as coreConfig from '@react-form-fields/core/config';
 
-import { IMask, register as registerMasks } from './mask';
-import * as validator from './validator';
-
-let config: IConfig = {};
-
-export interface IConfig {
-  masks?: IMask[],
-  validation?: {
-    lang: string;
-    customMessages?: ErrorMessages;
-  }
+export interface IConfig extends coreConfig.IConfig {
   defaultDateLocale?: string;
 }
 
 export function getConfig(): IConfig {
-  return config;
+  return coreConfig.getConfig();
 }
 
-export function setConfig(customConfig: IConfig) {
-  config = customConfig;
-
-  registerMasks(customConfig.masks || []);
-  configValidation(customConfig.validation);
-}
-
-function configValidation(config: IConfig['validation']) {
-  if (!config) return;
-
-  if (config && config.customMessages) {
-    validator.addLang(config.lang, config.customMessages);
-  }
-
-  validator.useLang(config.lang);
+export function setConfig(config: IConfig) {
+  coreConfig.setConfig(config);
 }

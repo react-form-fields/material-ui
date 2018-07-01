@@ -1,19 +1,22 @@
-import { IconButton, InputAdornment } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment/InputAdornment';
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
-import match from 'autosuggest-highlight/match';
-import parse from 'autosuggest-highlight/parse';
-import React, { Fragment } from 'react';
-import Autosuggest, {
+import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
+import match = require('autosuggest-highlight/match');
+import parse = require('autosuggest-highlight/parse');
+import * as React from 'react';
+import {
   ChangeEvent,
   RenderSuggestionParams,
   SuggestionSelectedEventData,
   SuggestionsFetchRequestedParams,
 } from 'react-autosuggest';
+import * as Autosuggest from 'react-autosuggest';
 
 import { WithStyles } from '../../decorators/withStyles';
-import FieldBase, { IPropsFieldBase, IStateFieldBase } from '../Base';
+import { ITextFieldProps } from '../../interfaces/props';
 import Input from './Input';
 import SuggestionsContainer from './SuggestionsContainer';
 
@@ -23,7 +26,7 @@ interface IState extends IStateFieldBase {
   suggestions: IProps['options'][0][];
 }
 
-interface IProps extends IPropsFieldBase {
+interface IProps extends ITextFieldProps {
   value: any;
   onChange: (value: any) => void;
   options: { value: any, label: string }[];
@@ -55,7 +58,7 @@ interface IProps extends IPropsFieldBase {
     marginRight: -15
   }
 }))
-export default class FieldAutocomplete extends FieldBase<IProps, IState> {
+export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = { ...this.state, term: '', suggestions: [] };
@@ -70,7 +73,7 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
 
     return {
       ...currentState,
-      ...FieldBase.getDerivedStateFromProps(nextProps, currentState),
+      ...FieldCoreBase.getDerivedStateFromProps(nextProps, currentState),
       value: nextProps.value,
       term
     };
@@ -126,7 +129,7 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
     const { classes, placeholder, disabled, label } = this.props;
 
     return (
-      <Fragment>
+      <React.Fragment>
         {super.render()}
 
         <Autosuggest
@@ -169,7 +172,7 @@ export default class FieldAutocomplete extends FieldBase<IProps, IState> {
             )
           }}
         />
-      </Fragment>
+      </React.Fragment>
     );
   }
 

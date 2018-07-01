@@ -1,5 +1,5 @@
-import { TextField } from '@material-ui/core';
-import React from 'react';
+import TextField from '@material-ui/core/TextField/TextField';
+import * as React from 'react';
 
 export default function Input(props: any) {
   const { classes, ref, endAdornment, errorMessage, ...other } = props;

@@ -1,18 +1,9 @@
-import { Checkbox } from '@material-ui/core';
-import { PureComponent } from 'react';
-import React from 'react';
+import Checkbox from '@material-ui/core/Checkbox/Checkbox';
+import * as React from 'react';
 
-import { IPropsFieldBase } from './Base';
-import FieldSelectionBase from './BaseSelection';
+import FieldSelectionBase, { IPropsSelectionBase } from './Abstract/SelectionBase';
 
-interface IProps extends IPropsFieldBase {
-  value?: any;
-  onChange: (value: any) => void;
-  checked: boolean;
-  helperText?: React.ReactNode;
-}
-
-export default class FieldCheckbox extends PureComponent<IProps> {
+export default class FieldCheckbox extends React.PureComponent<IPropsSelectionBase> {
   render() {
     return <FieldSelectionBase
       {...this.props}

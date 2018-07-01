@@ -1,15 +1,17 @@
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-import { InputLabel, Typography } from '@material-ui/core';
+import InputLabel from '@material-ui/core/InputLabel/InputLabel';
+import Typography from '@material-ui/core/Typography/Typography';
+import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import { ContentState, convertToRaw, EditorState, Modifier } from 'draft-js';
 import { stateFromHTML } from 'draft-js-import-html';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
-import React from 'react';
+import * as React from 'react';
 import { Editor } from 'react-draft-wysiwyg';
 
 import { WithStyles } from '../../decorators/withStyles';
-import FieldBase, { IPropsFieldBase, IStateFieldBase } from '../Base';
+import { ITextFieldProps } from '../../interfaces/props';
 
 const styles = require('./style.css');
 
@@ -19,7 +21,7 @@ interface IState extends IStateFieldBase {
   focused: boolean;
 }
 
-interface IProps extends IPropsFieldBase {
+interface IProps extends ITextFieldProps {
   value: string;
   onChange: (value: string) => void;
 }
@@ -36,7 +38,7 @@ interface IProps extends IPropsFieldBase {
     ...theme.typography.body1
   }
 }))
-export default class FieldHtml extends FieldBase<IProps, IState> {
+export default class FieldHtml extends FieldCoreBase<IProps, IState> {
   static getDerivedStateFromProps(nextProps: IProps, currentState: IState): IState {
     let { editorState, lastValue } = currentState;
 
@@ -51,7 +53,7 @@ export default class FieldHtml extends FieldBase<IProps, IState> {
 
     return {
       ...currentState,
-      ...FieldBase.getDerivedStateFromProps(nextProps, currentState),
+      ...FieldCoreBase.getDerivedStateFromProps(nextProps, currentState),
       editorState,
       lastValue
     };

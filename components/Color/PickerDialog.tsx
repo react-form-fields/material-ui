@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import { ChromePicker, ColorChangeHandler } from 'react-color';
 
 import { WithStyles } from '../../decorators/withStyles';
@@ -23,7 +23,7 @@ interface IProps {
     left: 0
   }
 })
-export default class PickerDialog extends PureComponent<IProps> {
+export default class PickerDialog extends React.PureComponent<IProps> {
   render() {
     const { value, onDismiss, onChange, classes } = this.props;
 

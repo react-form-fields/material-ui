@@ -1,20 +1,27 @@
-import { FormControlLabel, Typography } from '@material-ui/core';
 import { CheckboxProps } from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel/FormControlLabel';
 import { RadioProps } from '@material-ui/core/Radio';
 import { SwitchProps } from '@material-ui/core/Switch';
-import React, { ChangeEvent, Fragment } from 'react';
+import Typography from '@material-ui/core/Typography/Typography';
+import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
+import * as React from 'react';
 
-import { WithStyles } from '../decorators/withStyles';
-import FieldBase, { IPropsFieldBase } from './Base';
+import { WithStyles } from '../../decorators/withStyles';
 
-interface IProps extends IPropsFieldBase {
+export interface IPropsSelectionBase extends IPropsFieldBase {
+  onChange: (value: any) => void;
+  label?: string;
+  disabled?: boolean;
   checked: boolean;
   helperText?: React.ReactNode;
-  classes?: any;
+}
+
+interface IProps extends IPropsSelectionBase {
   Component:
   React.ComponentType<CheckboxProps> |
   React.ComponentType<RadioProps> |
   React.ComponentType<SwitchProps>;
+  classes?: any;
 }
 
 @WithStyles({
@@ -29,8 +36,8 @@ interface IProps extends IPropsFieldBase {
     fontSize: '95%'
   }
 })
-export default class FieldSelectionBase extends FieldBase<IProps> {
-  onChange = (event: ChangeEvent<any>) => {
+export default class FieldSelectionBase extends FieldCoreBase<IProps> {
+  onChange = (event: React.ChangeEvent<any>) => {
     let value = this.props.value;
 
     if ((event || {} as any).target && event.target.type === 'checkbox') {
@@ -65,19 +72,19 @@ export default class FieldSelectionBase extends FieldBase<IProps> {
             />
         }
         label={
-          <Fragment>
+          <React.Fragment>
             {!!label &&
-              <Fragment>
+              <React.Fragment>
                 <Typography className={helperText ? classes.labelAlign : null}>{label}</Typography>
                 {!!helperText &&
                   <Typography className={classes.helperText}>
                     {helperText}
                   </Typography>
                 }
-              </Fragment>
+              </React.Fragment>
             }
             {this.props.children}
-          </Fragment>
+          </React.Fragment>
         }
 
       />

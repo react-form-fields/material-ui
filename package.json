@@ -33,6 +33,7 @@
   "dependencies": {
     "@material-ui/core": "^1.0.0",
     "@material-ui/icons": "^1.0.0",
+    "@react-form-fields/core": "^1.0.0",
     "autosuggest-highlight": "^3.0.0",
     "draft-js": "^0.10.5",
     "draft-js-import-html": "^1.2.1",

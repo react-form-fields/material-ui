@@ -1,20 +1,21 @@
-import { TextField } from '@material-ui/core';
-import React, { Fragment } from 'react';
+import TextField from '@material-ui/core/TextField/TextField';
+import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
+import * as React from 'react';
 
-import FieldBase, { IPropsFieldBase, IStateFieldBase } from '../Base';
+import { ITextFieldProps } from '../../interfaces/props';
 import PickerDialog from './PickerDialog';
 
 interface IState extends IStateFieldBase {
   showPicker: boolean;
 }
 
-interface IProps extends IPropsFieldBase {
+interface IProps extends ITextFieldProps {
   value: string;
   onChange: (value: string) => void;
 }
 
-export default class FieldColor extends FieldBase<IProps, IState> {
-  constructor(props: IPropsFieldBase) {
+export default class FieldColor extends FieldCoreBase<IProps, IState> {
+  constructor(props: IProps) {
     super(props);
     this.state = { ...this.state, showPicker: false };
   }
@@ -33,7 +34,7 @@ export default class FieldColor extends FieldBase<IProps, IState> {
     const { value, helperText, multiline, validationContext, ...extraProps } = this.props;
 
     return (
-      <Fragment>
+      <React.Fragment>
         {super.render()}
 
         <TextField
@@ -60,7 +61,7 @@ export default class FieldColor extends FieldBase<IProps, IState> {
             onChange={e => this.onChange(e)}
           />
         )}
-      </Fragment>
+      </React.Fragment>
     );
   }
 }

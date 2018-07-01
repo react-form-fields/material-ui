@@ -1,28 +1,19 @@
-import { CircularProgress, InputAdornment, TextField } from '@material-ui/core';
-import React, { Fragment } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
+import InputAdornment from '@material-ui/core/InputAdornment/InputAdornment';
+import TextField from '@material-ui/core/TextField/TextField';
+import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
+import * as React from 'react';
 
-import { getMask, IMaskFunction } from '../mask';
-import FieldBase, { IPropsFieldBase } from './Base';
+import { ITextFieldProps } from '../interfaces/props';
 
-interface IProps extends IPropsFieldBase {
+interface IProps extends ITextFieldProps {
   mask?: 'phone';
   loading?: boolean;
   value: any;
   onChange: (value: any) => void;
 }
 
-export default class FieldText extends FieldBase<IProps> {
-  get mask(): IMaskFunction {
-    let mask = getMask(this.props.mask);
-
-    if (!mask) {
-      mask = { apply: v => v, clean: v => v };
-      this.props.mask && console.warn(`@react-form-fields/material-ui: Mask '${this.props.mask}' not found`)
-    }
-
-    return mask;
-  }
-
+export default class FieldText extends FieldCoreBase<IProps> {
   onChange = (event: any) => {
     const value = this.cleanValue(event.target ? event.target.value : event);
 
@@ -43,7 +34,7 @@ export default class FieldText extends FieldBase<IProps> {
     const { loading, helperText, multiline, validationContext, ...extraProps } = this.props;
 
     return (
-      <Fragment>
+      <React.Fragment>
         {super.render()}
 
         <TextField
@@ -71,7 +62,7 @@ export default class FieldText extends FieldBase<IProps> {
             ...(extraProps.InputProps || {})
           }}
         />
-      </Fragment>
+      </React.Fragment>
     );
   }
 }

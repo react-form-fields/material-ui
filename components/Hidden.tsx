@@ -1,25 +1,23 @@
-import { Typography } from '@material-ui/core';
-import React, { Fragment } from 'react';
-
-import FieldBase, { IPropsFieldBase } from './Base';
+import Typography from '@material-ui/core/Typography/Typography';
+import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
+import * as React from 'react';
 
 interface IProps extends IPropsFieldBase {
   value: any;
   onChange?: never;
 }
 
-export default class FieldHidden extends FieldBase<IProps> {
-
+export default class FieldHidden extends FieldCoreBase<IProps> {
   render() {
     return (
-      <Fragment>
+      <React.Fragment>
         {super.render()}
         {!!this.errorMessage &&
           <Typography color='error'>
             {this.errorMessage}
           </Typography>
         }
-      </Fragment>
+      </React.Fragment>
     );
   }
 }

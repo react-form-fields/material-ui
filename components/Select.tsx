@@ -1,15 +1,19 @@
-import { CircularProgress, InputAdornment, MenuItem, TextField } from '@material-ui/core';
-import React, { Fragment } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
+import InputAdornment from '@material-ui/core/InputAdornment/InputAdornment';
+import MenuItem from '@material-ui/core/MenuItem/MenuItem';
+import TextField from '@material-ui/core/TextField/TextField';
+import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
+import * as React from 'react';
 
-import FieldBase, { IPropsFieldBase } from './Base';
+import { ITextFieldProps } from '../interfaces/props';
 
-interface IProps extends IPropsFieldBase {
+interface IProps extends ITextFieldProps {
   options?: { value: string | number, label: string }[];
   loading?: boolean;
   onChange: (value: any) => void;
 }
 
-export default class FieldSelect extends FieldBase<IProps> {
+export default class FieldSelect extends FieldCoreBase<IProps> {
   onChange = (event: any) => {
     const value = event.target ? event.target.value : event;
 
@@ -21,7 +25,7 @@ export default class FieldSelect extends FieldBase<IProps> {
     const { value, options, children, loading } = this.props;
 
     return (
-      <Fragment>
+      <React.Fragment>
         {super.render()}
 
         <TextField
@@ -57,7 +61,7 @@ export default class FieldSelect extends FieldBase<IProps> {
           ))}
           {children}
         </TextField>
-      </Fragment>
+      </React.Fragment>
     );
   }
 }

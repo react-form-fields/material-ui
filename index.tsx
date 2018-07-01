@@ -1,7 +1,9 @@
+import CustomMessageComponent from '@react-form-fields/core/components/CustomMessage';
+import ValidationContextComponent from '@react-form-fields/core/components/ValidationContext';
+
 import FieldAutocompleteComponent from './components/Autocomplete';
 import FieldCheckboxComponent from './components/Checkbox';
 import FieldColorComponent from './components/Color';
-import CustomMessageComponent from './components/CustomMessage';
 import FieldDateComponent from './components/Date';
 import FieldHiddenComponent from './components/Hidden';
 import FieldHtmlComponent from './components/Html';
@@ -9,7 +11,6 @@ import FieldRadioComponent from './components/Radio';
 import FieldSelectComponent from './components/Select';
 import FieldSwitchComponent from './components/Switch';
 import FieldTextComponent from './components/Text';
-import ValidationContextComponent from './components/ValidationContext';
 
 export * from './config';
 
@@ -26,4 +27,3 @@ export const FieldHidden = FieldHiddenComponent;
 
 export const CustomMessage = CustomMessageComponent;
 export const ValidationContext = ValidationContextComponent;
-
