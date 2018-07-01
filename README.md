@@ -1,8 +1,8 @@
 React Form Fields: Material UI
 ------------------------------
 
+See [Core](https://github.com/react-form-fields/core)
 See [Demo](https://react-form-fields.github.io/material-ui)
-
 See [API.md](https://github.com/react-form-fields/material-ui/blob/master/API.md) for details
 
 ## Requirements 
