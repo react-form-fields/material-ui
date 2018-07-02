@@ -33,6 +33,7 @@
     "*.d.ts",
     "components/*.d.ts",
     "decorations/*.d.ts",
+    "interfaces/*.d.ts",
     "mask/*.d.ts",
     "validator/*.d.ts",
   ]

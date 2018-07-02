@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./docs/project/node_modules/@react-form-fields/material-ui",
+    "declarationDir": "./docs/project/node_modules/@react-form-fields/material-ui"
+  }
+}

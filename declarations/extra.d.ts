@@ -1,6 +1,5 @@
-declare module 'draftjs-to-html';
-declare module 'html-to-draftjs';
-declare module 'draft-js-import-html';
+declare module 'autosuggest-highlight/match';
+declare module 'autosuggest-highlight/parse';
 declare module '@material-ui/icons/Search';
 declare module '@material-ui/icons/Close';
 declare module '@material-ui/icons/ChevronLeft';

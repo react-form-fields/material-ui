@@ -38,7 +38,7 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
             select: true,
             error: !!this.errorMessage,
             helperText: this.errorMessage,
-            onChange: this.onChange.bind(this),
+            onChange: this.onChange,
             submitted: null,
             touched: null,
             loading: null

@@ -22,11 +22,11 @@ import {
   FieldColor,
   FieldDate,
   FieldHidden,
-  FieldHtml,
   FieldRadio,
   FieldSelect,
   FieldSwitch,
   FieldText,
+  setConfig,
   ValidationContext,
 } from '@react-form-fields/material-ui';
 import { CloseIcon, CodeTagsIcon, GithubCircleIcon } from 'mdi-react';
@@ -40,7 +40,7 @@ export default class App extends React.Component {
   };
   validationContext: any;
 
-  onSubmit(event: any) {
+  onSubmit = (event: any) => {
     event.preventDefault();
 
     const isValid = this.validationContext.isValid();
@@ -49,12 +49,12 @@ export default class App extends React.Component {
     this.setState({ message });
   }
 
-  handleClear() {
+  handleClear = () => {
     this.validationContext.reset();
     this.setState({ model: {}, message: null });
   }
 
-  handleSnackbarClose() {
+  handleSnackbarClose = () => {
     this.setState({ message: null });
   }
 
@@ -88,7 +88,7 @@ export default class App extends React.Component {
           </Toolbar>
         </AppBar>
 
-        <form onSubmit={this.onSubmit.bind(this)} noValidate>
+        <form onSubmit={this.onSubmit} noValidate>
           <Card style={{ overflow: 'visible' }}>
             <ValidationContext ref={(ref: any) => this.validationContext = ref}>
               <CardContent>
@@ -258,30 +258,21 @@ export default class App extends React.Component {
                   onChange={(v => this.setState({ model: { ...model, autocompleteId: v } }))}
                 />
 
-                <FieldHtml
-                  label='Html'
-                  name='html'
-                  value={model.html}
-                  validation='required'
-                  onChange={(v => this.setState({ model: { ...model, html: v } }))}
-                />
-
-
               </CardContent>
             </ValidationContext>
 
             <CardActions style={{ justifyContent: 'flex-end' }}>
-              <Button onClick={this.handleClear.bind(this)}>Clear</Button>
+              <Button onClick={this.handleClear}>Clear</Button>
               <Button type='submit' color='secondary' variant='raised'>Save</Button>
             </CardActions>
           </Card>
 
           <Snackbar
             open={!!message}
-            onClose={this.handleSnackbarClose.bind(this)}
+            onClose={this.handleSnackbarClose}
             message={message as any}
             action={[
-              <IconButton color="inherit" onClick={this.handleSnackbarClose.bind(this)}>
+              <IconButton color="inherit" onClick={this.handleSnackbarClose}>
                 <CloseIcon />
               </IconButton>,
             ]}

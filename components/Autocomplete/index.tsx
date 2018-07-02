@@ -4,8 +4,8 @@ import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
 import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
-import match = require('autosuggest-highlight/match');
-import parse = require('autosuggest-highlight/parse');
+import * as match from 'autosuggest-highlight/match';
+import * as parse from 'autosuggest-highlight/parse';
 import * as React from 'react';
 import {
   ChangeEvent,
@@ -183,13 +183,13 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
     return (
       <MenuItem selected={isHighlighted} component='div'>
         <div>
-          {parts.map((part, index) => {
+          {parts.map((part: any, index: number) => {
             return part.highlight ? (
-              <span key={String(index)} style={{ fontWeight: 300 }}>
+              <span key={index} style={{ fontWeight: 300 }}>
                 {part.text}
               </span>
             ) : (
-                <strong key={String(index)} style={{ fontWeight: 500 }}>
+                <strong key={index} style={{ fontWeight: 500 }}>
                   {part.text}
                 </strong>
               );

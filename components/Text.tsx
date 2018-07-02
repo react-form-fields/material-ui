@@ -48,7 +48,7 @@ export default class FieldText extends FieldCoreBase<IProps> {
             value: (value === undefined || value === null ? '' : value).toString(),
             error: !!this.errorMessage,
             helperText: this.errorMessage || helperText,
-            onChange: this.onChange.bind(this),
+            onChange: this.onChange,
             submitted: null,
             touched: null,
             loading: null

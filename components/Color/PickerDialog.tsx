@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { ChromePicker, ColorChangeHandler } from 'react-color';
+import { ColorChangeHandler } from 'react-color';
+import ChromePicker from 'react-color/lib/components/chrome/Chrome';
 
 import { WithStyles } from '../../decorators/withStyles';
 

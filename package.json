@@ -1,6 +1,7 @@
 {
   "name": "@react-form-fields/material-ui",
   "description": "Material UI Form Fields",
+  "private": false,
   "keywords": [
     "material-ui",
     "react",
@@ -9,7 +10,7 @@
     "validation",
     "material"
   ],
-  "version": "1.4.2",
+  "version": "1.5.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
@@ -33,18 +34,13 @@
   "dependencies": {
     "@material-ui/core": "^1.0.0",
     "@material-ui/icons": "^1.0.0",
-    "@react-form-fields/core": "^1.0.0",
+    "@react-form-fields/core": "^1.0.2",
     "autosuggest-highlight": "^3.0.0",
-    "draft-js": "^0.10.5",
-    "draft-js-import-html": "^1.2.1",
-    "draftjs-to-html": "^0.8.0",
-    "html-to-draftjs": "^1.0.0",
-    "material-ui-pickers": "^1.0.0-rc.9",
-    "moment": "^2.0.0",
+    "luxon": "^1.3.0",
+    "material-ui-pickers": "^1.0.0-rc.10",
     "react": "^16.3.0",
     "react-autosuggest": "^9.0.0",
     "react-color": "^2.14.1",
-    "react-draft-wysiwyg": "^1.12.13",
     "tslib": "^1.9.2",
     "validatorjs": "^3.0.0"
   },
@@ -53,8 +49,7 @@
     "react": "^16.0.0"
   },
   "devDependencies": {
-    "@types/autosuggest-highlight": "^3.1.0",
-    "@types/draft-js": "^0.10.23",
+    "@types/luxon": "^1.2.0",
     "@types/node": "^10.3.0",
     "@types/react-autosuggest": "^9.3.4",
     "@types/react-color": "^2.13.5",

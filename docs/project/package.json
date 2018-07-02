@@ -5,7 +5,7 @@
   "homepage": "https://react-form-fields.github.io/material-ui",
   "dependencies": {
     "@material-ui/core": "^1.2.0",
-    "@react-form-fields/material-ui": "1.4.1",
+    "@react-form-fields/material-ui": "1.4.6",
     "mdi-react": "^3.4.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",

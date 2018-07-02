@@ -11,7 +11,6 @@ API
 * [Switch](#switch)
 * [Color](#color)
 * [Autocomplete](#autocomplete)
-* [Html](#html)
 * [Hidden](#hidden)
 * [Custom Message](#custom-message)
 
@@ -67,16 +66,16 @@ All material-ui [radio](https://material-ui.com/api/radio/) props and:
 
 All [material-ui-pickers](https://github.com/dmtrKovalenko/material-ui-pickers) props and:
 
-| Props         | Required | Type           | Description                      |
-|---------------|----------|----------------|----------------------------------|
-| value         | true     | Date           |                                  |
-| minDate       | false    | Date           |                                  |
-| maxDate       | false    | Date           |                                  |
-| disablePast   | false    | boolean        |                                  |
-| disableFuture | false    | boolean        |                                  |
-| format        | false    | string         | moment string format             |
-| locale        | false    | string         | use defaultDateLocale as default |
-| onChange      | true     | Function(date) |                                  |
+| Props         | Required | Type           | Description               |
+|---------------|----------|----------------|---------------------------|
+| value         | true     | Date           |                           |
+| minDate       | false    | Date           |                           |
+| maxDate       | false    | Date           |                           |
+| disablePast   | false    | boolean        |                           |
+| disableFuture | false    | boolean        |                           |
+| format        | false    | string         | luxon string format       |
+| locale        | false    | string         | use dateLocale as default |
+| onChange      | true     | Function(date) |                           |
 
 #### Select
 
@@ -104,13 +103,6 @@ All [material-ui](https://material-ui.com/api/select/) props and:
 | value    | true     | any                                            |             |
 | options  | true     | object { value: string/number, label: string } |             |
 | onChange | true     | Function(string/number)                        |             |
-
-#### Html
-
-| Props    | Required | Type             | Description |
-|----------|----------|------------------|-------------|
-| value    | true     | string           |             |
-| onChange | true     | Function(string) |             |
 
 #### Hidden
 

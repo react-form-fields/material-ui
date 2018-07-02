@@ -1,10 +1,10 @@
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
-import { DatePicker } from 'material-ui-pickers';
-import MomentUtils from 'material-ui-pickers/utils/moment-utils';
+import { DateTime } from 'luxon';
+import DatePicker from 'material-ui-pickers/DatePicker';
+import DateUtils from 'material-ui-pickers/utils/luxon-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import { Moment } from 'moment';
 import * as React from 'react';
 
 import { getConfig } from '../config';
@@ -18,23 +18,22 @@ interface IProps extends ITextFieldProps {
   disablePast?: boolean;
   disableFuture?: boolean;
   format?: string;
-  locale?: string;
 }
 
 export default class FieldDate extends FieldCoreBase<IProps> {
-  onChange = (value: Moment) => {
-    const date = value ? value.startOf('day').toDate() : null;
+  onChange = (value: DateTime) => {
+    const date = value ? value.toJSDate() : null;
 
     this.setState({ touched: true });
     this.props.onChange(date);
   }
 
   render() {
-    const { value, label, format, locale, helperText, validationContext, ...extraProps } = this.props;
+    const { value, label, format, helperText, validationContext, ...extraProps } = this.props;
 
     return (
       <React.Fragment>
-        <MuiPickersUtilsProvider utils={MomentUtils} locale={locale || getConfig().defaultDateLocale}>
+        <MuiPickersUtilsProvider utils={DateUtils} locale={getConfig().dateLocale}>
           {super.render()}
 
           <DatePicker
@@ -45,7 +44,7 @@ export default class FieldDate extends FieldCoreBase<IProps> {
             cancelLabel={'Cancelar'}
             label={label}
             value={value || null}
-            format={format || 'DD/MM/YYYY'}
+            format={format || 'D'}
             fullWidth={true}
             margin={'normal'}
             leftArrowIcon={<ChevronLeftIcon />}
@@ -53,7 +52,7 @@ export default class FieldDate extends FieldCoreBase<IProps> {
             error={!!this.errorMessage}
             helperText={this.errorMessage || helperText}
             required={this.isRequired}
-            onChange={this.onChange.bind(this)}
+            onChange={this.onChange}
           />
         </MuiPickersUtilsProvider>
       </React.Fragment>
