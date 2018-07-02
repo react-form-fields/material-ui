@@ -1,9 +1,7 @@
 import * as coreConfig from '@react-form-fields/core/config';
 
-type DateFnsLocale = any;
-
 export interface IConfig extends coreConfig.IConfig {
-  dateLocale?: DateFnsLocale;
+  dateLocale?: string;
 }
 
 export function getConfig(): IConfig {
