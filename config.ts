@@ -1,13 +1,15 @@
 import * as coreConfig from '@react-form-fields/core/config';
 
-export interface IConfig extends coreConfig.IConfig {
-  dateLocale?: string;
+declare module '@react-form-fields/core/config' {
+  interface IConfig {
+    dateLocale?: string;
+  }
 }
 
-export function getConfig(): IConfig {
+export function getConfig(): coreConfig.IConfig {
   return coreConfig.getConfig() || {};
 }
 
-export function setConfig(config: IConfig) {
+export function setConfig(config: coreConfig.IConfig) {
   coreConfig.setConfig(config);
 }
