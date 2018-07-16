@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,MACE,sBAA6B,CAG/B,UACE,iBAAmB","file":"static/css/main.7f08d526.css","sourcesContent":[".root {\n  padding: 90px 20px 20px 20px;\n}\n\n.mdi-icon {\n  fill: currentColor;\n}\n\n\n// WEBPACK FOOTER //\n// ./src/App.css"],"sourceRoot":""}
