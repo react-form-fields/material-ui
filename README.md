@@ -86,7 +86,8 @@ import validationMessage from '@react-form-fields/material-ui/validator/custom-l
 setConfig({
   masks: commonMasks,
   dateLocale: 'pt',
-  validation: validationMessage
+  validation: validationMessage,
+  validationOn: 'onChange'
 });
 ```
 

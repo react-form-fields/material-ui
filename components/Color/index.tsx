@@ -2,6 +2,7 @@ import TextField from '@material-ui/core/TextField/TextField';
 import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import * as React from 'react';
 
+import { getConfig } from '../../config';
 import { ITextFieldProps } from '../../interfaces/props';
 import PickerDialog from './PickerDialog';
 
@@ -25,8 +26,13 @@ export default class FieldColor extends FieldCoreBase<IProps, IState> {
   }
 
   onChange = (event: any) => {
-    this.setState({ touched: true });
+    getConfig().validationOn === 'onChange' && this.setState({ showError: true });
     this.props.onChange(event.hex);
+  }
+
+  onBlur = (e: any) => {
+    this.props.onBlur && this.props.onBlur(e);
+    getConfig().validationOn === 'onBlur' && this.setState({ showError: true });
   }
 
   render() {
@@ -47,6 +53,7 @@ export default class FieldColor extends FieldCoreBase<IProps, IState> {
             error: !!this.errorMessage,
             helperText: this.errorMessage || helperText,
             onChange: this.onChange,
+            onBlur: this.onBlur,
             submitted: null,
             touched: null,
             loading: null

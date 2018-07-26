@@ -27,6 +27,7 @@ import {
   FieldSelect,
   FieldSwitch,
   FieldText,
+  setConfig,
   ValidationContext,
 } from '@react-form-fields/material-ui';
 import { CloseIcon, CodeTagsIcon, GithubCircleIcon } from 'mdi-react';
@@ -39,6 +40,7 @@ const generateClassName = createGenerateClassName({
 
 export default class App extends React.Component {
   state = {
+    validationOnChange: true as boolean,
     array: [] as string[],
     model: {} as any,
     message: null as string
@@ -63,8 +65,14 @@ export default class App extends React.Component {
     this.setState({ message: null });
   }
 
+  handleValidationOn = (validationOnChange: boolean) => {
+    this.setState({ validationOnChange });
+    setConfig({ validationOn: validationOnChange ? 'onChange' : 'onBlur' });
+    this.validationContext.reset();
+  }
+
   render() {
-    const { model, message, array } = this.state;
+    const { model, message, array, validationOnChange } = this.state;
 
     return (
       <JssProvider generateClassName={generateClassName}>
@@ -95,6 +103,12 @@ export default class App extends React.Component {
           </AppBar>
 
           <form onSubmit={this.onSubmit} noValidate>
+            <FieldSwitch
+              label={`Validation on ${validationOnChange ? 'Change' : 'Blur'}`}
+              checked={validationOnChange}
+              onChange={this.handleValidationOn}
+            />
+
             <Card style={{ overflow: 'visible' }}>
               <ValidationContext ref={(ref: any) => this.validationContext = ref}>
                 <CardContent>

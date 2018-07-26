@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography/Typography';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import * as React from 'react';
 
+import { getConfig } from '../../config';
 import { WithStyles } from '../../decorators/withStyles';
 
 export interface IPropsSelectionBase extends IPropsFieldBase {
@@ -46,8 +47,12 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
         event.target.checked;
     }
 
-    this.setState({ touched: true });
+    getConfig().validationOn === 'onChange' && this.setState({ showError: true });
     this.props.onChange(value);
+  }
+
+  onBlur = (e: any) => {
+    getConfig().validationOn === 'onBlur' && this.setState({ showError: true });
   }
 
   render() {
@@ -62,12 +67,14 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
               checked={true}
               disabled={disabled}
               onChange={this.onChange}
+              onBlur={this.onBlur}
               value={(value || '').toString()}
             /> :
             <Component
               checked={false}
               disabled={disabled}
               onChange={this.onChange}
+              onBlur={this.onBlur}
               value={(value || '').toString()}
             />
         }

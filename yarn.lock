@@ -48,9 +48,9 @@
   dependencies:
     recompose "^0.26.0 || ^0.27.0"
 
-"@react-form-fields/core@>=1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.0.7.tgz#eac365928975e3256bcb47ef0c22df0ab5d2f440"
+"@react-form-fields/core@>=1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.1.0.tgz#1823cf20e7a8522ce80eea451f677dab985a34fc"
   dependencies:
     react ">=16.3.0"
     tslib ">=1.9.0"

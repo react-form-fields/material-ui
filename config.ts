@@ -3,11 +3,19 @@ import * as coreConfig from '@react-form-fields/core/config';
 declare module '@react-form-fields/core/config' {
   interface IConfig {
     dateLocale?: string;
+    validationOn?: 'onChange' | 'onBlur' | 'onSubmit';
   }
 }
 
+const defaultConfig: coreConfig.IConfig = {
+  validationOn: 'onChange'
+}
+
 export function getConfig(): coreConfig.IConfig {
-  return coreConfig.getConfig() || {};
+  return {
+    ...defaultConfig,
+    ...(coreConfig.getConfig() || {})
+  };
 }
 
 export function setConfig(config: coreConfig.IConfig) {

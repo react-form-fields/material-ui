@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField/TextField';
 import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
 import * as React from 'react';
 
+import { getConfig } from '../config';
 import { ITextFieldProps } from '../interfaces/props';
 
 interface IProps extends ITextFieldProps {
@@ -17,8 +18,13 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
   onChange = (event: any) => {
     const value = event.target ? event.target.value : event;
 
-    this.setState({ touched: true });
+    getConfig().validationOn === 'onChange' && this.setState({ showError: true });
     this.props.onChange(value);
+  }
+
+  onBlur = (e: any) => {
+    this.props.onBlur && this.props.onBlur(e);
+    getConfig().validationOn === 'onBlur' && this.setState({ showError: true });
   }
 
   render() {
@@ -39,6 +45,7 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
             error: !!this.errorMessage,
             helperText: this.errorMessage,
             onChange: this.onChange,
+            onBlur: this.onBlur,
             submitted: null,
             touched: null,
             loading: null

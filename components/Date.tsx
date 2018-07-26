@@ -24,8 +24,13 @@ export default class FieldDate extends FieldCoreBase<IProps> {
   onChange = (value: DateTime) => {
     const date = value ? value.toJSDate() : null;
 
-    this.setState({ touched: true });
+    getConfig().validationOn === 'onChange' && this.setState({ showError: true });
     this.props.onChange(date);
+  }
+
+  onBlur = (e: any) => {
+    this.props.onBlur && this.props.onBlur(e);
+    getConfig().validationOn === 'onBlur' && this.setState({ showError: true });
   }
 
   render() {
@@ -53,6 +58,7 @@ export default class FieldDate extends FieldCoreBase<IProps> {
             helperText={this.errorMessage || helperText}
             required={this.isRequired}
             onChange={this.onChange}
+            onBlur={this.onBlur}
           />
         </MuiPickersUtilsProvider>
       </React.Fragment>

@@ -15,6 +15,7 @@ import {
 } from 'react-autosuggest';
 import * as Autosuggest from 'react-autosuggest';
 
+import { getConfig } from '../../config';
 import { WithStyles } from '../../decorators/withStyles';
 import { ITextFieldProps } from '../../interfaces/props';
 import Input from './Input';
@@ -80,7 +81,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
   }
 
   onChange = (value: any) => {
-    this.setState({ touched: true });
+    getConfig().validationOn === 'onChange' && this.setState({ showError: true });
     this.props.onChange(value);
   }
 
@@ -94,6 +95,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
 
   handleBlur = () => {
     const { value, options } = this.props;
+    getConfig().validationOn === 'onBlur' && this.setState({ showError: true });
 
     if (!this.state.term) {
       return this.handleClearValue();
