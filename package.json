@@ -10,7 +10,7 @@
     "validation",
     "material"
   ],
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
@@ -49,12 +49,11 @@
     "react": ">=16.0.0"
   },
   "devDependencies": {
-    "@types/luxon": "1.2.1",
-    "@types/node": "10.5.2",
-    "@types/react-autosuggest": "9.3.4",
-    "@types/react-color": "2.13.5",
+    "@types/luxon": "1.2.2",
+    "@types/react-autosuggest": "9.3.5",
+    "@types/react-color": "2.13.6",
     "@types/validatorjs": "3.7.1",
     "husky": "0.14.3",
-    "typescript": "2.9.2"
+    "typescript": "3.0.1"
   }
 }

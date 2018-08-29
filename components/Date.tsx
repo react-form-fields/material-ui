@@ -3,14 +3,14 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
 import { DateTime } from 'luxon';
 import DatePicker from 'material-ui-pickers/DatePicker';
+import { DatePickerWrapperProps } from 'material-ui-pickers/DatePicker/DatePickerWrapper';
 import DateUtils from 'material-ui-pickers/utils/luxon-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import * as React from 'react';
 
 import { getConfig } from '../config';
-import { ITextFieldProps } from '../interfaces/props';
 
-interface IProps extends ITextFieldProps {
+interface IProps extends DatePickerWrapperProps {
   value: Date;
   onChange: (value: Date) => void;
   minDate?: Date;
@@ -34,7 +34,7 @@ export default class FieldDate extends FieldCoreBase<IProps> {
   }
 
   render() {
-    const { value, label, format, helperText, validationContext, ...extraProps } = this.props;
+    const { value, label, format, helperText, ...extraProps } = this.props;
 
     return (
       <React.Fragment>
