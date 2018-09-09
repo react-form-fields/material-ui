@@ -2,13 +2,15 @@ import * as coreConfig from '@react-form-fields/core/config';
 
 declare module '@react-form-fields/core/config' {
   interface IConfig {
-    dateLocale?: string;
+    dateLocale?: any;
+    dateFormat?: string;
     validationOn?: 'onChange' | 'onBlur' | 'onSubmit';
   }
 }
 
 const defaultConfig: coreConfig.IConfig = {
-  validationOn: 'onChange'
+  validationOn: 'onChange',
+  dateFormat: 'dd/MM/yyyy'
 }
 
 export function getConfig(): coreConfig.IConfig {

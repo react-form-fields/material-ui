@@ -1,16 +1,19 @@
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
-import { DateTime } from 'luxon';
+import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import DatePicker from 'material-ui-pickers/DatePicker';
 import { DatePickerWrapperProps } from 'material-ui-pickers/DatePicker/DatePickerWrapper';
-import DateUtils from 'material-ui-pickers/utils/luxon-utils';
+import DateUtils from 'material-ui-pickers/utils/date-fns-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import * as React from 'react';
 
 import { getConfig } from '../config';
 
-interface IProps extends DatePickerWrapperProps {
+type PropsResolver = {
+  [K in Exclude<keyof IPropsFieldBase, keyof DatePickerWrapperProps | 'mask'>]?: IPropsFieldBase[K]
+};
+
+interface IProps extends DatePickerWrapperProps, PropsResolver {
   value: Date;
   onChange: (value: Date) => void;
   minDate?: Date;
@@ -21,9 +24,7 @@ interface IProps extends DatePickerWrapperProps {
 }
 
 export default class FieldDate extends FieldCoreBase<IProps> {
-  onChange = (value: DateTime) => {
-    const date = value ? value.toJSDate() : null;
-
+  onChange = (date?: Date) => {
     getConfig().validationOn === 'onChange' && this.setState({ showError: true });
     this.props.onChange(date);
   }
@@ -49,7 +50,7 @@ export default class FieldDate extends FieldCoreBase<IProps> {
             cancelLabel={'Cancelar'}
             label={label}
             value={value || null}
-            format={format || 'D'}
+            format={format || getConfig().dateFormat}
             fullWidth={true}
             margin={'normal'}
             leftArrowIcon={<ChevronLeftIcon />}

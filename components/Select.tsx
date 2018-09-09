@@ -10,6 +10,7 @@ import { ITextFieldProps } from '../interfaces/props';
 
 interface IProps extends ITextFieldProps {
   options?: { value: string | number, label: string }[];
+  emptyOption?: boolean;
   loading?: boolean;
   onChange: (value: any) => void;
 }
@@ -28,7 +29,7 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
   }
 
   render() {
-    const { value, options, children, loading } = this.props;
+    const { value, options, children, loading, emptyOption } = this.props;
 
     return (
       <React.Fragment>
@@ -58,9 +59,9 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
             )
           }}
         >
-          <MenuItem value={''}>
-            Selecione...
-          </MenuItem>
+          {emptyOption &&
+            <MenuItem value={''}>Selecione...</MenuItem>
+          }
           {(options || []).map(option => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}

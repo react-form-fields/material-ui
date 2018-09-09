@@ -73,7 +73,7 @@ All [material-ui-pickers](https://github.com/dmtrKovalenko/material-ui-pickers) 
 | maxDate       | false    | Date           |                           |
 | disablePast   | false    | boolean        |                           |
 | disableFuture | false    | boolean        |                           |
-| format        | false    | string         | luxon string format       |
+| format        | false    | string         | date fns string format       |
 | locale        | false    | string         | use dateLocale as default |
 | onChange      | true     | Function(date) |                           |
 
