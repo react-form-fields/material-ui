@@ -5,7 +5,7 @@ interface IProps {
   onSubmit: (valid: boolean) => void;
 }
 
-export class FormValidation extends React.PureComponent<IProps> {
+export default class FormValidation extends React.PureComponent<IProps> {
   private validationContext: ValidationContext;
 
   private bindValidationContext = (validationContext: ValidationContext): void => {
