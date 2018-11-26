@@ -19,6 +19,10 @@ export default class FormValidation extends React.PureComponent<IProps> {
     this.props.onSubmit(isValid);
   }
 
+  isValid = (formSubmitted: boolean = true) => {
+    return this.validationContext.isValid(formSubmitted);
+  }
+
   reset = () => {
     this.validationContext.reset();
   }
