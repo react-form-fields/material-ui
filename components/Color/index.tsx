@@ -19,9 +19,8 @@ export default class FieldColor extends FieldCoreBase<IProps, IState> {
     this.state = { ...this.state, showPicker: false };
   }
 
-  setShowPicker = (showPicker: boolean) => {
-    this.setState({ showPicker });
-  }
+  showPicker = () => this.setState({ showPicker: true });
+  hidePicker = () => this.setState({ showPicker: false });
 
   onChange = (event: any) => {
     getConfig().validationOn === 'onChange' && this.setState({ showError: true });
@@ -56,14 +55,14 @@ export default class FieldColor extends FieldCoreBase<IProps, IState> {
             touched: null,
             loading: null
           }}
-          onClick={() => this.setShowPicker(true)}
+          onClick={this.showPicker}
           InputProps={{ style: { color: value } }}
         />
         {showPicker && (
           <PickerDialog
             value={value || ''}
-            onDismiss={() => this.setShowPicker(false)}
-            onChange={e => this.onChange(e)}
+            onDismiss={this.hidePicker}
+            onChange={this.onChange}
           />
         )}
       </React.Fragment>

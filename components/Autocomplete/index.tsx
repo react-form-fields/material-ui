@@ -126,6 +126,8 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
     this.onChange(null);
   }
 
+  shouldRenderSuggestions = () => true;
+
   render() {
     const { term, suggestions } = this.state;
     const { classes, placeholder, disabled, label } = this.props;
@@ -144,7 +146,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
           }}
           renderInputComponent={Input}
           renderSuggestionsContainer={SuggestionsContainer}
-          shouldRenderSuggestions={() => true}
+          shouldRenderSuggestions={this.shouldRenderSuggestions}
           onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
           onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
           getSuggestionValue={this.getSuggestionValue}

@@ -62,7 +62,7 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
       <FormControlLabel
         className={helperText ? classes.containerAlign : null}
         control={
-          checked ? //force recreation 
+          checked ? //force recreation
             <Component
               checked={true}
               disabled={disabled}

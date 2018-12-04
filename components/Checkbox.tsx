@@ -5,10 +5,12 @@ import FieldSelectionBase, { IPropsSelectionBase } from './Abstract/SelectionBas
 
 export default class FieldCheckbox extends React.PureComponent<IPropsSelectionBase> {
   render() {
-    return <FieldSelectionBase
-      {...this.props}
-      value={this.props.value || null}
-      Component={Checkbox}
-    />;
+    return (
+      <FieldSelectionBase
+        {...this.props}
+        value={this.props.value || null}
+        Component={Checkbox}
+      />
+    );
   }
 }

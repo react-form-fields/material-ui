@@ -5,9 +5,11 @@ import FieldSelectionBase, { IPropsSelectionBase } from './Abstract/SelectionBas
 
 export default class FieldRadio extends React.PureComponent<IPropsSelectionBase> {
   render() {
-    return <FieldSelectionBase
-      {...this.props}
-      Component={Radio}
-    />;
+    return (
+      <FieldSelectionBase
+        {...this.props}
+        Component={Radio}
+      />
+    );
   }
 }

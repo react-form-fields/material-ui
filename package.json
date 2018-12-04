@@ -10,7 +10,7 @@
     "validation",
     "material"
   ],
-  "version": "1.10.0",
+  "version": "1.10.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
@@ -28,8 +28,13 @@
   "scripts": {
     "docs:dev": "(cd docs/project && yarn && yarn start)",
     "docs:build": "sh docs/build.sh",
-    "precommit": "yarn tsc --noEmit",
     "prepare": "yarn tsc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "concurrently -r \"yarn tslint -p tsconfig.json\" \"yarn tsc --noEmit\"",
+      "post-merge": "yarn"
+    }
   },
   "dependencies": {
     "@react-form-fields/core": ">=1.1.0",
@@ -52,8 +57,12 @@
     "@types/react-autosuggest": "9.3.5",
     "@types/react-color": "2.13.6",
     "@types/validatorjs": "3.7.1",
-    "husky": "0.14.3",
+    "concurrently": "4.1.0",
+    "husky": "1.2.0",
     "react": ">=16.3.0",
+    "tslint": "5.11.0",
+    "tslint-eslint-rules": "5.4.0",
+    "tslint-react": "^3.6.0",
     "typescript": "3.0.1"
   }
 }
