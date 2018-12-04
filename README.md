@@ -45,11 +45,11 @@ yarn add @react-form-fields/material-ui
 
 ```jsx
   // import
-  import ValidationContext from '@react-form-fields/material-ui/components/ValidationContext';
+  import FormValidation from '@react-form-fields/material-ui/components/FormValidation';
   import FieldText from '@react-form-fields/material-ui/components/Text';
 
   // render()
-  <ValidationContext ref={ref=> this.validation = ref}>
+  <FormValidation onSubmit={this.onSubmit}>
     <FieldText
       ref={ref => this.field = ref}
       label='Email'
@@ -66,12 +66,17 @@ yarn add @react-form-fields/material-ui
       validation='required'
       onChange={v => this.setState({ password: v }))}
     />
-  </ValidationContext>
+  </FormValidation>
 
   // onSubmit()
-  if(this.validation.isValid()) { 
-    console.log('all fields are valid');
+  onSubmit = (isValid: boolean) => {
+    if(isValid) { 
+      console.log('all fields are valid');
+    }
+    // or by React.createRef
+    const isValid = this.formValidation.current.isValid();
   }
+  
 ```
 
 ### Config
@@ -80,8 +85,8 @@ Global Setup example:
 
 ```js
 import { setConfig } from '@react-form-fields/material-ui/config';
-import commonMasks from '@react-form-fields/material-ui/mask/common/pt-br';
-import validationMessage from '@react-form-fields/material-ui/validator/custom-languages/pt-br';
+import commonMasks from '@react-form-fields/core/mask/common/pt-br';
+import validationMessage from '@react-form-fields/core/validator/custom-languages/pt-br';
 
 setConfig({
   masks: commonMasks,

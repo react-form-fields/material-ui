@@ -13,6 +13,7 @@ API
 * [Autocomplete](#autocomplete)
 * [Hidden](#hidden)
 * [Custom Message](#custom-message)
+* [FormValidation](#form-validation)
 
 ### Base (Common props)
 
@@ -73,7 +74,7 @@ All [material-ui-pickers](https://github.com/dmtrKovalenko/material-ui-pickers) 
 | maxDate       | false    | Date           |                           |
 | disablePast   | false    | boolean        |                           |
 | disableFuture | false    | boolean        |                           |
-| format        | false    | string         | date fns string format       |
+| format        | false    | string         | date fns string format    |
 | locale        | false    | string         | use dateLocale as default |
 | onChange      | true     | Function(date) |                           |
 
@@ -116,3 +117,15 @@ All [material-ui](https://material-ui.com/api/select/) props and:
 |----------|----------|--------|--------------------|
 | rules    | true     | string | separated by comma |
 | children | true     | string | message            |
+
+
+#### Form Validation
+
+| Props    | Required | Type     | Description               |
+|----------|----------|----------|---------------------------|
+| onSubmit | true     | function | params = isValid: boolean |
+
+| Methods by Ref | Params                                | Return  | Description                  |
+|----------------|---------------------------------------|---------|------------------------------|
+| isValid        | formSubmitted: boolean = default true | boolean | Check is all field are valid |
+| reset          |                                       | void    | Reset the validation state   |

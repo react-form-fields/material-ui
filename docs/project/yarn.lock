@@ -16,10 +16,11 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@babel/runtime@7.0.0", "@babel/runtime@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0.tgz#adeb78fedfc855aa05bc041640f3f6f98e85424c"
+"@babel/runtime@7.0.0-beta.54", "@babel/runtime@^7.0.0-beta.42":
+  version "7.0.0-beta.54"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.54.tgz#39ebb42723fe7ca4b3e1b00e967e80138d47cadf"
   dependencies:
+    core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
 "@babel/runtime@7.0.0-beta.56":
@@ -33,45 +34,6 @@
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-rc.1.tgz#42f36fc5817911c89ea75da2b874054922967616"
   dependencies:
     regenerator-runtime "^0.12.0"
-
-"@babel/runtime@^7.0.0-beta.42":
-  version "7.0.0-beta.54"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.54.tgz#39ebb42723fe7ca4b3e1b00e967e80138d47cadf"
-  dependencies:
-    core-js "^2.5.7"
-    regenerator-runtime "^0.12.0"
-
-"@material-ui/core@>=3.0.0":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-3.0.3.tgz#505499a984feb5da9c13f73e1fa601d0da1acdc3"
-  dependencies:
-    "@babel/runtime" "7.0.0"
-    "@types/jss" "^9.5.3"
-    "@types/react-transition-group" "^2.0.8"
-    brcast "^3.0.1"
-    classnames "^2.2.5"
-    csstype "^2.5.2"
-    debounce "^1.1.0"
-    deepmerge "^2.0.1"
-    dom-helpers "^3.2.1"
-    hoist-non-react-statics "^2.5.0"
-    is-plain-object "^2.0.4"
-    jss "^9.3.3"
-    jss-camel-case "^6.0.0"
-    jss-default-unit "^8.0.2"
-    jss-global "^3.0.0"
-    jss-nested "^6.0.1"
-    jss-props-sort "^6.0.0"
-    jss-vendor-prefixer "^7.0.0"
-    keycode "^2.1.9"
-    normalize-scroll-left "^0.1.2"
-    popper.js "^1.14.1"
-    prop-types "^15.6.0"
-    react-event-listener "^0.6.2"
-    react-jss "^8.1.0"
-    react-transition-group "^2.2.1"
-    recompose "0.28.0 - 0.30.0"
-    warning "^4.0.1"
 
 "@material-ui/core@^1.2.0":
   version "1.4.1"
@@ -106,14 +68,7 @@
     scroll "^2.0.3"
     warning "^4.0.1"
 
-"@material-ui/icons@>=3.0.0":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-3.0.1.tgz#671fb3d04dcaf9351dbbd2bf82ae2ae72e3d93cd"
-  dependencies:
-    "@babel/runtime" "7.0.0"
-    recompose "^0.29.0"
-
-"@react-form-fields/core@1.1.0", "@react-form-fields/core@>=1.1.0":
+"@react-form-fields/core@>=1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.1.0.tgz#1823cf20e7a8522ce80eea451f677dab985a34fc"
   dependencies:
@@ -121,17 +76,15 @@
     tslib ">=1.9.0"
     validatorjs ">=3.0.0"
 
-"@react-form-fields/material-ui@1.8.7":
-  version "1.8.7"
-  resolved "https://registry.yarnpkg.com/@react-form-fields/material-ui/-/material-ui-1.8.7.tgz#bafba59f73f8748a938c8194932e13e5daa26983"
+"@react-form-fields/material-ui@1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@react-form-fields/material-ui/-/material-ui-1.10.0.tgz#f4c5a279e48b717d6a53469da4184514a6e93364"
+  integrity sha512-sDGCcQyoKvCeXtNQuJnstxxS4b3/3SMki1QAW/jsB6kjazgpw3FnzyD/xYpO1n1Ft4rCZWBstj5mmcGCYs8N+Q==
   dependencies:
-    "@material-ui/core" ">=3.0.0"
-    "@material-ui/icons" ">=3.0.0"
     "@react-form-fields/core" ">=1.1.0"
     autosuggest-highlight ">=3.0.0"
     date-fns ">=2.0.0-alpha.16"
-    material-ui-pickers ">=1.0.0-rc.13"
-    react ">=16.3.0"
+    material-ui-pickers "1.0.0-rc.13"
     react-autosuggest ">=9.0.0"
     react-color ">=2.14.1"
     tslib ">=1.9.2"
@@ -4616,11 +4569,12 @@ material-colors@^1.2.1:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
 
-material-ui-pickers@>=1.0.0-rc.13:
-  version "1.0.0-rc.14"
-  resolved "https://registry.yarnpkg.com/material-ui-pickers/-/material-ui-pickers-1.0.0-rc.14.tgz#e36a0c49b42931ce2d418292929732c7e53df03f"
+material-ui-pickers@1.0.0-rc.13:
+  version "1.0.0-rc.13"
+  resolved "https://registry.yarnpkg.com/material-ui-pickers/-/material-ui-pickers-1.0.0-rc.13.tgz#3175d592b35764128d7acc47bb69fd55e8103ba0"
+  integrity sha512-CNeZwa4IDI2ZUZ4BTd54LYGe+Al0WLsU4EKFbL0aREs1qnKeo4XksB3R8Sr0201nYNcU17nJz5K+aDqFzIM+vA==
   dependencies:
-    "@babel/runtime" "^7.0.0"
+    "@babel/runtime" "7.0.0-beta.54"
     lodash.throttle "^4.1.1"
     react-event-listener "^0.6.2"
     react-text-mask "=5.4.1"
@@ -5411,10 +5365,6 @@ popper.js@^1.0.0:
   version "1.14.3"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.3.tgz#1438f98d046acf7b4d78cd502bf418ac64d4f095"
 
-popper.js@^1.14.1:
-  version "1.14.4"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.4.tgz#8eec1d8ff02a5a3a152dd43414a15c7b79fd69b6"
-
 portfinder@^1.0.9:
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
@@ -5999,7 +5949,7 @@ react-event-listener@^0.6.2:
     prop-types "^15.6.0"
     warning "^4.0.1"
 
-react-jss@^8.1.0:
+react-jss@^8.1.0, react-jss@^8.6.1:
   version "8.6.1"
   resolved "https://registry.yarnpkg.com/react-jss/-/react-jss-8.6.1.tgz#a06e2e1d2c4d91b4d11befda865e6c07fbd75252"
   dependencies:
@@ -6159,17 +6109,6 @@ realpath-native@^1.0.0:
   dependencies:
     util.promisify "^1.0.0"
 
-"recompose@0.28.0 - 0.30.0":
-  version "0.30.0"
-  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.30.0.tgz#82773641b3927e8c7d24a0d87d65aeeba18aabd0"
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    change-emitter "^0.1.2"
-    fbjs "^0.8.1"
-    hoist-non-react-statics "^2.3.1"
-    react-lifecycles-compat "^3.0.2"
-    symbol-observable "^1.0.4"
-
 recompose@^0.27.0:
   version "0.27.1"
   resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.27.1.tgz#1a49e931f183634516633bbb4f4edbfd3f38a7ba"
@@ -6186,17 +6125,6 @@ recompose@^0.28.0:
   resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.28.2.tgz#19e679227bdf979e0d31b73ffe7ae38c9194f4a7"
   dependencies:
     "@babel/runtime" "7.0.0-beta.56"
-    change-emitter "^0.1.2"
-    fbjs "^0.8.1"
-    hoist-non-react-statics "^2.3.1"
-    react-lifecycles-compat "^3.0.2"
-    symbol-observable "^1.0.4"
-
-recompose@^0.29.0:
-  version "0.29.0"
-  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.29.0.tgz#f1a4e20d5f24d6ef1440f83924e821de0b1bccef"
-  dependencies:
-    "@babel/runtime" "^7.0.0"
     change-emitter "^0.1.2"
     fbjs "^0.8.1"
     hoist-non-react-statics "^2.3.1"

@@ -3,16 +3,14 @@ import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/componen
 import * as React from 'react';
 
 import { getConfig } from '../../config';
-import { ITextFieldProps } from '../../interfaces/props';
+import { IBaseFieldProps, TextFieldPropsResolver } from '../../interfaces/props';
 import PickerDialog from './PickerDialog';
 
 interface IState extends IStateFieldBase {
   showPicker: boolean;
 }
 
-interface IProps extends ITextFieldProps {
-  value: string;
-  onChange: (value: string) => void;
+interface IProps extends IBaseFieldProps, TextFieldPropsResolver {
 }
 
 export default class FieldColor extends FieldCoreBase<IProps, IState> {

@@ -7,6 +7,7 @@
 **/*.js.map
 **/*.d.ts
 !declarations/*.d.ts
+!docs/project/src/*.d.ts
 !docs/**/*.js
 !docs/**/*.js.map
 

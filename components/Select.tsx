@@ -1,18 +1,22 @@
-import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
-import InputAdornment from '@material-ui/core/InputAdornment/InputAdornment';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
-import TextField from '@material-ui/core/TextField/TextField';
+import Select from '@material-ui/core/Select';
 import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
 import * as React from 'react';
 
 import { getConfig } from '../config';
-import { ITextFieldProps } from '../interfaces/props';
+import { IBaseFieldProps, SelectPropsResolver } from '../interfaces/props';
 
-interface IProps extends ITextFieldProps {
+interface IProps extends IBaseFieldProps, SelectPropsResolver {
   options?: { value: string | number, label: string }[];
-  emptyOption?: boolean;
   loading?: boolean;
+  helperText?: string;
   onChange: (value: any) => void;
+  emptyOption?: string;
 }
 
 export default class FieldSelect extends FieldCoreBase<IProps> {
@@ -29,46 +33,46 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
   }
 
   render() {
-    const { value, options, children, loading, emptyOption } = this.props;
+    const { value, options, children, label, loading, helperText, emptyOption, ...extra } = this.props;
 
     return (
       <React.Fragment>
         {super.render()}
 
-        <TextField
-          {...{
-            fullWidth: true,
-            margin: 'normal',
-            ...this.props,
-            value: !value ? '' : value,
-            required: this.isRequired,
-            select: true,
-            error: !!this.errorMessage,
-            helperText: this.errorMessage,
-            onChange: this.onChange,
-            onBlur: this.onBlur,
-            submitted: null,
-            touched: null,
-            loading: null
-          }}
-          InputProps={{
-            endAdornment: !loading ? null : (
-              <InputAdornment position='end'>
-                <CircularProgress size={20} />
-              </InputAdornment>
-            )
-          }}
-        >
-          {emptyOption &&
-            <MenuItem value={''}>Selecione...</MenuItem>
-          }
-          {(options || []).map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-          {children}
-        </TextField>
+        <FormControl margin='normal' fullWidth error={!!this.errorMessage}>
+          <InputLabel shrink={!!emptyOption} error={!!this.errorMessage}>{label}</InputLabel>
+          <Select
+            {...{
+              fullWidth: true,
+              endAdornment: !loading ? null : (
+                <InputAdornment position='end'>
+                  <CircularProgress size={20} />
+                </InputAdornment>
+              ),
+              ...extra,
+              displayEmpty: !!emptyOption,
+              value: !value ? '' : value,
+              required: this.isRequired,
+              error: !!this.errorMessage,
+              onChange: this.onChange,
+              onBlur: this.onBlur,
+              submitted: null,
+              touched: null,
+              loading: null
+            }}
+          >
+            {emptyOption &&
+              <MenuItem value={''}>{emptyOption}</MenuItem>
+            }
+            {(options || []).map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+            {children}
+          </Select>
+          <FormHelperText error={!!this.errorMessage}>{this.errorMessage || helperText}</FormHelperText>
+        </FormControl>
       </React.Fragment>
     );
   }

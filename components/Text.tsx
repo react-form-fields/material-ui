@@ -5,9 +5,9 @@ import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
 import * as React from 'react';
 
 import { getConfig } from '../config';
-import { ITextFieldProps } from '../interfaces/props';
+import { IBaseFieldProps, TextFieldPropsResolver } from '../interfaces/props';
 
-interface IProps extends ITextFieldProps {
+interface IProps extends IBaseFieldProps, TextFieldPropsResolver {
   mask?: 'phone';
   loading?: boolean;
   value: any;

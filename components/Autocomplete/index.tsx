@@ -17,7 +17,7 @@ import * as Autosuggest from 'react-autosuggest';
 
 import { getConfig } from '../../config';
 import { WithStyles } from '../../decorators/withStyles';
-import { ITextFieldProps } from '../../interfaces/props';
+import { IBaseFieldProps, TextFieldPropsResolver } from '../../interfaces/props';
 import Input from './Input';
 import SuggestionsContainer from './SuggestionsContainer';
 
@@ -27,7 +27,7 @@ interface IState extends IStateFieldBase {
   suggestions: IProps['options'][0][];
 }
 
-interface IProps extends ITextFieldProps {
+interface IProps extends IBaseFieldProps, TextFieldPropsResolver {
   value: any;
   onChange: (value: any) => void;
   options: { value: any, label: string }[];
