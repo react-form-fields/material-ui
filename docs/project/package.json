@@ -7,9 +7,11 @@
     "@material-ui/core": "^1.2.0",
     "@react-form-fields/material-ui": "1.10.0",
     "mdi-react": "^3.4.0",
+    "monaco-editor": "^0.15.6",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-jss": "^8.6.1",
+    "react-monaco-editor": "^0.22.0",
     "react-scripts-ts": "2.16.0"
   },
   "scripts": {
@@ -23,6 +25,7 @@
     "@types/node": "^10.3.1",
     "@types/react": "^16.4.1",
     "@types/react-dom": "^16.0.6",
+    "raw-loader": "^0.5.1",
     "typescript": "3"
   }
 }
