@@ -12,7 +12,7 @@ export type SelectPropsResolver = {
 };
 
 export interface IBaseFieldProps extends IPropsFieldBase {
-  label: string;
+  label?: string;
   value: any;
   onChange: (value: any) => void;
   onBlur?: (ev: SyntheticEvent) => void;

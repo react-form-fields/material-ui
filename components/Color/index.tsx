@@ -38,8 +38,6 @@ export default class FieldColor extends FieldCoreBase<IProps, IState> {
 
     return (
       <React.Fragment>
-        {super.render()}
-
         <TextField
           {...{
             fullWidth: true,

@@ -8,13 +8,15 @@ import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsPr
 import * as React from 'react';
 
 import { getConfig } from '../config';
+import { IBaseFieldProps } from '../interfaces/props';
 
 type PropsResolver = {
   [K in Exclude<keyof IPropsFieldBase, keyof DatePickerWrapperProps | 'mask'>]?: IPropsFieldBase[K]
 };
 
-interface IProps extends DatePickerWrapperProps, PropsResolver {
+interface IProps extends PropsResolver, IBaseFieldProps {
   value: Date;
+  helperText: string;
   onChange: (value: Date) => void;
   minDate?: Date;
   maxDate?: Date;
@@ -40,8 +42,6 @@ export default class FieldDate extends FieldCoreBase<IProps> {
     return (
       <React.Fragment>
         <MuiPickersUtilsProvider utils={DateUtils} locale={getConfig().dateLocale}>
-          {super.render()}
-
           <DatePicker
             {...extraProps}
             clearable

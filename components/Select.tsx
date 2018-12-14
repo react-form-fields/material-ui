@@ -37,8 +37,6 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
 
     return (
       <React.Fragment>
-        {super.render()}
-
         <FormControl margin='normal' fullWidth error={!!this.errorMessage}>
           <InputLabel shrink={!!emptyOption} error={!!this.errorMessage}>{label}</InputLabel>
           <Select

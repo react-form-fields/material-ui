@@ -134,8 +134,6 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
 
     return (
       <React.Fragment>
-        {super.render()}
-
         <Autosuggest
           suggestions={suggestions}
           theme={{

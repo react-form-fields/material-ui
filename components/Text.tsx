@@ -41,8 +41,6 @@ export default class FieldText extends FieldCoreBase<IProps> {
 
     return (
       <React.Fragment>
-        {super.render()}
-
         <TextField
           {...{
             fullWidth: true,
@@ -59,7 +57,7 @@ export default class FieldText extends FieldCoreBase<IProps> {
             submitted: null,
             touched: null,
             loading: null
-          }}
+          } as any}
           InputProps={{
             endAdornment: !loading ? null : (
               <InputAdornment position='end'>

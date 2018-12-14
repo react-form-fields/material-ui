@@ -11,7 +11,6 @@ export default class FieldHidden extends FieldCoreBase<IProps> {
   render() {
     return (
       <React.Fragment>
-        {super.render()}
         {!!this.errorMessage &&
           <Typography color='error'>
             {this.errorMessage}
