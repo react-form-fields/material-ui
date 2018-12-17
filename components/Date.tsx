@@ -1,6 +1,7 @@
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
+import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import DatePicker from 'material-ui-pickers/DatePicker';
 import { DatePickerWrapperProps } from 'material-ui-pickers/DatePicker/DatePickerWrapper';
 import DateUtils from 'material-ui-pickers/utils/date-fns-utils';
@@ -41,6 +42,8 @@ export default class FieldDate extends FieldCoreBase<IProps> {
 
     return (
       <React.Fragment>
+        <ValidationContextRegister field={this} />
+
         <MuiPickersUtilsProvider utils={DateUtils} locale={getConfig().dateLocale}>
           <DatePicker
             {...extraProps}

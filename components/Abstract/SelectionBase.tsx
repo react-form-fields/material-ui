@@ -4,6 +4,7 @@ import { RadioProps } from '@material-ui/core/Radio';
 import { SwitchProps } from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography/Typography';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
+import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import * as React from 'react';
 
 import { getConfig } from '../../config';
@@ -59,42 +60,46 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
     const { value, label, checked, helperText, classes, disabled, Component } = this.props;
 
     return (
-      <FormControlLabel
-        className={helperText ? classes.containerAlign : null}
-        control={
-          checked ? //force recreation
-            <Component
-              checked={true}
-              disabled={disabled}
-              onChange={this.onChange}
-              onBlur={this.onBlur}
-              value={(value || '').toString()}
-            /> :
-            <Component
-              checked={false}
-              disabled={disabled}
-              onChange={this.onChange}
-              onBlur={this.onBlur}
-              value={(value || '').toString()}
-            />
-        }
-        label={
-          <React.Fragment>
-            {!!label &&
-              <React.Fragment>
-                <Typography className={helperText ? classes.labelAlign : null}>{label}</Typography>
-                {!!helperText &&
-                  <Typography className={classes.helperText}>
-                    {helperText}
-                  </Typography>
-                }
-              </React.Fragment>
-            }
-            {this.props.children}
-          </React.Fragment>
-        }
+      <React.Fragment>
+        <ValidationContextRegister field={this} />
 
-      />
+        <FormControlLabel
+          className={helperText ? classes.containerAlign : null}
+          control={
+            checked ? //force recreation
+              <Component
+                checked={true}
+                disabled={disabled}
+                onChange={this.onChange}
+                onBlur={this.onBlur}
+                value={(value || '').toString()}
+              /> :
+              <Component
+                checked={false}
+                disabled={disabled}
+                onChange={this.onChange}
+                onBlur={this.onBlur}
+                value={(value || '').toString()}
+              />
+          }
+          label={
+            <React.Fragment>
+              {!!label &&
+                <React.Fragment>
+                  <Typography className={helperText ? classes.labelAlign : null}>{label}</Typography>
+                  {!!helperText &&
+                    <Typography className={classes.helperText}>
+                      {helperText}
+                    </Typography>
+                  }
+                </React.Fragment>
+              }
+              {this.props.children}
+            </React.Fragment>
+          }
+
+        />
+      </React.Fragment>
     );
   }
 }

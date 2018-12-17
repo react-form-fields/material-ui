@@ -1,5 +1,6 @@
 import TextField from '@material-ui/core/TextField/TextField';
 import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
+import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import * as React from 'react';
 
 import { getConfig } from '../../config';
@@ -38,6 +39,8 @@ export default class FieldColor extends FieldCoreBase<IProps, IState> {
 
     return (
       <React.Fragment>
+        <ValidationContextRegister field={this} />
+
         <TextField
           {...{
             fullWidth: true,

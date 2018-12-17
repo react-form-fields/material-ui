@@ -2,13 +2,14 @@ import CircularProgress from '@material-ui/core/CircularProgress/CircularProgres
 import InputAdornment from '@material-ui/core/InputAdornment/InputAdornment';
 import TextField from '@material-ui/core/TextField/TextField';
 import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
+import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import * as React from 'react';
 
 import { getConfig } from '../config';
 import { IBaseFieldProps, TextFieldPropsResolver } from '../interfaces/props';
 
 interface IProps extends IBaseFieldProps, TextFieldPropsResolver {
-  mask?: 'phone';
+  mask?: string;
   loading?: boolean;
   value: any;
   onChange: (value: any) => void;
@@ -41,6 +42,8 @@ export default class FieldText extends FieldCoreBase<IProps> {
 
     return (
       <React.Fragment>
+        <ValidationContextRegister field={this} />
+
         <TextField
           {...{
             fullWidth: true,

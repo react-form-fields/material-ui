@@ -4,16 +4,17 @@ import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
 import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
+import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import * as match from 'autosuggest-highlight/match';
 import * as parse from 'autosuggest-highlight/parse';
 import * as React from 'react';
+import * as Autosuggest from 'react-autosuggest';
 import {
   ChangeEvent,
   RenderSuggestionParams,
   SuggestionSelectedEventData,
   SuggestionsFetchRequestedParams,
 } from 'react-autosuggest';
-import * as Autosuggest from 'react-autosuggest';
 
 import { getConfig } from '../../config';
 import { WithStyles } from '../../decorators/withStyles';
@@ -111,7 +112,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
 
   handleSuggestionsFetchRequested = ({ value }: SuggestionsFetchRequestedParams) => {
     const suggestions = this.props.options
-      .filter(o => o.label.toLowerCase().includes(value.toLowerCase()))
+      .filter(o => o.label.toString().toLowerCase().includes(value.toLowerCase()))
       .slice(0, 10);
 
     this.setState({ suggestions });
@@ -134,6 +135,8 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
 
     return (
       <React.Fragment>
+        <ValidationContextRegister field={this} />
+
         <Autosuggest
           suggestions={suggestions}
           theme={{

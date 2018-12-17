@@ -6,6 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 import Select from '@material-ui/core/Select';
 import FieldCoreBase from '@react-form-fields/core/components/FieldCoreBase';
+import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import * as React from 'react';
 
 import { getConfig } from '../config';
@@ -37,6 +38,8 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
 
     return (
       <React.Fragment>
+        <ValidationContextRegister field={this} />
+
         <FormControl margin='normal' fullWidth error={!!this.errorMessage}>
           <InputLabel shrink={!!emptyOption} error={!!this.errorMessage}>{label}</InputLabel>
           <Select
@@ -69,7 +72,9 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
             ))}
             {children}
           </Select>
-          <FormHelperText error={!!this.errorMessage}>{this.errorMessage || helperText}</FormHelperText>
+          {!!(this.errorMessage || helperText) &&
+            <FormHelperText error={!!this.errorMessage}>{this.errorMessage || helperText}</FormHelperText>
+          }
         </FormControl>
       </React.Fragment>
     );
