@@ -64,7 +64,7 @@ export default class FieldText extends FieldCoreBase<IProps> {
           InputProps={{
             endAdornment: !loading ? null : (
               <InputAdornment position='end'>
-                <CircularProgress color='secondary' size={25} />
+                <CircularProgress color='secondary' size={20} />
               </InputAdornment>
             ),
             ...(extraProps.InputProps || {})
