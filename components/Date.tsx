@@ -3,21 +3,19 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import DatePicker from 'material-ui-pickers/DatePicker';
-import { DatePickerWrapperProps } from 'material-ui-pickers/DatePicker/DatePickerWrapper';
-import DateUtils from 'material-ui-pickers/utils/date-fns-utils';
-import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+import { DatePickerModalProps } from 'material-ui-pickers/DatePicker/DatePickerModal';
 import * as React from 'react';
 
 import { getConfig } from '../config';
 import { IBaseFieldProps } from '../interfaces/props';
 
 type PropsResolver = {
-  [K in Exclude<keyof IPropsFieldBase, keyof DatePickerWrapperProps | 'mask'>]?: IPropsFieldBase[K]
+  [K in Exclude<keyof IPropsFieldBase, keyof DatePickerModalProps | 'mask'>]?: IPropsFieldBase[K]
 };
 
 interface IProps extends PropsResolver, IBaseFieldProps {
   value: Date;
-  helperText: string;
+  helperText?: string;
   onChange: (value: Date) => void;
   minDate?: Date;
   maxDate?: Date;
@@ -44,28 +42,26 @@ export default class FieldDate extends FieldCoreBase<IProps> {
       <React.Fragment>
         <ValidationContextRegister field={this} />
 
-        <MuiPickersUtilsProvider utils={DateUtils} locale={getConfig().dateLocale}>
-          <DatePicker
-            {...extraProps}
-            clearable
-            clearLabel={'Limpar'}
-            okLabel={'OK'}
-            cancelLabel={'Cancelar'}
-            label={label}
-            value={value || null}
-            format={format || getConfig().dateFormat}
-            fullWidth={true}
-            margin={'normal'}
-            leftArrowIcon={<ChevronLeftIcon />}
-            rightArrowIcon={<ChevronRightIcon />}
-            error={!!this.errorMessage}
-            helperText={this.errorMessage || helperText}
-            required={this.isRequired}
-            onChange={this.onChange}
-            onBlur={this.onBlur}
-          />
-        </MuiPickersUtilsProvider>
-      </React.Fragment>
+        <DatePicker
+          {...extraProps}
+          clearable
+          clearLabel={'Limpar'}
+          okLabel={'OK'}
+          cancelLabel={'Cancelar'}
+          label={label}
+          value={value || null}
+          format={format || getConfig().dateFormat}
+          fullWidth={true}
+          margin={'normal'}
+          leftArrowIcon={<ChevronLeftIcon />}
+          rightArrowIcon={<ChevronRightIcon />}
+          error={!!this.errorMessage}
+          helperText={this.errorMessage || helperText}
+          required={this.isRequired}
+          onChange={this.onChange}
+          onBlur={this.onBlur}
+        />
+      </React.Fragment >
     );
   }
 }
