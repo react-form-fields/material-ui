@@ -84,16 +84,24 @@ yarn add @react-form-fields/material-ui
 Global Setup example:
 
 ```js
-import { setConfig } from '@react-form-fields/material-ui/config';
 import commonMasks from '@react-form-fields/core/mask/common/pt-br';
 import validationMessage from '@react-form-fields/core/validator/custom-languages/pt-br';
+import locale from 'date-fns/locale/pt-BR';
 
-setConfig({
-  masks: commonMasks,
-  dateLocale: 'pt',
-  validation: validationMessage,
-  validationOn: 'onChange'
-});
+class App extends React.PureComponent {
+  render() {
+    return (
+      <FormFieldsContext config={{
+        masks: commonMasks,
+        dateLocale: locale,
+        validation: validationMessage,
+        validationOn: 'onChange'
+      }}>
+      {/* ... */}
+      </FormFieldsContext>
+    );
+  }
+}
 ```
 
 ## Validation Rules and Config
