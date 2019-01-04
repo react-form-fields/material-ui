@@ -67,16 +67,17 @@ All material-ui [radio](https://material-ui.com/api/radio/) props and:
 
 All [material-ui-pickers](https://github.com/dmtrKovalenko/material-ui-pickers) props and:
 
-| Props         | Required | Type           | Description               |
-|---------------|----------|----------------|---------------------------|
-| value         | true     | Date           |                           |
-| minDate       | false    | Date           |                           |
-| maxDate       | false    | Date           |                           |
-| disablePast   | false    | boolean        |                           |
-| disableFuture | false    | boolean        |                           |
-| format        | false    | string         | date fns string format    |
-| locale        | false    | string         | use dateLocale as default |
-| onChange      | true     | Function(date) |                           |
+| Props         | Required | Type           | Description                                       |
+|---------------|----------|----------------|---------------------------------------------------|
+| value         | true     | Date           |                                                   |
+| minDate       | false    | Date           |                                                   |
+| maxDate       | false    | Date           |                                                   |
+| disablePast   | false    | boolean        |                                                   |
+| disableFuture | false    | boolean        |                                                   |
+| format        | false    | string         | date fns string format                            |
+| locale        | false    | string         | use dateLocale as default                         |
+| onChange      | true     | Function(date) |                                                   |
+| keepTime      | false    | boolean        | by default the time part is removed from the date |
 
 #### Select
 

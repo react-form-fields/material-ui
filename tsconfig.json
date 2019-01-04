@@ -18,6 +18,7 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "importHelpers": true,
     "skipLibCheck": true

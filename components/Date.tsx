@@ -2,6 +2,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
+import dateFnsFormat from 'date-fns/format';
+import dateFnsParse from 'date-fns/parse';
 import DatePicker from 'material-ui-pickers/DatePicker';
 import { DatePickerModalProps } from 'material-ui-pickers/DatePicker/DatePickerModal';
 import * as React from 'react';
@@ -22,12 +24,21 @@ interface IProps extends PropsResolver, IBaseFieldProps {
   disablePast?: boolean;
   disableFuture?: boolean;
   format?: string;
+  keepTime?: boolean;
 }
 
 export default class FieldDate extends FieldCoreBase<IProps> {
+  removeTime = (date: Date) => {
+    if (this.props.keepTime) return date;
+
+    return dateFnsParse(dateFnsFormat(date, 'yyyy-MM-dd'), 'yyyy-MM-dd', new Date(), {
+      locale: getConfig().dateLocale
+    });
+  }
+
   onChange = (date?: Date) => {
     getConfig().validationOn === 'onChange' && this.setState({ showError: true });
-    this.props.onChange(date);
+    this.props.onChange(this.removeTime(date));
   }
 
   onBlur = (e: any) => {

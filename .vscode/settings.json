@@ -1,6 +1,5 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "tslint.enable": false,
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
