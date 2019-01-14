@@ -10,7 +10,7 @@
     "validation",
     "material"
   ],
-  "version": "1.11.7",
+  "version": "1.11.8",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
