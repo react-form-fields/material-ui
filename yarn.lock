@@ -94,10 +94,10 @@
     prop-types "^15.6.0"
     react-is "^16.6.3"
 
-"@react-form-fields/core@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.3.1.tgz#717fa6bbcb241d73c0b9d2b97c54e446c85f5e79"
-  integrity sha512-eYYI+KEP+MsDWXyr7xGr3joo4c+y28QJiusrbPMTom7gHxMKG6yqqMEjN8h1eaa/kxbDJZzzjhYhfnLmfnN9vA==
+"@react-form-fields/core@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.3.2.tgz#9adb0d144c002468e6720b75fb8cc5187bd2567c"
+  integrity sha512-vuxEwAAkcY64Za3PfKBhGnm9TvaPU6oFrHDN5MsSWvRPlKBhJZdGAYbxEmI3rTp8vRYsRw2F39QYrQ91Dl4kUw==
   dependencies:
     react ">=16.3.0"
     tslib ">=1.9.0"

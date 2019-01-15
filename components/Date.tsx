@@ -17,7 +17,7 @@ type PropsResolver = {
 
 interface IProps extends PropsResolver, IBaseFieldProps {
   value: Date;
-  helperText?: string;
+  helperText?: React.ReactNode;
   onChange: (value: Date) => void;
   minDate?: Date;
   maxDate?: Date;
