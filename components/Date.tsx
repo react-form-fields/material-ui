@@ -47,7 +47,7 @@ export default class FieldDate extends FieldCoreBase<IProps> {
   }
 
   render() {
-    const { value, label, format, helperText, validation, validationContext, ...extraProps } = this.props;
+    const { value, label, format, helperText, validation, validationContext, mask, ...extraProps } = this.props;
 
     return (
       <React.Fragment>

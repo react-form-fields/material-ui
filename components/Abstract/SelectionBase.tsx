@@ -1,7 +1,4 @@
-import { CheckboxProps } from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel/FormControlLabel';
-import { RadioProps } from '@material-ui/core/Radio';
-import { SwitchProps } from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography/Typography';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
@@ -19,10 +16,7 @@ export interface IPropsSelectionBase extends IPropsFieldBase {
 }
 
 interface IProps extends IPropsSelectionBase {
-  Component:
-  React.ComponentType<CheckboxProps> |
-  React.ComponentType<RadioProps> |
-  React.ComponentType<SwitchProps>;
+  Component: any;
   classes?: any;
 }
 
