@@ -40,8 +40,10 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
       <React.Fragment>
         <ValidationContextRegister field={this} />
 
-        <FormControl margin='normal' fullWidth error={!!this.errorMessage} variant={extra.variant}>
-          <InputLabel shrink={!!emptyOption} error={!!this.errorMessage} variant={extra.variant}>{label}</InputLabel>
+        <FormControl margin={extra.margin || 'normal'} fullWidth error={!!this.errorMessage} variant={extra.variant}>
+          {!!label &&
+            <InputLabel required={this.isRequired} shrink={!!emptyOption} error={!!this.errorMessage} variant={extra.variant}>{label}</InputLabel>
+          }
           <Select
             {...{
               fullWidth: true,
