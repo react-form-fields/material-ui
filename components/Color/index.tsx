@@ -45,7 +45,7 @@ export default class FieldColor extends FieldCoreBase<IProps, IState> {
           {...{
             fullWidth: true,
             margin: 'normal',
-            ...extraProps,
+            ...(extraProps) as any,
             required: this.isRequired,
             value: (value === undefined || value === null ? '' : value).toString(),
             error: !!this.errorMessage,

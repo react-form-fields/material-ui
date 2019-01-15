@@ -13,7 +13,7 @@ import { getConfig } from '../config';
 import { IBaseFieldProps, SelectPropsResolver } from '../interfaces/props';
 
 interface IProps extends IBaseFieldProps, SelectPropsResolver {
-  options?: { value: string | number, label: string }[];
+  options?: { value: string | number, label: string, disabled?: boolean }[];
   loading?: boolean;
   helperText?: string;
   onChange: (value: any) => void;
@@ -40,8 +40,8 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
       <React.Fragment>
         <ValidationContextRegister field={this} />
 
-        <FormControl margin='normal' fullWidth error={!!this.errorMessage}>
-          <InputLabel shrink={!!emptyOption} error={!!this.errorMessage}>{label}</InputLabel>
+        <FormControl margin='normal' fullWidth error={!!this.errorMessage} variant={extra.variant}>
+          <InputLabel shrink={!!emptyOption} error={!!this.errorMessage} variant={extra.variant}>{label}</InputLabel>
           <Select
             {...{
               fullWidth: true,
@@ -66,14 +66,14 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
               <MenuItem value={''}>{emptyOption}</MenuItem>
             }
             {(options || []).map(option => (
-              <MenuItem key={option.value} value={option.value}>
+              <MenuItem disabled={option.disabled} key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
             ))}
             {children}
           </Select>
           {!!(this.errorMessage || helperText) &&
-            <FormHelperText error={!!this.errorMessage}>{this.errorMessage || helperText}</FormHelperText>
+            <FormHelperText error={!!this.errorMessage} variant={extra.variant}>{this.errorMessage || helperText}</FormHelperText>
           }
         </FormControl>
       </React.Fragment>
