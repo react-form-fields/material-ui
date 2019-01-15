@@ -4,6 +4,8 @@ declare module '@react-form-fields/core/config' {
   interface IConfig {
     dateLocale?: Locale;
     dateFormat?: string;
+    editorLocale?: string;
+    editorToolbar?: object;
     validationOn?: 'onChange' | 'onBlur' | 'onSubmit';
   }
 }
