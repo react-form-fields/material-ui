@@ -116,6 +116,8 @@ All [react-draft-wysiwyg](https://jpuri.github.io/react-draft-wysiwyg/#/docs) pr
 | value    | true     | string           | HTML        |
 | onChange | true     | Function(string) | output HTML |
 
+You can pass toolbar as a prop or set through config
+
 #### Hidden
 
 | Props | Required | Type | Description |
