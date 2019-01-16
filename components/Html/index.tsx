@@ -45,7 +45,7 @@ interface IProps extends IBaseFieldProps, PropsResolver {
   }
 }))
 export default class FieldHtml extends FieldCoreBase<IProps, IState> {
-  localization = { locale: getConfig().editorLocale };
+  localization = { locale: getConfig().editorLocale || 'en' };
   defaultToolbar = {
     inline: { options: ['bold', 'italic'] },
     list: { options: ['unordered', 'ordered'] },
