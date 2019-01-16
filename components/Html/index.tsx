@@ -46,18 +46,6 @@ interface IProps extends IBaseFieldProps, PropsResolver {
 }))
 export default class FieldHtml extends FieldCoreBase<IProps, IState> {
   localization = { locale: getConfig().editorLocale || 'en' };
-  defaultToolbar = {
-    inline: { options: ['bold', 'italic'] },
-    list: { options: ['unordered', 'ordered'] },
-    embedded: { className: styles.hide },
-    fontSize: { className: styles.hide },
-    blockType: { className: styles.hide },
-    remove: { className: styles.hide },
-    colorPicker: { className: styles.hide },
-    fontFamily: { className: styles.hide },
-    textAlign: { className: styles.hide },
-    emoji: { className: styles.hide }
-  };
 
   static getDerivedStateFromProps(nextProps: IProps, currentState: IState): IState {
     let { editorState, lastValue } = currentState;
@@ -111,7 +99,7 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
   }
 
   get toolbar() {
-    return this.props.toolbar || getConfig().editorToolbar || this.defaultToolbar;
+    return this.props.toolbar || getConfig().editorToolbar;
   }
 
   render() {
