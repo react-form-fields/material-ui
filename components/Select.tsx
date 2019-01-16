@@ -15,7 +15,7 @@ import { IBaseFieldProps, SelectPropsResolver } from '../interfaces/props';
 interface IProps extends IBaseFieldProps, SelectPropsResolver {
   options?: { value: string | number, label: string, disabled?: boolean }[];
   loading?: boolean;
-  helperText?: string;
+  helperText?: React.ReactNode;
   onChange: (value: any) => void;
   emptyOption?: string;
 }
