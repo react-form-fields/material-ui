@@ -25,7 +25,7 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
     const value = event.target ? event.target.value : event;
 
     getConfig().validationOn === 'onChange' && this.setState({ showError: true });
-    this.props.onChange(value);
+    this.props.onChange(value === '' ? null : value);
   }
 
   onBlur = (e: any) => {
@@ -54,7 +54,7 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
               ),
               ...extra,
               displayEmpty: !!emptyOption,
-              value: !value && value !== 0 ? null : value,
+              value: !value && value !== 0 ? '' : value,
               required: this.isRequired,
               error: !!this.errorMessage,
               onChange: this.onChange,
@@ -65,7 +65,7 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
             }}
           >
             {emptyOption &&
-              <MenuItem value={null}>{emptyOption}</MenuItem>
+              <MenuItem value={''}>{emptyOption}</MenuItem>
             }
             {(options || []).map(option => (
               <MenuItem disabled={option.disabled} key={option.value} value={option.value}>
