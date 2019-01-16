@@ -11,6 +11,7 @@ API
 * [Switch](#switch)
 * [Color](#color)
 * [Autocomplete](#autocomplete)
+* [HTML](#html)
 * [Hidden](#hidden)
 * [Custom Message](#custom-message)
 * [FormValidation](#form-validation)
@@ -105,6 +106,15 @@ All [material-ui](https://material-ui.com/api/select/) props and:
 | value    | true     | any                                            |             |
 | options  | true     | object { value: string/number, label: string } |             |
 | onChange | true     | Function(string/number)                        |             |
+
+#### HTML
+
+All [react-draft-wysiwyg](https://jpuri.github.io/react-draft-wysiwyg/#/docs) props and:
+
+| Props    | Required | Type             | Description |
+|----------|----------|------------------|-------------|
+| value    | true     | string           | HTML        |
+| onChange | true     | Function(string) | output HTML |
 
 #### Hidden
 

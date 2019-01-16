@@ -54,7 +54,7 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
               ),
               ...extra,
               displayEmpty: !!emptyOption,
-              value: !value ? '' : value,
+              value: !value && value !== 0 ? null : value,
               required: this.isRequired,
               error: !!this.errorMessage,
               onChange: this.onChange,
@@ -65,7 +65,7 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
             }}
           >
             {emptyOption &&
-              <MenuItem value={''}>{emptyOption}</MenuItem>
+              <MenuItem value={null}>{emptyOption}</MenuItem>
             }
             {(options || []).map(option => (
               <MenuItem disabled={option.disabled} key={option.value} value={option.value}>
