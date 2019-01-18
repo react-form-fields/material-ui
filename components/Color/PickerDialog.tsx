@@ -12,8 +12,13 @@ interface IProps {
 }
 
 @WithStyles({
+  wrapper: {
+    position: 'relative',
+  },
   container: {
     position: 'absolute',
+    top: 0,
+    left: 0,
     zIndex: 2
   },
   position: {
@@ -29,9 +34,11 @@ export default class PickerDialog extends React.PureComponent<IProps> {
     const { value, onDismiss, onChange, classes } = this.props;
 
     return (
-      <div className={classes.container}>
-        <div className={classes.position} onClick={onDismiss} />
-        <ChromePicker color={value} onChange={onChange} />
+      <div className={classes.wrapper}>
+        <div className={classes.container}>
+          <div className={classes.position} onClick={onDismiss} />
+          <ChromePicker color={value} onChange={onChange} />
+        </div>
       </div>
     );
   }
