@@ -8,7 +8,7 @@ import { getConfig } from '@react-form-fields/core/config';
 import { ContentState, convertToRaw, EditorState, Modifier } from 'draft-js';
 import { stateFromHTML } from 'draft-js-import-html';
 import * as draftToHtml from 'draftjs-to-html';
-import * as htmlToDraft from 'html-to-draftjs';
+import htmlToDraft from 'html-to-draftjs';
 import * as React from 'react';
 import { Editor, EditorProps } from 'react-draft-wysiwyg';
 
@@ -45,26 +45,24 @@ interface IProps extends IBaseFieldProps, PropsResolver {
   }
 }))
 export default class FieldHtml extends FieldCoreBase<IProps, IState> {
+  changeTimeout: number;
   localization = { locale: getConfig().editorLocale || 'en' };
 
-  static getDerivedStateFromProps(nextProps: IProps, currentState: IState): IState {
-    let { editorState, lastValue } = currentState;
+  componentDidUpdate() {
+    let { lastValue } = this.state;
+    clearTimeout(this.changeTimeout);
 
-    if (lastValue !== nextProps.value) {
-      lastValue = nextProps.value;
+    if (lastValue !== this.props.value) {
+      this.changeTimeout = setTimeout(() => {
+        lastValue = this.props.value;
 
-      const blocksFromHtml = htmlToDraft(lastValue || '');
-      const { contentBlocks, entityMap } = blocksFromHtml;
+        const blocksFromHtml = htmlToDraft(lastValue || '');
+        const { contentBlocks, entityMap } = blocksFromHtml;
 
-      editorState = EditorState.createWithContent(ContentState.createFromBlockArray(contentBlocks, entityMap));
+        const editorState = EditorState.createWithContent(ContentState.createFromBlockArray(contentBlocks, entityMap));
+        this.setState({ editorState, lastValue });
+      }, 100);
     }
-
-    return {
-      ...currentState,
-      ...FieldCoreBase.getDerivedStateFromProps(nextProps, currentState),
-      editorState,
-      lastValue
-    };
   }
 
   onChange = (editorState: EditorState) => {
