@@ -94,14 +94,14 @@
     prop-types "^15.6.0"
     react-is "^16.6.3"
 
-"@react-form-fields/core@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.3.2.tgz#9adb0d144c002468e6720b75fb8cc5187bd2567c"
-  integrity sha512-vuxEwAAkcY64Za3PfKBhGnm9TvaPU6oFrHDN5MsSWvRPlKBhJZdGAYbxEmI3rTp8vRYsRw2F39QYrQ91Dl4kUw==
+"@react-form-fields/core@^1.4.5":
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.4.5.tgz#52744e8c2f8641f728f406631e27dfd1b8c81ab8"
+  integrity sha512-XQAJErtUi8pMD+yGjspvJ8ojv/kjlnarb3pKr8pQBwgc4wTiS4ylxl+buviS5LMNlFsvUAM1Zih4s26H3xGrHA==
   dependencies:
     react ">=16.3.0"
-    tslib ">=1.9.0"
-    validatorjs ">=3.0.0"
+    tslib ">=1.9.3"
+    validatorjs "^3.15.1"
 
 "@types/draft-js@*", "@types/draft-js@^0.10.27":
   version "0.10.27"
@@ -1452,7 +1452,7 @@ tslib@1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
   integrity sha512-f/qGG2tUkrISBlQZEjEqoZ3B2+npJjIf04H1wuAv9iA8i04Icp+61KRXxFdha22670NJopsZCIjhC3SnjPRKrQ==
 
-tslib@>=1.9.0, tslib@>=1.9.3, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
+tslib@>=1.9.3, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
   integrity sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
@@ -1528,7 +1528,7 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-validatorjs@>=3.0.0, validatorjs@>=3.15.1:
+validatorjs@>=3.15.1, validatorjs@^3.15.1:
   version "3.15.1"
   resolved "https://registry.yarnpkg.com/validatorjs/-/validatorjs-3.15.1.tgz#e674b6330c1432913a81128cdb7ff679463d4d2d"
   integrity sha512-9hJWC4sYaEjf3a6MPKrERzRU69btS/pDy+t5IX8pRFqkI8UI2qj8nR3n2XlVzxRZMQGrf6HrtfDkoRcJavkLlg==

@@ -29,7 +29,7 @@ interface IProps extends PropsResolver, IBaseFieldProps {
 
 export default class FieldDate extends FieldCoreBase<IProps> {
   removeTime = (date: Date) => {
-    if (this.props.keepTime) return date;
+    if (!date || this.props.keepTime) return date;
 
     return dateFnsParse(dateFnsFormat(date, 'yyyy-MM-dd'), 'yyyy-MM-dd', new Date(), {
       locale: getConfig().dateLocale
@@ -56,9 +56,9 @@ export default class FieldDate extends FieldCoreBase<IProps> {
         <DatePicker
           {...extraProps}
           clearable
-          clearLabel={'Limpar'}
-          okLabel={'OK'}
-          cancelLabel={'Cancelar'}
+          clearLabel={getConfig().dateLabels.clear}
+          okLabel={getConfig().dateLabels.ok}
+          cancelLabel={getConfig().dateLabels.cancel}
           label={label}
           value={value || null}
           format={format || getConfig().dateFormat}
