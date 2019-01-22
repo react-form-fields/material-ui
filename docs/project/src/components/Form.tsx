@@ -6,12 +6,13 @@ import CustomMessage from '@react-form-fields/material-ui/components/CustomMessa
 import FieldDate from '@react-form-fields/material-ui/components/Date';
 import FormValidation from '@react-form-fields/material-ui/components/FormValidation';
 import FieldHidden from '@react-form-fields/material-ui/components/Hidden';
+import FieldHtml from '@react-form-fields/material-ui/components/Html';
 import FieldRadio from '@react-form-fields/material-ui/components/Radio';
 import FieldSelect from '@react-form-fields/material-ui/components/Select';
 import FieldSwitch from '@react-form-fields/material-ui/components/Switch';
 import FieldText from '@react-form-fields/material-ui/components/Text';
 import { setConfig } from '@react-form-fields/material-ui/config';
-import { CloseIcon } from 'mdi-react';
+import CloseIcon from 'mdi-react/CloseIcon';
 import React, { PureComponent } from 'react';
 
 interface IState {
@@ -241,11 +242,19 @@ export default class Form extends PureComponent<{}, IState> {
               onChange={(v => this.setState({ model: { ...model, autocompleteId: v } }))}
             />
 
+            <FieldHtml
+              label='HTML'
+              name='html'
+              value={model.html}
+              validation='required'
+              onChange={(v => this.setState({ model: { ...model, html: v } }))}
+            />
+
           </CardContent>
 
           <CardActions style={{ justifyContent: 'flex-end' }}>
             <Button onClick={this.handleClear}>Clear</Button>
-            <Button type='submit' color='secondary' variant='raised'>Save</Button>
+            <Button type='submit' color='secondary' variant='contained'>Save</Button>
           </CardActions>
         </Card>
 

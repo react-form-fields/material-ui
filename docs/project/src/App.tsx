@@ -2,22 +2,21 @@ import './App.css';
 
 import formCode from '!raw-loader!./components/Form';
 import { AppBar, Collapse, CssBaseline, Grid, IconButton, Toolbar, Tooltip, Typography } from '@material-ui/core';
-import { createGenerateClassName } from '@material-ui/core/styles';
-import { CodeTagsIcon, GithubCircleIcon } from 'mdi-react';
+import FormFieldsContext from '@react-form-fields/material-ui/components/Context';
+import ConfigBuilder from '@react-form-fields/material-ui/config/builder';
+import CodeTagsIcon from 'mdi-react/CodeTagsIcon';
+import GithubCircleIcon from 'mdi-react/GithubCircleIcon';
 import * as React from 'react';
-import JssProvider from 'react-jss/lib/JssProvider';
 
 import Code from './components/Code';
 import Form from './components/Form';
-
-const generateClassName = createGenerateClassName({
-    dangerouslyUseGlobalCSS: true
-});
 
 interface IState {
     showCode: boolean;
 }
 
+const fieldConfig = new ConfigBuilder()
+    .build();
 
 export default class App extends React.Component<{}, IState> {
     constructor(props: {}) {
@@ -33,7 +32,8 @@ export default class App extends React.Component<{}, IState> {
         const { showCode } = this.state;
 
         return (
-            <JssProvider generateClassName={generateClassName}>
+            <FormFieldsContext config={fieldConfig}>
+
                 <div className='root'>
                     <CssBaseline />
                     <AppBar elevation={1}>
@@ -65,7 +65,7 @@ export default class App extends React.Component<{}, IState> {
                     </Collapse>
                     <Form />
                 </div>
-            </JssProvider>
+            </FormFieldsContext>
         );
     }
 }

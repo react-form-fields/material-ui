@@ -86,19 +86,19 @@ Global Setup example:
 
 ```js
 import FormFieldsContext from '@react-form-fields/material-ui/components/Context';
-import commonMasks from '@react-form-fields/core/mask/common/pt-br';
-import validationMessage from '@react-form-fields/core/validator/custom-languages/pt-br';
-import locale from 'date-fns/locale/pt-BR';
+import ConfigBuilder from '@react-form-fields/material-ui/config/builder';
+import lang from '@react-form-fields/material-ui/lang/pt-br';
+
+const fieldConfig = new ConfigBuilder()
+  .fromLang(lang)
+  // Add new mask:
+  //.addMask('money', value => `R$ ${value}`, value => value.replace(/\D/gi, ''))
+  .build();
 
 class App extends React.PureComponent {
   render() {
     return (
-      <FormFieldsContext config={{
-        masks: commonMasks,
-        dateLocale: locale,
-        validation: validationMessage,
-        validationOn: 'onChange'
-      }}>
+      <FormFieldsContext config={fieldConfig}>
       {/* ... */}
       </FormFieldsContext>
     );
