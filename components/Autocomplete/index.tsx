@@ -32,6 +32,7 @@ interface IProps extends IBaseFieldProps, TextFieldPropsResolver {
   value: any;
   onChange: (value: any) => void;
   options: { value: any, label: string }[];
+  optionsSize?: number;
 }
 
 @WithStyles(theme => ({
@@ -111,9 +112,12 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
   }
 
   handleSuggestionsFetchRequested = ({ value }: SuggestionsFetchRequestedParams) => {
-    const suggestions = this.props.options
-      .filter(o => o.label.toString().toLowerCase().includes(value.toLowerCase()))
-      .slice(0, 10);
+    let suggestions = this.props.options
+      .filter(o => o.label.toString().toLowerCase().includes(value.toLowerCase()));
+
+    if (this.props.optionsSize !== 0) {
+      suggestions = suggestions.slice(0, this.props.optionsSize || 10);
+    }
 
     this.setState({ suggestions });
   }
@@ -131,7 +135,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
 
   render() {
     const { term, suggestions } = this.state;
-    const { classes, placeholder, disabled, label } = this.props;
+    const { classes, placeholder, disabled, label, optionsSize, options, onChange, onBlur, ...extraProps } = this.props;
 
     return (
       <React.Fragment>
@@ -154,7 +158,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
           renderSuggestion={this.renderSuggestion}
           onSuggestionSelected={this.handleSelected}
           inputProps={{
-            ...this.props as any,
+            ...extraProps as any,
             errorMessage: this.errorMessage,
             classes,
             placeholder: placeholder || 'Pesquisar...',

@@ -1,6 +1,7 @@
 import { SelectProps } from '@material-ui/core/Select';
 import { TextFieldProps } from '@material-ui/core/TextField';
 import { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
+import { DatePickerModalProps } from 'material-ui-pickers/DatePicker/DatePickerModal';
 import { SyntheticEvent } from 'react';
 
 export type TextFieldPropsResolver = {
@@ -9,6 +10,10 @@ export type TextFieldPropsResolver = {
 
 export type SelectPropsResolver = {
   [K in Exclude<keyof SelectProps, keyof IPropsFieldBase | keyof IBaseFieldProps | 'displayEmpty' | 'placeholder'>]?: SelectProps[K]
+};
+
+export type DatePropsResolver = {
+  [K in Exclude<keyof DatePickerModalProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: DatePickerModalProps[K]
 };
 
 export interface IBaseFieldProps extends IPropsFieldBase {

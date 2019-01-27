@@ -5,17 +5,12 @@ import ValidationContextRegister from '@react-form-fields/core/components/Valida
 import dateFnsFormat from 'date-fns/format';
 import dateFnsParse from 'date-fns/parse';
 import DatePicker from 'material-ui-pickers/DatePicker';
-import { DatePickerModalProps } from 'material-ui-pickers/DatePicker/DatePickerModal';
 import * as React from 'react';
 
 import { getConfig } from '../config';
-import { IBaseFieldProps } from '../interfaces/props';
+import { DatePropsResolver, IBaseFieldProps } from '../interfaces/props';
 
-type PropsResolver = {
-  [K in Exclude<keyof IPropsFieldBase, keyof DatePickerModalProps | 'mask'>]?: IPropsFieldBase[K]
-};
-
-interface IProps extends PropsResolver, IBaseFieldProps {
+interface IProps extends DatePropsResolver, IBaseFieldProps, IPropsFieldBase {
   value: Date;
   helperText?: React.ReactNode;
   onChange: (value: Date) => void;
@@ -47,25 +42,25 @@ export default class FieldDate extends FieldCoreBase<IProps> {
   }
 
   render() {
-    const { value, label, format, helperText, validation, validationContext, mask, ...extraProps } = this.props;
+    const { value, label, format, helperText, validation, validationContext, onBlur, mask, ...extraProps } = this.props;
 
     return (
       <React.Fragment>
         <ValidationContextRegister field={this} />
 
         <DatePicker
-          {...extraProps}
           clearable
           clearLabel={getConfig().dateLabels.clear}
           okLabel={getConfig().dateLabels.ok}
           cancelLabel={getConfig().dateLabels.cancel}
-          label={label}
-          value={value || null}
-          format={format || getConfig().dateFormat}
           fullWidth={true}
           margin={'normal'}
           leftArrowIcon={<ChevronLeftIcon />}
           rightArrowIcon={<ChevronRightIcon />}
+          {...extraProps}
+          label={label}
+          value={value || null}
+          format={format || getConfig().dateFormat}
           error={!!this.errorMessage}
           helperText={this.errorMessage || helperText}
           required={this.isRequired}
