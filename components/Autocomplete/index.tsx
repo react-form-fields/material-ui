@@ -44,7 +44,9 @@ interface IProps extends IBaseFieldProps, TextFieldPropsResolver {
     zIndex: 1,
     left: 0,
     right: 0,
-    top: 50
+    top: 50,
+    maxHeight: 300,
+    overflow: 'auto'
   },
   suggestionsContainerOpenWithLabel: {
     top: 65
