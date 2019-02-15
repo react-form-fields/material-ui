@@ -48,6 +48,10 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
   changeTimeout: number;
   localization = { locale: getConfig().editorLocale || 'en' };
 
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+
   componentDidUpdate() {
     let { lastValue } = this.state;
     clearTimeout(this.changeTimeout);
