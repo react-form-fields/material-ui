@@ -14,6 +14,7 @@ export default class FormValidation extends React.PureComponent<IProps> {
 
   private onSubmit = (e?: React.SyntheticEvent) => {
     e && e.preventDefault && e.preventDefault();
+    e && e.stopPropagation && e.stopPropagation();
 
     const isValid = this.validationContext.isValid(true);
     this.props.onSubmit(isValid);
