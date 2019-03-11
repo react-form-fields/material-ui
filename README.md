@@ -150,46 +150,16 @@ Custom Message
 Only FieldText has mask prop;
 
 ```js
-  // register
-  import { register } from '@react-form-fields/material-ui/mask';
-   
-  // -optional
-  import commonMasks from '@react-form-fields/material-ui/mask/common/pt-br';
-
-  register([
-    ...commonMasks, // -optional
-    name: 'my-new-mask',
-    apply: value => {
-      if (!value) return value;
-
-      const regexp = value.length > 10 ?
-        /^(\d{0,2})(\d{0,5})(\d{0,4}).*/ :
-        /^(\d{0,2})(\d{0,4})(\d{0,4}).*/;
-
-      const result = value.length > 2 ?
-        '($1) $2-$3' : '($1$2$3';
-
-      return value.replace(regexp, result).replace(/-$/, '');
-    },
-    clean: value => value.replace(/\D/gi, '').substr(0, 11)
-  ])
-
   // usage
   <FieldText
     label='Phone'
     type='text'
-    mask='my-new-mask'
+    mask='phone'
     value={phone}
     onChange={v => this.setState({ phone: v }))}
   />
 ```
 
-### Common Masks
+### List of Masks
 
-#### PT-BR:
-
-* zipcode
-* phone
-* document (CNPJ/CPF)
-* cpf
-* cnpj
+See: [Core Masks](https://github.com/react-form-fields/core#common-masks)
