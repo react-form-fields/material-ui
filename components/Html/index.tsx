@@ -106,7 +106,7 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
 
   render() {
     const { editorState, focused } = this.state;
-    const { classes, label, helperText, placeholder, disabled, onChange, onBlur, ...editorProps } = this.props;
+    const { classes, label, helperText, disabled, onChange, onBlur, ...editorProps } = this.props;
 
     return (
       <div className={`${styles.component}`}>
@@ -124,8 +124,7 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
         </div>
         <Editor
           {...editorProps}
-          readonly={disabled}
-          placeholder={placeholder}
+          readOnly={editorProps.readOnly || disabled}
           editorState={editorState}
           handlePastedText={this.handlePastedText}
           onFocus={this.onFocus}

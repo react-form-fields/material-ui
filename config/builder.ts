@@ -19,6 +19,7 @@ export default class ConfigBuilder extends CoreConfigBuilder {
       editorLocale: locale,
       editorToolbar: toolbar || this.config.editorToolbar
     };
+
     return this;
   }
 
@@ -27,6 +28,7 @@ export default class ConfigBuilder extends CoreConfigBuilder {
       ...this.config,
       validationOn: event
     };
+
     return this;
   }
 }
