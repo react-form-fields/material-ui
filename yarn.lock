@@ -93,11 +93,12 @@
     prop-types "^15.6.0"
     react-is "^16.6.3"
 
-"@react-form-fields/core@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.5.0.tgz#cdd65230ba04b3e162ab6b3d1bc50e8ba1bc39d8"
-  integrity sha512-7m1FIqpTGh1MoiJLdQX1Ix38uEphsBDqGvonJtEjPt5dtVeDYhx+HlMJ+LFRpgHLNlRYPLu5iJCDNZx6ZXAQqA==
+"@react-form-fields/core@^1.5.3":
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.5.3.tgz#bb0332ac68124d0dc891f364794b3bc7b9041d7a"
+  integrity sha512-nRjXKbyBhTdow9a2cSVb0nHeOJGG6DCyI0Tv2PMbHbQPjohQZJp8gkNlDB/Jyob/Y3jcKGTIMBoLFYspK54ZWw==
   dependencies:
+    "@types/validatorjs" "^3.15.0"
     lodash ">=4.0.0"
     react ">=16.3.0"
     tslib ">=1.9.3"
@@ -176,7 +177,7 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/validatorjs@3.15.0":
+"@types/validatorjs@3.15.0", "@types/validatorjs@^3.15.0":
   version "3.15.0"
   resolved "https://registry.yarnpkg.com/@types/validatorjs/-/validatorjs-3.15.0.tgz#2d7d00c5da82d53bf367d6674abc66eaee11ed7d"
   integrity sha512-tqozguXICRdPQVGho1A+lYH4IzU3ggP82OmfFrmb6N6pxmWuXegpw4Th20hy5KtMfuyP+jXB466ABFMO9vma4Q==
