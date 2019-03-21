@@ -37,17 +37,17 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@date-io/core@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@date-io/core/-/core-1.0.1.tgz#70624c535f2a53bf7ecefb486fc86e3edecf0078"
-  integrity sha512-vUdpOjCyjjDXjooyy+1MGCbw2BI00M/avAk+S8hQVs8CrLW78w7HdPFfVVpywC5f1ygueGc6IkSBVj0yawYGEg==
+"@date-io/core@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@date-io/core/-/core-1.1.0.tgz#b7b8fbd9b5e57cc6b55a5af2d98394eafdf42921"
+  integrity sha512-PyjhyR2fbp7Q8xpB5zoOyT3dqr8Bn4kXfREf1w6AnQalwdftNxChB2/p88fI1qsx8KNmHDJY12eCgLoZaPegTw==
 
-"@date-io/date-fns@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@date-io/date-fns/-/date-fns-1.0.1.tgz#2e775fd1184bfb14993601aaef68a153ff21ceeb"
-  integrity sha512-egGn37+ReN1OhxfwiwngOiddalzauENg7Lf53EbcxlYYw8SRgxmvS5zxdG07AlDrPLCQg5tGqpqLyj3o3nsj0A==
+"@date-io/date-fns@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@date-io/date-fns/-/date-fns-1.1.0.tgz#91cd7703042513a6a0056a344b25cd74a4df643e"
+  integrity sha512-FMRhYWfoGiIXdN4xWAArpkdEbqsg2Fr+6Yda7Np2eVWCNx6gSMYsHIM51IIcI+3762ajYbhoEYjHYXVFNZIk1g==
   dependencies:
-    "@date-io/core" "^1.0.1"
+    "@date-io/core" "^1.1.0"
 
 "@icons/material@^0.2.4":
   version "0.2.4"
@@ -107,32 +107,34 @@
     prop-types "^15.6.0"
     react-is "^16.6.3"
 
-"@react-form-fields/core@^1.4.5":
-  version "1.4.5"
-  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.4.5.tgz#52744e8c2f8641f728f406631e27dfd1b8c81ab8"
-  integrity sha512-XQAJErtUi8pMD+yGjspvJ8ojv/kjlnarb3pKr8pQBwgc4wTiS4ylxl+buviS5LMNlFsvUAM1Zih4s26H3xGrHA==
+"@react-form-fields/core@^1.5.3":
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/@react-form-fields/core/-/core-1.5.3.tgz#bb0332ac68124d0dc891f364794b3bc7b9041d7a"
+  integrity sha512-nRjXKbyBhTdow9a2cSVb0nHeOJGG6DCyI0Tv2PMbHbQPjohQZJp8gkNlDB/Jyob/Y3jcKGTIMBoLFYspK54ZWw==
   dependencies:
+    "@types/validatorjs" "^3.15.0"
+    lodash ">=4.0.0"
     react ">=16.3.0"
     tslib ">=1.9.3"
     validatorjs "^3.15.1"
 
-"@react-form-fields/material-ui@1.14.4":
-  version "1.14.4"
-  resolved "https://registry.yarnpkg.com/@react-form-fields/material-ui/-/material-ui-1.14.4.tgz#0c0ed8d221b4fd83f7f00d27907707367c7ac070"
-  integrity sha512-+psl/gSUbFari5vIviqmg+9ngCu1T0f+FQ4opX6L81H6XXeyEk+FJtLAggRgMmr0drGFLCh2xvEsoQ5SEwfkJg==
+"@react-form-fields/material-ui@1.15.2":
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/@react-form-fields/material-ui/-/material-ui-1.15.2.tgz#62834f8430fd008ff16ba91fe1b8811e1f62d800"
+  integrity sha512-30KURouSC5ieFjh1SpwOMzzchpKUjfhW9IldiMvr/W0vOvVMPEEYf/Ok0ODRwVU3zOfoxUUP1BGdB5Nvj3edgg==
   dependencies:
-    "@date-io/date-fns" "^1.0.1"
-    "@react-form-fields/core" "^1.4.5"
+    "@date-io/date-fns" "^1.1.0"
+    "@react-form-fields/core" "^1.5.3"
     autosuggest-highlight ">=3.1.1"
     date-fns "2.0.0-alpha.21"
     draft-js "^0.10.5"
-    draft-js-import-html "^1.2.1"
+    draft-js-import-html "^1.3.3"
     draftjs-to-html "^0.8.4"
     html-to-draftjs "^1.4.0"
-    material-ui-pickers "2.1.1"
+    material-ui-pickers "^2.2.4"
     react-autosuggest ">=9.4.3"
     react-color ">=2.17.0"
-    react-draft-wysiwyg "^1.12.20"
+    react-draft-wysiwyg "^1.13.2"
     tslib ">=1.9.3"
     validatorjs ">=3.15.1"
 
@@ -192,6 +194,11 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
+
+"@types/validatorjs@^3.15.0":
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/@types/validatorjs/-/validatorjs-3.15.0.tgz#2d7d00c5da82d53bf367d6674abc66eaee11ed7d"
+  integrity sha512-tqozguXICRdPQVGho1A+lYH4IzU3ggP82OmfFrmb6N6pxmWuXegpw4Th20hy5KtMfuyP+jXB466ABFMO9vma4Q==
 
 abab@^1.0.3, abab@^1.0.4:
   version "1.0.4"
@@ -1632,7 +1639,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5, classnames@^2.2.6:
+classnames@^2.2.5:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
 
@@ -1683,6 +1690,11 @@ cliui@^4.0.0:
 clone@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
+
+clsx@^1.0.2:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.0.3.tgz#e164004f4064b372888f20fdafbd436fb960bac9"
+  integrity sha512-xLoSw6DMp7YvbEeLrQJBcWWRRerdHrU1WHoL1hYJOKUeDpVMRq7pv7NI2JHQbCRAe5ptINNzhdYmtfN6MsdCUw==
 
 co@^4.6.0:
   version "4.6.0"
@@ -2390,25 +2402,25 @@ dotenv@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
 
-draft-js-import-element@^1.2.1:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/draft-js-import-element/-/draft-js-import-element-1.2.2.tgz#7910878561cb12cad747fda4a3b3e8d9ea05e5b2"
-  integrity sha512-atwfQFg5YWsKdBiOIkIYxYh9lOsS5gzzDaqV89GgG1UIb/E1689FI9PsH2OmuJ4DUhHouzBWAAPSa5DerGNnBQ==
+draft-js-import-element@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/draft-js-import-element/-/draft-js-import-element-1.3.3.tgz#e4b5e87f72bc57adb459d786a3d0d58b498b2fa1"
+  integrity sha512-E1hiuWuhM9XmX5QFBzKY0blkuPxz+yuK88R1y/xIfLgJtVyfQOnc8vfkGH6tEPbNtdbIcnKI8aCGfCkqgvt5CA==
   dependencies:
-    draft-js-utils "^1.2.4"
-    synthetic-dom "^1.2.0"
+    draft-js-utils "^1.3.3"
+    synthetic-dom "^1.3.3"
 
-draft-js-import-html@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/draft-js-import-html/-/draft-js-import-html-1.2.1.tgz#88adb8ce5dbe1a5a777663b1893cee6a35239eaa"
-  integrity sha512-FP1y9kdmOVDvOxoI4ny+H0g4CVoTQwdW++Zjf+qMsnz07NsYOCLcQ34j7TiwuPfArFAcOjBOc41Mn+qOa1G14w==
+draft-js-import-html@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/draft-js-import-html/-/draft-js-import-html-1.3.3.tgz#20359f87299333b6d4aa129881e715e9d3f50c00"
+  integrity sha512-+BCEEenLEX3F4wg3obEdqrhCqs6taFmyjibinjCKA+Cy6dcU+LKsOqqpt10Muo9ARXQYzUyPhLcd8Th9PVCWMw==
   dependencies:
-    draft-js-import-element "^1.2.1"
+    draft-js-import-element "^1.3.3"
 
-draft-js-utils@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/draft-js-utils/-/draft-js-utils-1.2.4.tgz#198428a6aebaecab55ef7b4174aa9e485bfe13ed"
-  integrity sha512-oy7WL6VCcSJ1WOUVCxkU0t/nGoLs/Kv0+zKalC61WjFTN4I2Lt1I8Oj5m4oUFBxfF7K9+0C0U5ilgvb4F4rovg==
+draft-js-utils@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/draft-js-utils/-/draft-js-utils-1.3.3.tgz#2330ab98218c835d58dc08eacdba6708b201eb27"
+  integrity sha512-ZIF3KE2+dRD6zEoqQyu9HzeG56NWtktfazRnDZFC9GD4NnHgJE5qI+TqGgmjRjSrKzuSQonl5rsx+D4N5m6yhQ==
 
 draft-js@^0.10.5:
   version "0.10.5"
@@ -4646,7 +4658,7 @@ jss@^9.7.0, jss@^9.8.7:
     symbol-observable "^1.1.0"
     warning "^3.0.0"
 
-keycode@^2.1.9, keycode@^2.2.0:
+keycode@^2.1.9:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
 
@@ -4822,7 +4834,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@>4.17.4:
+lodash@>4.17.4, lodash@>=4.0.0:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
@@ -4897,17 +4909,16 @@ material-colors@^1.2.1:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
 
-material-ui-pickers@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/material-ui-pickers/-/material-ui-pickers-2.1.1.tgz#804aaa743be7258b96f04a4a73a0222dc2ba3693"
-  integrity sha512-p4qxZv+kkhFAGdw172lFLmbA127kUS8XkqlTPWu2km7f+FRHzk1b4GwP63FEXB+dzhj+xa5VJ7WltaLxUMROTg==
+material-ui-pickers@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/material-ui-pickers/-/material-ui-pickers-2.2.4.tgz#8b33cfc55cbc5b2d520db45abf4b3dc94090dd3c"
+  integrity sha512-QCQh08Ylmnt+o4laW+rPs92QRAcESv3sPXl50YadLm++rAZAXAOh3K8lreGdynCMYFgZfdyu81Oz9xzTlAZNfw==
   dependencies:
     "@types/react-text-mask" "^5.4.3"
-    classnames "^2.2.6"
-    keycode "^2.2.0"
-    react-event-listener "^0.6.5"
-    react-text-mask "=5.4.1"
-    react-transition-group "^2.5.2"
+    clsx "^1.0.2"
+    react-event-listener "^0.6.6"
+    react-text-mask "^5.4.3"
+    react-transition-group "^2.5.3"
     tslib "^1.9.3"
 
 math-expression-evaluator@^1.2.14:
@@ -6289,10 +6300,10 @@ react-dom@^16.7.0:
     prop-types "^15.6.2"
     scheduler "^0.12.0"
 
-react-draft-wysiwyg@^1.12.20:
-  version "1.12.20"
-  resolved "https://registry.yarnpkg.com/react-draft-wysiwyg/-/react-draft-wysiwyg-1.12.20.tgz#2db7670cad13bbb24353e75b20bd966612ed47cb"
-  integrity sha512-MsY9pJu6qOkvsWGfQFprpKpBFwJYZZkSg0t1K+aZyH5LfUplBcZOwZCNsQ8SOklEVBwhzT+TwC7H5nFXN2gwlw==
+react-draft-wysiwyg@^1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/react-draft-wysiwyg/-/react-draft-wysiwyg-1.13.2.tgz#1fc4130d057f0e731386bf831acca71108141899"
+  integrity sha512-qENNISR+bxO6G/ThTD6cai+LGrzkiGt6Fx9mqecJGPmyTIYVE5odsO7yEQVNBpZhgr5TvHAvwm3IoamcuFanDw==
   dependencies:
     classnames "^2.2.5"
     draftjs-utils "^0.9.3"
@@ -6305,12 +6316,21 @@ react-error-overlay@^4.0.1:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.1.tgz#417addb0814a90f3a7082eacba7cee588d00da89"
   integrity sha512-xXUbDAZkU08aAkjtUvldqbvI04ogv+a1XdHxvYuHPYKIVk/42BIOD0zSKTHAWV4+gDy3yGm283z2072rA2gdtw==
 
-react-event-listener@^0.6.2, react-event-listener@^0.6.5:
+react-event-listener@^0.6.2:
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.6.5.tgz#d374dbe5da485c9f9d4702f0e76971afbe9b6b2e"
   integrity sha512-//lCxOM3DQ0+xmTa/u9mI9mm55zCPdIKp89d8MGjlNsOOnXQ5sFDD1eed+sMBzQXKiRBLBMtSg/2T9RJFtfovw==
   dependencies:
     "@babel/runtime" "7.2.0"
+    prop-types "^15.6.0"
+    warning "^4.0.1"
+
+react-event-listener@^0.6.6:
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.6.6.tgz#758f7b991cad9086dd39fd29fad72127e1d8962a"
+  integrity sha512-+hCNqfy7o9wvO6UgjqFmBzARJS7qrNoda0VqzvOuioEpoEXKutiKuv92dSz6kP7rYLmyHPyYNLesi5t/aH1gfw==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
     prop-types "^15.6.0"
     warning "^4.0.1"
 
@@ -6387,9 +6407,10 @@ react-scripts-ts@3.1.0:
   optionalDependencies:
     fsevents "^1.1.3"
 
-react-text-mask@=5.4.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/react-text-mask/-/react-text-mask-5.4.1.tgz#c3dd3e550e31d38b7c9da0178a2725960770e443"
+react-text-mask@^5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/react-text-mask/-/react-text-mask-5.4.3.tgz#991efb4299e30c2e6c2c46d13f617169463e0d2d"
+  integrity sha1-mR77QpnjDC5sLEbRP2FxaUY+DS0=
   dependencies:
     prop-types "^15.5.6"
 
@@ -6408,10 +6429,10 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-transition-group@^2.5.2:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.5.3.tgz#26de363cab19e5c88ae5dbae105c706cf953bb92"
-  integrity sha512-2DGFck6h99kLNr8pOFk+z4Soq3iISydwOFeeEVPjTN6+Y01CmvbWmnN02VuTWyFdnRtIDPe+wy2q6Ui8snBPZg==
+react-transition-group@^2.5.3:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.6.1.tgz#abf4a95e2f13fb9ba83a970a896fedbc5c4856a2"
+  integrity sha512-9DHwCy0aOYEe35frlEN68N9ut/THDQBLnVoQuKTvzF4/s3tk7lqkefCqxK2Nv96fOh6JXk6tQtliygk6tl3bQA==
   dependencies:
     dom-helpers "^3.3.1"
     loose-envify "^1.4.0"
@@ -7430,10 +7451,10 @@ symbol-tree@^3.2.1, symbol-tree@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
 
-synthetic-dom@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/synthetic-dom/-/synthetic-dom-1.2.0.tgz#f3589aafe2b5e299f337bb32973a9be42dd5625e"
-  integrity sha1-81iar+K14pnzN7sylzqb5C3VYl4=
+synthetic-dom@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/synthetic-dom/-/synthetic-dom-1.3.3.tgz#a01865fef513c76c6936f968f90140eb6959a034"
+  integrity sha512-ILjWWiiHIAYphm+F3w0V+A4a79HHF3ELZc6v7H3/kVzCvoxqHWTySN10M7vUOMpZFeRkwz/LmXsW10eFu79bdQ==
 
 tapable@^0.2.7:
   version "0.2.8"

@@ -1,4 +1,5 @@
 import TextField from '@material-ui/core/TextField/TextField';
+import ColorIndicator from '@material-ui/icons/Stop';
 import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import * as React from 'react';
@@ -35,7 +36,7 @@ export default class FieldColor extends FieldCoreBase<IProps, IState> {
 
   render() {
     const { showPicker } = this.state;
-    const { value, helperText, multiline, validationContext, ...extraProps } = this.props;
+    const { value, helperText, multiline, validationContext, InputProps, ...extraProps } = this.props;
 
     return (
       <React.Fragment>
@@ -57,7 +58,10 @@ export default class FieldColor extends FieldCoreBase<IProps, IState> {
             loading: null
           }}
           onClick={this.showPicker}
-          InputProps={{ style: { color: value } }}
+          InputProps={{
+            startAdornment: <ColorIndicator color='inherit' style={{ color: value }} />,
+            ...(InputProps || {})
+          }}
         />
         {showPicker && (
           <PickerDialog

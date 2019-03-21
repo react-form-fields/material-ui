@@ -207,3 +207,27 @@
   margin: 0;
   font-size: 23px;
 }
+
+:local(.fullWrapper) a.rdw-dropdown-selectedtext {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+
+
+:local(.fullWrapper) .rdw-dropdown-wrapper {
+  border: 1px solid #bababa;
+}
+
+:local(.fullWrapper) .rdw-dropdown-wrapper:hover {
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+:local(.fullWrapper) li.rdw-dropdownoption-default {
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  font-size: 13px;
+  line-height: 25px;
+}

@@ -60,7 +60,7 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
       this.changeTimeout = setTimeout(() => {
         lastValue = this.props.value;
 
-        const blocksFromHtml = htmlToDraft(lastValue || '');
+        const blocksFromHtml = htmlToDraft(lastValue.replace(/<br\snewline\s\/>/gim, '<p></p>') || '');
         const { contentBlocks, entityMap } = blocksFromHtml;
 
         const editorState = EditorState.createWithContent(ContentState.createFromBlockArray(contentBlocks, entityMap));
@@ -70,8 +70,8 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
   }
 
   onChange = (editorState: EditorState) => {
-    let lastValue = draftToHtml(convertToRaw(editorState.getCurrentContent())).trim();
-    if (lastValue === '<p></p>') lastValue = null;
+    let lastValue = draftToHtml(convertToRaw(editorState.getCurrentContent())).trim().replace(/<p><\/p>/gim, '<br newline />');
+    if (lastValue === '<br newline />') lastValue = null;
 
     this.setState({ editorState, lastValue });
 
@@ -105,8 +105,8 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
   }
 
   render() {
-    const { editorState, focused } = this.state;
-    const { classes, label, helperText, disabled, onChange, onBlur, ...editorProps } = this.props;
+    const { editorState, focused, lastValue } = this.state;
+    const { classes, label, helperText, disabled, onChange, onBlur, placeholder, ...editorProps } = this.props;
 
     return (
       <div className={`${styles.component}`}>
@@ -125,6 +125,7 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
         <Editor
           {...editorProps}
           readOnly={editorProps.readOnly || disabled}
+          placeholder={lastValue ? null : placeholder}
           editorState={editorState}
           handlePastedText={this.handlePastedText}
           onFocus={this.onFocus}

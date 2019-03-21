@@ -245,6 +245,7 @@ export default class Form extends PureComponent<{}, IState> {
             <FieldHtml
               label='HTML'
               name='html'
+              placeholder='Your content'
               value={model.html}
               validation='required'
               onChange={(v => this.setState({ model: { ...model, html: v } }))}
