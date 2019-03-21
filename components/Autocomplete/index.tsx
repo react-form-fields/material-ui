@@ -1,4 +1,5 @@
 import FormControl from '@material-ui/core/FormControl';
+import { TextFieldProps } from '@material-ui/core/TextField';
 import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import * as React from 'react';
@@ -22,6 +23,7 @@ interface IProps extends IBaseFieldProps, IStyledProps, AutoCompleteProps {
   value: any | any[];
   onChange: (value: any) => void;
   options: { value: any, label: string }[];
+  TextFieldProps?: TextFieldProps;
 }
 
 @WithStyles(styles, { withTheme: true })
@@ -45,7 +47,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
   }
 
   render() {
-    const { classes, theme, options, value, label, onChange, placeholder, ...extraProps } = this.props;
+    const { classes, theme, options, value, label, onChange, helperText, placeholder, TextFieldProps, ...extraProps } = this.props;
 
     return (
       <div className={classes.root}>
@@ -55,11 +57,14 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
           <Select
             classes={classes}
             styles={this.styles}
+            {...extraProps}
             textFieldProps={{
               label,
               InputLabelProps: { shrink: true },
+              ...(TextFieldProps || {}),
+              error: !!this.errorMessage,
+              helperText: this.errorMessage || helperText,
             }}
-            {...extraProps}
             options={options}
             components={components}
             value={this.value}
