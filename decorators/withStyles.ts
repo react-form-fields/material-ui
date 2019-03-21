@@ -1,4 +1,4 @@
-import { StyleRules, StyleRulesCallback } from '@material-ui/core/styles';
+import { StyleRules, StyleRulesCallback, Theme } from '@material-ui/core/styles';
 import withStyles, { WithStylesOptions } from '@material-ui/core/styles/withStyles';
 
 export function WithStyles(
@@ -8,4 +8,11 @@ export function WithStyles(
   return function <T>(target: T): T {
     return withStyles(styles, options)(target as any) as any;
   };
+}
+
+export type AppStyle<Classkeys extends string = string> = StyleRules<Classkeys> | StyleRulesCallback<Classkeys>;
+
+export interface IStyledProps {
+  classes?: any;
+  theme?: Theme;
 }

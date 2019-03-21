@@ -101,11 +101,14 @@ All [material-ui](https://material-ui.com/api/select/) props and:
 
 #### Autocomplete
 
-| Props    | Required | Type                                           | Description |
-|----------|----------|------------------------------------------------|-------------|
-| value    | true     | any                                            |             |
-| options  | true     | object { value: string/number, label: string } |             |
-| onChange | true     | Function(string/number)                        |             |
+All [react-select](https://github.com/JedWatson/react-select) props and:
+
+
+| Props    | Required | Type                                          | Description |
+|----------|----------|-----------------------------------------------|-------------|
+| value    | true     | any / any[]                                   |             |
+| options  | true     | array { value: string/number, label: string } |             |
+| onChange | true     | Function(value: any / any[])                  |             |
 
 #### HTML
 

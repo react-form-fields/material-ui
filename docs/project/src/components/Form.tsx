@@ -242,6 +242,17 @@ export default class Form extends PureComponent<{}, IState> {
               onChange={(v => this.setState({ model: { ...model, autocompleteId: v } }))}
             />
 
+            <FieldAutocomplete
+              label='Autocomplete Multi'
+              helperText='If you try to '
+              name='autocomplete'
+              value={model.autocompleteId2}
+              validation='required'
+              options={[{ value: 1, label: 'Auto 1' }, { value: 2, label: 'Auto 2' }, { value: 3, label: 'Auto 3' }]}
+              isMulti
+              onChange={(v => this.setState({ model: { ...model, autocompleteId2: v } }))}
+            />
+
             <FieldHtml
               label='HTML'
               name='html'
