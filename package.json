@@ -10,7 +10,7 @@
     "validation",
     "material"
   ],
-  "version": "1.17.2",
+  "version": "1.17.3",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "prepare": "yarn tsc",
     "predev": "(cd docs/project && yarn) && yarn tsc -p ./tsconfig.docs.json",
     "dev": "concurrently -r \"yarn docs:dev\" \"yarn tsc -p ./tsconfig.docs.json -w --preserveWatchOutput\" ",
-    "install": "(cd ./node_modules/draft-js && npm i)"
+    "install": "(cd ../../draft-js && npm i)"
   },
   "husky": {
     "hooks": {
