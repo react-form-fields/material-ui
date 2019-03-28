@@ -28,7 +28,9 @@
   "scripts": {
     "docs:dev": "(cd docs/project && yarn start)",
     "docs:build": "sh docs/build.sh",
-    "prepare": "yarn tsc"
+    "prepare": "yarn tsc",
+    "predev": "(cd docs/project && yarn) && yarn tsc -p ./tsconfig.docs.json",
+    "dev": "concurrently -r \"yarn docs:dev\" \"yarn tsc -p ./tsconfig.docs.json -w --preserveWatchOutput\" "
   },
   "husky": {
     "hooks": {
