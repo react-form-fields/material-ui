@@ -5,7 +5,8 @@
   "homepage": "https://react-form-fields.github.io/material-ui",
   "dependencies": {
     "@material-ui/core": "^3.9.0",
-    "@react-form-fields/material-ui": "1.15.2",
+    "@react-form-fields/material-ui": "1.17.3",
+    "draft-js": "https://github.com/fabiomcosta/draft-js#attempt_android_fix_with_dom_diff",
     "mdi-react": "^5.2.0",
     "monaco-editor": "^0.15.6",
     "react": "^16.7.0",
