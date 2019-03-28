@@ -10,7 +10,7 @@
     "validation",
     "material"
   ],
-  "version": "1.17.1",
+  "version": "1.17.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
@@ -30,7 +30,8 @@
     "docs:build": "sh docs/build.sh",
     "prepare": "yarn tsc",
     "predev": "(cd docs/project && yarn) && yarn tsc -p ./tsconfig.docs.json",
-    "dev": "concurrently -r \"yarn docs:dev\" \"yarn tsc -p ./tsconfig.docs.json -w --preserveWatchOutput\" "
+    "dev": "concurrently -r \"yarn docs:dev\" \"yarn tsc -p ./tsconfig.docs.json -w --preserveWatchOutput\" ",
+    "install": "(cd ./node_modules/draft-js && npm i)"
   },
   "husky": {
     "hooks": {
