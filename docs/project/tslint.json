@@ -1,3 +1,52 @@
 {
-  "rules": {}
+  "extends": "tslint-react",
+  "rules": {
+    "jsx-boolean-value": ["never"],
+    "jsx-no-multiline-js": false,
+    "jsx-no-lambda": false,
+    "adjacent-overload-signatures": true,
+    "import-blacklist": [
+      true,
+      "@material-ui/core",
+      "@react-form-fields/material-ui",
+      "date-fns",
+      "mdi-react",
+      "lodash"
+    ],
+    "no-namespace": [true, "allow-declarations"],
+    "no-reference": true,
+    "only-arrow-functions": [false],
+    "typedef-whitespace": [true, {
+      "call-signature": "nospace",
+      "index-signature": "nospace",
+      "parameter": "nospace",
+      "property-declaration": "nospace",
+      "variable-declaration": "nospace"
+    }, {
+      "call-signature": "onespace",
+      "index-signature": "onespace",
+      "parameter": "onespace",
+      "property-declaration": "onespace",
+      "variable-declaration": "onespace"
+    }],
+    "interface-name": [true, "always-prefix"],
+    "quotemark": [true, "single"],
+    "no-duplicate-variable": true,
+    "indent": [true, "spaces"],
+    "linebreak-style": [false, "LF"],
+    "max-file-line-count": [true, 300],
+    "max-line-length": [true, 150],
+    "no-default-export": false,
+    "no-require-imports": false,
+    "no-trailing-whitespace": true,
+    "semicolon": [true, "always"],
+    "no-consecutive-blank-lines": [true],
+    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-shorthand": true,
+    "no-extra-semi": [true],
+    "no-var-keyword": [true]
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ]
 }

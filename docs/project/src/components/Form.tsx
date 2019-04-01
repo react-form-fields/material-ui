@@ -1,4 +1,12 @@
-import { Button, Card, CardActions, CardContent, Divider, Grid, IconButton, Snackbar, Typography } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import Snackbar from '@material-ui/core/Snackbar';
+import Typography from '@material-ui/core/Typography';
 import FieldAutocomplete from '@react-form-fields/material-ui/components/Autocomplete';
 import FieldCheckbox from '@react-form-fields/material-ui/components/Checkbox';
 import FieldColor from '@react-form-fields/material-ui/components/Color';
@@ -16,7 +24,7 @@ import CloseIcon from 'mdi-react/CloseIcon';
 import React, { PureComponent } from 'react';
 
 interface IState {
-  array: string[],
+  array: string[];
   model: any;
   message: string;
   validationOnChange: boolean;
@@ -36,7 +44,7 @@ export default class Form extends PureComponent<{}, IState> {
       model: {},
       message: null,
       validationOnChange: true
-    }
+    };
   }
 
   handleValidationOn = (validationOnChange: boolean) => {
@@ -161,7 +169,7 @@ export default class Form extends PureComponent<{}, IState> {
 
               <Grid item xs={12} sm={4}>
                 <FieldRadio
-                  label="Radio 2"
+                  label='Radio 2'
                   value='2'
                   checked={model.radio === '2'}
                   onChange={(v => this.setState({ model: { ...model, radio: v } }))}
@@ -275,12 +283,12 @@ export default class Form extends PureComponent<{}, IState> {
           onClose={this.handleSnackbarClose}
           message={<span>{message}</span>}
           action={[
-            <IconButton color="inherit" onClick={this.handleSnackbarClose}>
+            <IconButton key='1' color='inherit' onClick={this.handleSnackbarClose}>
               <CloseIcon />
             </IconButton>
           ]}
         />
       </FormValidation>
-    )
+    );
   }
 }

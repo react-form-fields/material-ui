@@ -1,32 +1,18 @@
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-
 import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
 import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import { getConfig } from '@react-form-fields/core/config';
-import { ContentState, convertToRaw, EditorState, Modifier } from 'draft-js';
-import { stateFromHTML } from 'draft-js-import-html';
-import * as draftToHtml from 'draftjs-to-html';
-import htmlToDraft from 'html-to-draftjs';
 import * as React from 'react';
-import { Editor, EditorProps } from 'react-draft-wysiwyg';
 
 import { WithStyles } from '../../decorators/withStyles';
 import { IBaseFieldProps } from '../../interfaces/props';
-import * as styles from './style.css';
-
-type PropsResolver = {
-  [K in Exclude<keyof EditorProps, keyof IBaseFieldProps>]?: EditorProps[K]
-};
 
 interface IState extends IStateFieldBase {
-  editorState: EditorState;
-  lastValue: string;
   focused: boolean;
 }
 
-interface IProps extends IBaseFieldProps, PropsResolver {
+interface IProps extends IBaseFieldProps {
   helperText?: React.ReactNode;
   placeholder?: string;
   disabled?: boolean;
@@ -45,38 +31,10 @@ interface IProps extends IBaseFieldProps, PropsResolver {
   }
 }))
 export default class FieldHtml extends FieldCoreBase<IProps, IState> {
-  changeTimeout: number;
-  localization = { locale: getConfig().editorLocale || 'en' };
 
-  componentDidMount() {
-    this.componentDidUpdate();
-  }
-
-  componentDidUpdate() {
-    let { lastValue } = this.state;
-    clearTimeout(this.changeTimeout);
-
-    if (lastValue !== this.props.value) {
-      this.changeTimeout = setTimeout(() => {
-        lastValue = this.props.value;
-
-        const blocksFromHtml = htmlToDraft(lastValue.replace(/<br\snewline\s\/>/gim, '<p></p>') || '');
-        const { contentBlocks, entityMap } = blocksFromHtml;
-
-        const editorState = EditorState.createWithContent(ContentState.createFromBlockArray(contentBlocks, entityMap));
-        this.setState({ editorState, lastValue });
-      }, 100);
-    }
-  }
-
-  onChange = (editorState: EditorState) => {
-    let lastValue = draftToHtml(convertToRaw(editorState.getCurrentContent())).trim().replace(/<p><\/p>/gim, '<br newline />');
-    if (lastValue === '<br newline />') lastValue = null;
-
-    this.setState({ editorState, lastValue });
-
+  onChange = (value: any) => {
     getConfig().validationOn === 'onChange' && this.setState({ showError: true });
-    this.props.onChange(lastValue);
+    this.props.onChange(value);
   }
 
   onBlur = (e: React.SyntheticEvent) => {
@@ -89,27 +47,13 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
     this.setState({ focused: true });
   }
 
-  handlePastedText = (text: string, html: string): boolean => {
-    const { editorState } = this.state;
-
-    const blockMap = stateFromHTML(html || text).blockMap;
-    const newState = Modifier.replaceWithFragment(editorState.getCurrentContent(), editorState.getSelection(), blockMap);
-
-    this.onChange(EditorState.push(editorState, newState, 'insert-fragment'));
-
-    return true;
-  }
-
-  get toolbar() {
-    return this.props.toolbar || getConfig().editorToolbar;
-  }
-
   render() {
-    const { editorState, focused, lastValue } = this.state;
-    const { classes, label, helperText, disabled, onChange, onBlur, placeholder, ...editorProps } = this.props;
+    const { focused } = this.state;
+    const { classes, label, helperText } = this.props;
+    /* disabled, onChange, onBlur, placeholder */
 
     return (
-      <div className={`${styles.component}`}>
+      <div>
 
         <ValidationContextRegister field={this} />
 
@@ -122,21 +66,7 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
             : null
           }
         </div>
-        <Editor
-          {...editorProps}
-          readOnly={editorProps.readOnly || disabled}
-          placeholder={lastValue ? null : placeholder}
-          editorState={editorState}
-          handlePastedText={this.handlePastedText}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          onEditorStateChange={this.onChange}
-          wrapperClassName={`${styles.fullWrapper} ${classes.fullWrapper} ${focused ? ' focused ' : ''} ${disabled ? ' disabled ' : ''}`}
-          toolbarClassName={`${styles.toolbarWrapper} ${classes.toolbarWrapper}`}
-          editorClassName={`${styles.editorWrapper} ${classes.editorWrapper} ${disabled ? ' disabled ' : ''}`}
-          toolbar={this.toolbar}
-          localization={this.localization}
-        />
+
       </div>
     );
   }

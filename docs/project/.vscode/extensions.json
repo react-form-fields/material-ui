@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "HookyQR.beautify",
+    "EditorConfig.editorconfig",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "eg2.tslint",
+    "rbbit.typescript-hero"
+  ]
+}
