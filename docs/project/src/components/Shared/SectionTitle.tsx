@@ -13,7 +13,7 @@ export default class SectionTitle extends PureComponent<IProps> {
     const { title } = this.props;
 
     return (
-      <Typography variant='h4'>
+      <Typography variant='h5'>
         <IconButton href={`#${snakeCase(title)}`}>
           <HashIcon />
         </IconButton>

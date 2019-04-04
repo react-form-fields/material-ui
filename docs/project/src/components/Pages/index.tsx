@@ -30,12 +30,7 @@ interface IProps {
 export default class Pages extends PureComponent<IProps, {}> {
   mainContent: React.RefObject<HTMLMainElement> = React.createRef();
   menu: IMenu[] = [
-    {
-      path: '/', title: 'Getting Started',
-      submenu: [
-        { path: '/#instalation', title: 'Instalation' }
-      ]
-    }
+    { path: '/', title: 'Getting Started' }
   ];
 
   render() {

@@ -6,6 +6,7 @@ import FormFieldsContext from '@react-form-fields/material-ui/components/Context
 import ConfigBuilder from '@react-form-fields/material-ui/config/builder';
 import { theme } from 'assets/theme';
 import Pages from 'components/Pages';
+import Toast from 'components/Shared/Toast';
 import React, { Fragment, PureComponent } from 'react';
 
 const fieldConfig = new ConfigBuilder()
@@ -18,6 +19,9 @@ export default class App extends PureComponent {
         <FormFieldsContext config={fieldConfig}>
           <Fragment>
             <CssBaseline />
+
+            <Toast.Global />
+
             <Pages />
           </Fragment>
         </FormFieldsContext>
