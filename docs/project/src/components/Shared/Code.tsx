@@ -4,7 +4,7 @@ import { IStyledProps } from '@react-form-fields/material-ui/decorators/withStyl
 import CopyIcon from 'mdi-react/ContentCopyIcon';
 import * as monacoEditor from 'monaco-editor';
 import React, { ComponentType, PureComponent } from 'react';
-import { MonacoEditorProps } from 'react-monaco-editor';
+import { EditorWillMount, MonacoEditorProps } from 'react-monaco-editor';
 
 import { WithStyles } from '../../decorators/withStyles';
 import Toast from './Toast';
@@ -49,16 +49,7 @@ export default class Code extends PureComponent<IProps> {
 
   constructor(props: IProps) {
     super(props);
-    console.log('codde');
-    this.MonacoEditor = React.lazy(async () => {
-      const monacoEditor = await import('monaco-editor');
-      monacoEditor.languages.typescript.typescriptDefaults.setCompilerOptions({
-        jsx: monacoEditor.languages.typescript.JsxEmit.React
-      });
-
-      const MonacoEditor = await import('react-monaco-editor');
-      return MonacoEditor;
-    });
+    this.MonacoEditor = React.lazy(() => import('react-monaco-editor'));
   }
 
   get lineNumbers() {
@@ -67,6 +58,12 @@ export default class Code extends PureComponent<IProps> {
 
   get height() {
     return (18 * this.props.content.split('\n').length) + 10;
+  }
+
+  onEditorWillMount: EditorWillMount = (editor) => {
+    editor.languages.typescript.typescriptDefaults.setCompilerOptions({
+      jsx: monacoEditor.languages.typescript.JsxEmit.React
+    });
   }
 
   handleCopy = () => {
@@ -98,6 +95,7 @@ export default class Code extends PureComponent<IProps> {
             theme='vs-dark'
             value={content}
             options={this.options}
+            editorWillMount={this.onEditorWillMount}
           />
         </React.Suspense>
       </div>

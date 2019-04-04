@@ -6,7 +6,6 @@ import React, { PureComponent } from 'react';
 
 interface IState {
   expanded: boolean;
-  load: boolean;
 }
 
 interface IProps extends IStyledProps {
@@ -28,15 +27,15 @@ interface IProps extends IStyledProps {
 export default class CodeExpansion extends PureComponent<IProps, IState> {
   constructor(props: IProps) {
     super(props);
-    this.state = { expanded: false, load: false };
+    this.state = { expanded: false };
   }
 
   toogleExpanded = () => {
-    this.setState(({ expanded }) => ({ expanded: !expanded, load: true }));
+    this.setState(({ expanded }) => ({ expanded: !expanded }));
   }
 
   render() {
-    const { expanded, load } = this.state;
+    const { expanded } = this.state;
     const { children, classes } = this.props;
 
     return (
@@ -46,11 +45,9 @@ export default class CodeExpansion extends PureComponent<IProps, IState> {
         </IconButton>
 
         <ExpansionPanel expanded={expanded} className={classes.expansionPanel}>
-          {load &&
-            <div className={classes.code}>
-              {children}
-            </div>
-          }
+          <div className={classes.code}>
+            {children}
+          </div>
         </ExpansionPanel>
       </div>
     );
