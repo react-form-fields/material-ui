@@ -5108,7 +5108,7 @@ jest@20.0.4:
   dependencies:
     jest-cli "^20.0.4"
 
-jquery@3.3.1, jquery@>=1.8:
+jquery@>=1.8:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
@@ -8711,11 +8711,6 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
-
-trumbowyg@2.15.1:
-  version "2.15.1"
-  resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.15.1.tgz#56d20b9fc49d1e7351daaabac70d680c69942f3d"
-  integrity sha512-F5ou5CSZtUkWOKREcArE4fMyi5nX9nQ0zwvxtpGXQjiNC5B/CPabbXbMLqNeuDfxIgF/qnq1eYN42rNP81YwzQ==
 
 trumbowyg@^2.15.1:
   version "2.15.2"
