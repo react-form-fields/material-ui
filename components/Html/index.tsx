@@ -6,14 +6,14 @@ import * as React from 'react';
 
 import { getConfig } from '../../config';
 import { WithStyles } from '../../decorators/withStyles';
-import { IBaseFieldProps } from '../../interfaces/props';
+import { HTMLAttributesResolver, IBaseFieldProps } from '../../interfaces/props';
 import * as styles from './style.css';
 
 interface IState extends IStateFieldBase {
   focused: boolean;
 }
 
-interface IProps extends IBaseFieldProps {
+interface IProps extends IBaseFieldProps, HTMLAttributesResolver {
   helperText?: React.ReactNode;
   placeholder?: string;
   disabled?: boolean;
@@ -109,7 +109,7 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
 
   render() {
     const { focused } = this.state;
-    const { classes, label, helperText, placeholder, disabled } = this.props;
+    const { classes, label, helperText, placeholder, disabled, ...otherProps } = this.props;
 
     return (
       <div className={styles.component}>
@@ -126,7 +126,12 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
           }
         </div>
 
-        <textarea ref={this.textareaRef} placeholder={placeholder} disabled={disabled} />
+        <textarea
+          ref={this.textareaRef}
+          placeholder={placeholder}
+          disabled={disabled}
+          {...otherProps}
+        />
 
       </div>
     );
