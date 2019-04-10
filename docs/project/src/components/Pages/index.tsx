@@ -40,7 +40,7 @@ export default class Pages extends PureComponent<IProps, {}> {
     const { classes } = this.props;
 
     return (
-      <BrowserRouter>
+      <BrowserRouter basename='/material-ui'>
         <div className={classes.root}>
           <Drawer menu={this.menu}>
             <main ref={this.mainContent} className={classes.content}>
