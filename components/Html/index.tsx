@@ -111,7 +111,7 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
 
   render() {
     const { focused } = this.state;
-    const { classes, label, helperText, placeholder, disabled, ...otherProps } = this.props;
+    const { classes, label, helperText, placeholder, disabled, value, ...otherProps } = this.props;
 
     return (
       <div className={styles.component}>
