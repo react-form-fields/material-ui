@@ -84,6 +84,8 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
   }
 
   componentDidUpdate() {
+    if (!this.instance) return;
+
     this.instance.trumbowyg(this.props.disabled ? 'disable' : 'enable');
 
     if (this.instance.trumbowyg('html') !== this.props.value) {
