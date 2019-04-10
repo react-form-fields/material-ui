@@ -1,3 +1,4 @@
+import HomeExampleSimpleCode from '!raw-loader!./Examples/Simple';
 import HomeExampleUsageCode from '!raw-loader!./Examples/Usage';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from 'components/Layout/Toolbar';
@@ -25,7 +26,9 @@ export default class HomePage extends PureComponent {
 
         <SectionTitle title='Usage' />
 
-        <CodeExpansion>
+        <Code content={HomeExampleSimpleCode} />
+
+        <CodeExpansion title='Example'>
           <Code content={HomeExampleUsageCode} />
         </CodeExpansion>
 

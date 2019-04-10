@@ -13,11 +13,37 @@ export default class ConfigBuilder extends CoreConfigBuilder {
     return this;
   }
 
-  public setEditorConfig(locale: string, toolbar?: object) {
+  public setTrumbowygLocale(loadLocale: IConfig['trumbowyg']['loadLocale']) {
+    const currentConfig = this.config.trumbowyg || {};
     this.config = {
       ...this.config,
-      editorLocale: locale,
-      editorToolbar: toolbar || this.config.editorToolbar
+      trumbowyg: { ...currentConfig, loadLocale }
+    };
+
+    return this;
+  }
+
+  public setTrumbowygPlugins(loadPlugins: IConfig['trumbowyg']['loadPlugins']) {
+    const currentConfig = this.config.trumbowyg || {};
+    this.config = {
+      ...this.config,
+      trumbowyg: { ...currentConfig, loadPlugins }
+    };
+
+    return this;
+  }
+
+  public setTrumbowygConfig(config: IConfig['trumbowyg']['config'], resetConfig: boolean = false) {
+    const currentConfig = this.config.trumbowyg || {};
+    this.config = {
+      ...this.config,
+      trumbowyg: {
+        ...currentConfig,
+        config: {
+          ...(resetConfig ? {} : (currentConfig.config || {})),
+          ...config
+        }
+      }
     };
 
     return this;

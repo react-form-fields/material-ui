@@ -9,8 +9,11 @@ declare module '@react-form-fields/core/config' {
       ok: string;
       cancel: string
     };
-    editorLocale?: string;
-    editorToolbar?: object;
+    trumbowyg?: {
+      loadLocale?: () => Promise<any>;
+      loadPlugins?: () => Promise<any>[];
+      config?: any;
+    };
     validationOn?: 'onChange' | 'onBlur' | 'onSubmit';
   }
 }
@@ -22,6 +25,11 @@ const defaultConfig: coreConfig.IConfig = {
     clear: 'Clear',
     ok: 'Ok',
     cancel: 'Cancel'
+  },
+  trumbowyg: {
+    loadLocale: () => Promise.resolve(),
+    loadPlugins: () => [],
+    config: {}
   }
 };
 

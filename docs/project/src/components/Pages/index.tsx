@@ -3,6 +3,8 @@ import { WithStyles } from 'decorators/withStyles';
 import React, { PureComponent } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
+import DevPage from './Dev';
+import FullFormPage from './FullForm';
 import HomePage from './Home';
 
 interface IProps {
@@ -30,7 +32,8 @@ interface IProps {
 export default class Pages extends PureComponent<IProps, {}> {
   mainContent: React.RefObject<HTMLMainElement> = React.createRef();
   menu: IMenu[] = [
-    { path: '/', title: 'Getting Started' }
+    { path: '/', title: 'Getting Started' },
+    { path: '/full-example', title: 'Full Form Example' },
   ];
 
   render() {
@@ -42,7 +45,9 @@ export default class Pages extends PureComponent<IProps, {}> {
           <Drawer menu={this.menu}>
             <main ref={this.mainContent} className={classes.content}>
               <Switch>
-                <Route path='/' component={HomePage} />
+                <Route path='/' exact component={HomePage} />
+                <Route path='/dev' exact component={DevPage} />
+                <Route path='/full-example' exact component={FullFormPage} />
                 <Route render={() => <Redirect to='/' />} />
               </Switch>
             </main>

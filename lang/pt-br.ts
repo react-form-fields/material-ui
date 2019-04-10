@@ -11,7 +11,10 @@ const langPTBR: IConfig = {
     ok: 'Ok',
     clear: 'Limpar'
   },
-  editorLocale: 'pt'
+  trumbowyg: {
+    loadLocale: () => import('trumbowyg/dist/langs/pt_br.min.js'),
+    config: { lang: 'pt_br' }
+  }
 };
 
 export default langPTBR;

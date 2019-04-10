@@ -62,7 +62,8 @@ export default class Code extends PureComponent<IProps> {
 
   onEditorWillMount: EditorWillMount = (editor) => {
     editor.languages.typescript.typescriptDefaults.setCompilerOptions({
-      jsx: monacoEditor.languages.typescript.JsxEmit.React
+      jsx: monacoEditor.languages.typescript.JsxEmit.React,
+      allowNonTsExtensions: true
     });
   }
 

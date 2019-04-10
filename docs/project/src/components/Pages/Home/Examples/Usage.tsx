@@ -12,7 +12,6 @@ import React, { PureComponent } from 'react';
 interface IState {
   model: any;
   message: string;
-  validationOnChange: boolean;
 
 }
 
@@ -25,7 +24,6 @@ export default class HomeExampleUsage extends PureComponent<{}, IState> {
     this.state = {
       model: {},
       message: null,
-      validationOnChange: true
     };
   }
 
@@ -53,7 +51,6 @@ export default class HomeExampleUsage extends PureComponent<{}, IState> {
 
             <FieldText
               label='Name'
-              name='name'
               value={model.name}
               validation='required'
               onChange={(v => this.setState({ model: { ...model, name: v } }))}
@@ -64,7 +61,6 @@ export default class HomeExampleUsage extends PureComponent<{}, IState> {
               <Grid item xs={12} sm={6}>
                 <FieldText
                   label='Email'
-                  name='email'
                   value={model.email}
                   validation='required|email'
                   onChange={(v => this.setState({ model: { ...model, email: v } }))}
@@ -74,7 +70,6 @@ export default class HomeExampleUsage extends PureComponent<{}, IState> {
               <Grid item xs={12} sm={6}>
                 <FieldSelect
                   label='Select'
-                  name='select'
                   value={model.comboId}
                   validation='required'
                   emptyOption='Select one option...'

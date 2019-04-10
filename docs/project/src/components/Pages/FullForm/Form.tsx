@@ -36,7 +36,6 @@ export default class Form extends PureComponent<{}, IState> {
 
   constructor(props: {}) {
     super(props);
-
     this.formValidation = React.createRef();
 
     this.state = {
@@ -75,14 +74,14 @@ export default class Form extends PureComponent<{}, IState> {
     return (
       <FormValidation onSubmit={this.onSubmit} ref={this.formValidation}>
 
-        <FieldSwitch
-          label={`Validation on ${validationOnChange ? 'Change' : 'Blur'}`}
-          checked={validationOnChange}
-          onChange={this.handleValidationOn}
-        />
-
         <Card style={{ overflow: 'visible' }}>
           <CardContent>
+            <FieldSwitch
+              label={`Validation on ${validationOnChange ? 'Change' : 'Blur'}`}
+              checked={validationOnChange}
+              onChange={this.handleValidationOn}
+            />
+
             <FieldText
               label='Name'
               name='name'
@@ -207,7 +206,7 @@ export default class Form extends PureComponent<{}, IState> {
           </CardContent>
           <Divider />
           <CardContent>
-            <Typography variant='subheading'>Complex Components</Typography>
+            <Typography variant='subtitle1'>Complex Components</Typography>
 
             <Grid container spacing={24}>
               <Grid item xs={12} sm={6}>
@@ -267,6 +266,7 @@ export default class Form extends PureComponent<{}, IState> {
               placeholder='Your content'
               value={model.html}
               validation='required'
+              disabled={model.spam}
               onChange={(v => this.setState({ model: { ...model, html: v } }))}
             />
 
@@ -291,4 +291,5 @@ export default class Form extends PureComponent<{}, IState> {
       </FormValidation>
     );
   }
+  // tslint:disable-next-line:max-file-line-count
 }
