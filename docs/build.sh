@@ -9,7 +9,7 @@ rm -rf $BASEDIR/index.html
 rm -rf $BASEDIR/manifest.json
 rm -rf $BASEDIR/service-worker.js
 
-(cd $BASEDIR/project && yarn build)
+(cd $BASEDIR/project && yarn && yarn build)
 
 rsync -avzP $BASEDIR/project/build/ $BASEDIR/
 
