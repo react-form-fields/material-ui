@@ -94,15 +94,20 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
   }
 
   onChange = (value: string) => {
+    if (this.props.value === value) return;
+
     getConfig().validationOn === 'onChange' && this.setState({ showError: true });
     this.props.onChange(value);
   }
 
   onBlur = (value: string) => {
-    getConfig().validationOn === 'onBlur' && this.setState({ showError: true });
     this.setState({ focused: false });
-    this.props.onChange(value);
     this.props.onBlur && this.props.onBlur(null);
+
+    if (this.props.value === value) return;
+
+    getConfig().validationOn === 'onBlur' && this.setState({ showError: true });
+    this.props.onChange(value);
   }
 
   onFocus = () => {
