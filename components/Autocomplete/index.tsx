@@ -21,6 +21,7 @@ interface IState extends IStateFieldBase {
 //@ts-ignore
 interface IProps extends IBaseFieldProps, IStyledProps, AutoCompleteProps {
   value: any | any[];
+  placeholder?: string;
   onChange: (value: any) => void;
   options: { value: any, label: string }[];
   TextFieldProps?: TextFieldProps;
@@ -43,12 +44,12 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
 
   get value() {
     const value = this.props.value;
-    return Array.isArray(value) ? this.props.options.filter(o => value.some(v => o.value == v)) : (value || {}).value;
+    return Array.isArray(value) ? this.props.options.filter(o => value.some(v => o.value == v)) : this.props.options.find(o => value === o.value);
   }
 
   render() {
     const { classes, theme, options, value, label, onChange, helperText, placeholder, TextFieldProps, ...extraProps } = this.props;
-
+    console.log(this.value, options);
     return (
       <div className={classes.root}>
         <ValidationContextRegister field={this} />
