@@ -4,11 +4,10 @@ import FieldCoreBase, { IStateFieldBase } from '@react-form-fields/core/componen
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import * as React from 'react';
 import Select from 'react-select';
-import { Props as AutoCompleteProps } from 'react-select/lib/Select';
 import { StylesConfig } from 'react-select/lib/styles';
 
 import { IStyledProps, WithStyles } from '../../decorators/withStyles';
-import { IBaseFieldProps } from '../../interfaces/props';
+import { AutoCompletePropsResolver, IBaseFieldProps } from '../../interfaces/props';
 import components from './components';
 import styles from './styles';
 
@@ -18,13 +17,16 @@ interface IState extends IStateFieldBase {
   suggestions: IProps['options'][0][];
 }
 
-//@ts-ignore
-interface IProps extends IBaseFieldProps, IStyledProps, AutoCompleteProps {
+interface IProps extends IBaseFieldProps, IStyledProps, AutoCompletePropsResolver {
   value: any | any[];
   placeholder?: string;
   onChange: (value: any) => void;
   options: { value: any, label: string }[];
   TextFieldProps?: TextFieldProps;
+  helperText?: string;
+  margin?: TextFieldProps['margin'];
+  variant?: TextFieldProps['variant'];
+  disabled?: boolean;
 }
 
 @WithStyles(styles, { withTheme: true })
@@ -48,8 +50,8 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
   }
 
   render() {
-    const { classes, theme, options, value, label, onChange, helperText, placeholder, TextFieldProps, ...extraProps } = this.props;
-    console.log(this.value, options);
+    const { classes, theme, options, value, label, onChange, helperText, disabled, placeholder, TextFieldProps, ...extraProps } = this.props;
+
     return (
       <div className={classes.root}>
         <ValidationContextRegister field={this} />
@@ -66,6 +68,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
               error: !!this.errorMessage,
               helperText: this.errorMessage || helperText,
             }}
+            isDisabled={disabled}
             options={options}
             components={components}
             value={this.value}
