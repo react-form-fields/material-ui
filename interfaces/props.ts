@@ -2,6 +2,8 @@ import { SelectProps } from '@material-ui/core/Select';
 import { TextFieldProps } from '@material-ui/core/TextField';
 import { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import { DatePickerModalProps } from 'material-ui-pickers/DatePicker/DatePickerModal';
+import { DateTimePickerModalProps } from 'material-ui-pickers/DateTimePicker/DateTimePickerModal';
+import { TimePickerModalProps } from 'material-ui-pickers/TimePicker/TimePickerModal';
 import { HTMLAttributes, SyntheticEvent } from 'react';
 import { Props as AutoCompleteProps } from 'react-select/lib/Select';
 
@@ -17,6 +19,14 @@ export type SelectPropsResolver = {
 
 export type DatePropsResolver = {
   [K in Exclude<keyof DatePickerModalProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: DatePickerModalProps[K]
+};
+
+export type TimePropsResolver = {
+  [K in Exclude<keyof TimePickerModalProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: TimePickerModalProps[K]
+};
+
+export type DateTimePropsResolver = {
+  [K in Exclude<keyof DateTimePickerModalProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: DateTimePickerModalProps[K]
 };
 
 export type HTMLAttributesResolver<T = any> = {
