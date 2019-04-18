@@ -41,6 +41,7 @@ export default class FieldTime extends FieldCoreBase<IProps> {
           clearLabel={getConfig().dateLabels.clear}
           okLabel={getConfig().dateLabels.ok}
           cancelLabel={getConfig().dateLabels.cancel}
+          format={format || getConfig().timeFormat}
           fullWidth={true}
           margin={'normal'}
           {...extraProps}

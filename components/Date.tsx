@@ -53,6 +53,7 @@ export default class FieldDate extends FieldCoreBase<IProps> {
           clearLabel={getConfig().dateLabels.clear}
           okLabel={getConfig().dateLabels.ok}
           cancelLabel={getConfig().dateLabels.cancel}
+          format={format || getConfig().dateFormat}
           fullWidth={true}
           margin={'normal'}
           leftArrowIcon={<ChevronLeftIcon />}
@@ -60,7 +61,6 @@ export default class FieldDate extends FieldCoreBase<IProps> {
           {...extraProps}
           label={label}
           value={value || null}
-          format={format || getConfig().dateFormat}
           error={!!this.errorMessage}
           helperText={this.errorMessage || helperText}
           required={this.isRequired}

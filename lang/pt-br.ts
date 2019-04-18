@@ -6,6 +6,8 @@ const langPTBR: IConfig = {
   ...coreLangPTBR,
   dateLocale: locale,
   dateFormat: 'dd/MM/yyyy',
+  timeFormat: 'HH:mm',
+  dateTimeFormat: 'dd/MM/yyyy HH:mm',
   dateLabels: {
     cancel: 'Cancelar',
     ok: 'Ok',

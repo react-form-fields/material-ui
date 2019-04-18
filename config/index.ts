@@ -4,6 +4,8 @@ declare module '@react-form-fields/core/config' {
   interface IConfig {
     dateLocale?: Locale;
     dateFormat?: string;
+    timeFormat?: string;
+    dateTimeFormat?: string;
     dateLabels?: {
       clear: string;
       ok: string;
