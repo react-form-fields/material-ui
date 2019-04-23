@@ -10,7 +10,7 @@
     "validation",
     "material"
   ],
-  "version": "1.19.1",
+  "version": "1.19.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@date-io/date-fns": "^1.1.0",
-    "@react-form-fields/core": "^1.5.3",
+    "@react-form-fields/core": "^1.5.4",
     "classnames": "^2.2.6",
     "date-fns": "2.0.0-alpha.21",
     "jquery": ">=1.8",
