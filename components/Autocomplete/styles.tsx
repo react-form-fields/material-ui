@@ -1,5 +1,6 @@
-import { AppStyle } from '../../decorators/withStyles';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
+
+import { AppStyle } from '../../decorators/withStyles';
 
 const styles: AppStyle = theme => ({
   root: {
@@ -32,16 +33,14 @@ const styles: AppStyle = theme => ({
     fontSize: 16,
   },
   placeholder: {
-    position: 'absolute',
-    left: 2,
-    fontSize: 16,
+    color: 'inherit'
   },
   paper: {
-    position: 'absolute',
-    zIndex: 1,
-    marginTop: theme.spacing.unit,
-    left: 0,
-    right: 0,
+    marginTop: 5,
+    width: 'calc(100% + 20px)',
+    marginRight: -10,
+    transform: 'translateX(-10px)',
+    borderRadius: theme.shape.borderRadius,
   },
   divider: {
     height: theme.spacing.unit * 2,
