@@ -43,6 +43,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
 
   onChange = (value: IProps['options'] | IProps['options'][0]) => {
     this.setState({ showError: true });
+    if (!value) return this.props.onChange(null);
     this.props.onChange(Array.isArray(value) ? value.map(o => o.value) : value.value);
   }
 
