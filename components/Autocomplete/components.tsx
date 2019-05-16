@@ -1,6 +1,7 @@
 import Chip from '@material-ui/core/Chip';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
+import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import CancelIcon from '@material-ui/icons/Cancel';
@@ -71,7 +72,10 @@ function Placeholder(props: any) {
 
 function SingleValue(props: any) {
   return (
-    <Typography className={props.selectProps.classes.singleValue} {...props.innerProps}>
+    <Typography
+      className={`${props.selectProps.classes.singleValue} ${props.classes.text}`}
+      {...props.innerProps}
+    >
       {props.children}
     </Typography>
   );
@@ -110,7 +114,14 @@ const components = {
   NoOptionsMessage,
   Option,
   Placeholder,
-  SingleValue,
+  SingleValue: withStyles({
+    text: {
+      maxWidth: 'calc(100% - 10px)',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis'
+    }
+  })(SingleValue) as any,
   ValueContainer,
 };
 

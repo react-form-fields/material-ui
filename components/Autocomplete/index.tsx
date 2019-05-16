@@ -86,7 +86,7 @@ export default class FieldAutocomplete extends FieldCoreBase<IProps, IState> {
             isDisabled={disabled}
             options={options}
             components={components}
-            value={this.value}
+            value={this.value || null}
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             onChange={this.onChange}
