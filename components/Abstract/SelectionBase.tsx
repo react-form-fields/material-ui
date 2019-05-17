@@ -1,4 +1,4 @@
-import FormControlLabel from '@material-ui/core/FormControlLabel/FormControlLabel';
+import FormControlLabel, { FormControlLabelProps } from '@material-ui/core/FormControlLabel/FormControlLabel';
 import Typography from '@material-ui/core/Typography/Typography';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
@@ -13,6 +13,7 @@ export interface IPropsSelectionBase extends IPropsFieldBase {
   disabled?: boolean;
   checked: boolean;
   helperText?: React.ReactNode;
+  FormControlLabelProps: Partial<FormControlLabelProps>;
 }
 
 interface IProps extends IPropsSelectionBase {
@@ -51,13 +52,14 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
   }
 
   render() {
-    const { value, label, checked, helperText, classes, disabled, Component } = this.props;
+    const { value, label, checked, helperText, classes, disabled, Component, FormControlLabelProps } = this.props;
 
     return (
       <React.Fragment>
         <ValidationContextRegister field={this} />
 
         <FormControlLabel
+          {...(FormControlLabelProps || {})}
           className={helperText ? classes.containerAlign : null}
           control={
             checked ? //force recreation
