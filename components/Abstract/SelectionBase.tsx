@@ -13,7 +13,8 @@ export interface IPropsSelectionBase extends IPropsFieldBase {
   disabled?: boolean;
   checked: boolean;
   helperText?: React.ReactNode;
-  FormControlLabelProps: Partial<FormControlLabelProps>;
+  disableLabelMargin?: boolean;
+  FormControlLabelProps?: Partial<FormControlLabelProps>;
 }
 
 interface IProps extends IPropsSelectionBase {
@@ -28,12 +29,27 @@ interface IProps extends IPropsSelectionBase {
   labelAlign: {
     marginTop: 14
   },
+  labelRight: {
+    textAlign: 'right'
+  },
   helperText: {
     opacity: 0.7,
     fontSize: '95%'
   }
 })
 export default class FieldSelectionBase extends FieldCoreBase<IProps> {
+  get labelClassName(): string {
+    const { helperText, disableLabelMargin, classes, FormControlLabelProps } = this.props;
+    return (helperText && !disableLabelMargin ? classes.labelAlign : '') +
+      (FormControlLabelProps && FormControlLabelProps.labelPlacement === 'start' ? classes.labelRight : '');
+  }
+
+  get helperTextClassName(): string {
+    const { FormControlLabelProps, classes } = this.props;
+    return classes.helperText +
+      (FormControlLabelProps && FormControlLabelProps.labelPlacement === 'start' ? classes.labelRight : '');
+  }
+
   onChange = (event: React.ChangeEvent<any>) => {
     let value = this.props.value;
 
@@ -82,9 +98,9 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
             <React.Fragment>
               {!!label &&
                 <React.Fragment>
-                  <Typography className={helperText ? classes.labelAlign : null}>{label}</Typography>
+                  <Typography className={this.labelClassName}>{label}</Typography>
                   {!!helperText &&
-                    <Typography className={classes.helperText}>
+                    <Typography className={this.helperTextClassName}>
                       {helperText}
                     </Typography>
                   }
