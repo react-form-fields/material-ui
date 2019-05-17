@@ -40,13 +40,13 @@ interface IProps extends IPropsSelectionBase {
 export default class FieldSelectionBase extends FieldCoreBase<IProps> {
   get labelClassName(): string {
     const { helperText, disableLabelMargin, classes, FormControlLabelProps } = this.props;
-    return (helperText && !disableLabelMargin ? classes.labelAlign : '') +
+    return (helperText && !disableLabelMargin ? classes.labelAlign : '') + ' ' +
       (FormControlLabelProps && FormControlLabelProps.labelPlacement === 'start' ? classes.labelRight : '');
   }
 
   get helperTextClassName(): string {
     const { FormControlLabelProps, classes } = this.props;
-    return classes.helperText +
+    return classes.helperText + ' ' +
       (FormControlLabelProps && FormControlLabelProps.labelPlacement === 'start' ? classes.labelRight : '');
   }
 
