@@ -8,7 +8,7 @@ import { getConfig } from '../../config';
 import { WithStyles } from '../../decorators/withStyles';
 
 export interface IPropsSelectionBase extends IPropsFieldBase {
-  onChange: (value: any) => void;
+  onChange: (value: any, event: React.ChangeEvent<any>) => void;
   label?: string;
   disabled?: boolean;
   checked: boolean;
@@ -60,10 +60,10 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
     }
 
     getConfig().validationOn === 'onChange' && this.setState({ showError: true });
-    this.props.onChange(value);
+    this.props.onChange(value, event);
   }
 
-  onBlur = (e: any) => {
+  onBlur = () => {
     getConfig().validationOn === 'onBlur' && this.setState({ showError: true });
   }
 

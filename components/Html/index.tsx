@@ -126,7 +126,7 @@ export default class FieldHtml extends FieldCoreBase<IProps, IState> {
         <div className={classes.label}>
           <InputLabel error={!!this.errorMessage} required={this.isRequired} focused={focused}>{label}</InputLabel>
           {helperText || this.errorMessage ?
-            <Typography variant='caption' color={this.errorMessage ? 'error' : 'default'}>
+            <Typography variant='caption' color={this.errorMessage ? 'error' : null}>
               {this.errorMessage || helperText}
             </Typography>
             : null
