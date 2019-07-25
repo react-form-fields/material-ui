@@ -6,6 +6,7 @@ import * as React from 'react';
 
 import { getConfig } from '../../config';
 import { WithStyles } from '../../decorators/withStyles';
+import { SwitchPropsResolver } from '../../interfaces/props';
 
 export interface IPropsSelectionBase extends IPropsFieldBase {
   onChange: (value: any, event: React.ChangeEvent<any>) => void;
@@ -37,7 +38,7 @@ interface IProps extends IPropsSelectionBase {
     fontSize: '95%'
   }
 })
-export default class FieldSelectionBase extends FieldCoreBase<IProps> {
+export default class FieldSelectionBase extends FieldCoreBase<IProps & SwitchPropsResolver> {
   get labelClassName(): string {
     const { helperText, disableLabelMargin, classes, FormControlLabelProps } = this.props;
     return (helperText && !disableLabelMargin ? classes.labelAlign : '') + ' ' +
@@ -68,7 +69,7 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
   }
 
   render() {
-    const { value, label, checked, helperText, classes, disabled, Component, FormControlLabelProps } = this.props;
+    const { value, label, checked, helperText, classes, disabled, Component, FormControlLabelProps, ...props } = this.props;
 
     return (
       <React.Fragment>
@@ -80,6 +81,7 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
           control={
             checked ? //force recreation
               <Component
+                {...props}
                 checked={true}
                 disabled={disabled}
                 onChange={this.onChange}
@@ -87,6 +89,7 @@ export default class FieldSelectionBase extends FieldCoreBase<IProps> {
                 value={(value || '').toString()}
               /> :
               <Component
+                {...props}
                 checked={false}
                 disabled={disabled}
                 onChange={this.onChange}
