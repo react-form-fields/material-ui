@@ -30,7 +30,7 @@ interface IProps {
   }
 }))
 export default class Pages extends PureComponent<IProps, {}> {
-  mainContent: React.RefObject<HTMLMainElement> = React.createRef();
+  mainContent: React.RefObject<any> = React.createRef();
   menu: IMenu[] = [
     { path: '/', title: 'Getting Started' },
     { path: '/full-example', title: 'Full Form Example' },

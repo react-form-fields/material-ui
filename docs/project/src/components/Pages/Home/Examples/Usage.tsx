@@ -56,7 +56,7 @@ export default class HomeExampleUsage extends PureComponent<{}, IState> {
               onChange={(v => this.setState({ model: { ...model, name: v } }))}
             />
 
-            <Grid container spacing={24}>
+            <Grid container spacing={2}>
 
               <Grid item xs={12} sm={6}>
                 <FieldText

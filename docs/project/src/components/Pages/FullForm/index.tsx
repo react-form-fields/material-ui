@@ -1,10 +1,10 @@
+import FormCode from '!raw-loader!./Form';
 import Toolbar from 'components/Layout/Toolbar';
+import Code from 'components/Shared/Code';
+import CodeExpansion from 'components/Shared/CodeExpansion';
 import React, { Fragment, PureComponent } from 'react';
 
 import Form from './Form';
-import FormCode from '!raw-loader!./Form';
-import CodeExpansion from 'components/Shared/CodeExpansion';
-import Code from 'components/Shared/Code';
 
 export default class FullFormPage extends PureComponent {
   render() {

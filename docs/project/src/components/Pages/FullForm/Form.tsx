@@ -77,6 +77,7 @@ export default class Form extends PureComponent<{}, IState> {
         <Card style={{ overflow: 'visible' }}>
           <CardContent>
             <FieldSwitch
+              id='Teste'
               label={`Validation on ${validationOnChange ? 'Change' : 'Blur'}`}
               checked={validationOnChange}
               onChange={this.handleValidationOn}
@@ -90,7 +91,7 @@ export default class Form extends PureComponent<{}, IState> {
               onChange={(v => this.setState({ model: { ...model, name: v } }))}
             />
 
-            <Grid container spacing={24}>
+            <Grid container spacing={2}>
 
               <Grid item xs={12} sm={6}>
                 <FieldText
@@ -208,7 +209,7 @@ export default class Form extends PureComponent<{}, IState> {
           <CardContent>
             <Typography variant='subtitle1'>Complex Components</Typography>
 
-            <Grid container spacing={24}>
+            <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <FieldDate
                   label='Begin Date'
@@ -221,6 +222,7 @@ export default class Form extends PureComponent<{}, IState> {
 
               <Grid item xs={12} sm={6}>
                 <FieldDate
+                  id={'Teste'}
                   label='End Date'
                   name='end'
                   value={model.endDate}

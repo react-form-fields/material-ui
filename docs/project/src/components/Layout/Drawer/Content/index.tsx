@@ -2,7 +2,6 @@ import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import { darken } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
-import logo from 'assets/images/logo.png';
 import { WithStyles } from 'decorators/withStyles';
 import React, { PureComponent } from 'react';
 
@@ -60,9 +59,6 @@ export default class Content extends PureComponent<IProps, {}> {
       <div className={classes.root}>
         <div className={classes.header}>
           <Grid container spacing={8} alignItems='center'>
-            <Grid item xs={false}>
-              <img src={logo} className={classes.logo} />
-            </Grid>
             <Grid item xs={true}>
               <Typography className={classes.title}>React Form Fields</Typography>
               <Typography className={classes.subtitle}>Material UI</Typography>

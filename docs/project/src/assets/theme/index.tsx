@@ -24,7 +24,7 @@ export const theme = createMuiTheme({
   overrides,
   variables,
   props
-});
+} as any);
 
 export const reverseTheme = createMuiTheme({
   typography: { useNextVariants: true },
@@ -32,4 +32,4 @@ export const reverseTheme = createMuiTheme({
   overrides,
   variables,
   props
-});
+} as any);
