@@ -28,27 +28,30 @@
   "scripts": {
     "docs:dev": "(cd docs/project && yarn start)",
     "docs:build": "sh docs/build.sh",
+    "lint": "yarn eslint \"./src/**/*.ts\" \"./src/**/*.tsx\"",
     "prepare": "yarn tsc",
     "predev": "(cd docs/project && yarn) && yarn tsc -p ./tsconfig.docs.json",
     "dev": "concurrently -r \"yarn docs:dev\" \"yarn tsc -p ./tsconfig.docs.json -w --preserveWatchOutput\" "
   },
   "husky": {
     "hooks": {
-      "pre-commit": "concurrently -r \"yarn tslint -p tsconfig.json\" \"yarn tsc --noEmit\"",
+      "pre-commit": "concurrently -r \"yarn lint\" \"yarn tsc --noEmit\"",
       "post-merge": "yarn"
     }
   },
   "dependencies": {
-    "@date-io/date-fns": "^1.3.7",
-    "@react-form-fields/core": "^1.5.4",
-    "@types/classnames": "^2.2.8",
-    "@types/jquery": "^3.3.30",
-    "@types/react-autosuggest": "9.3.9",
+    "@material-ui/core": ">=4.0.0",
+    "@material-ui/icons": ">=4.0.0",
+    "@date-io/date-fns": "^1.3.9",
+    "@react-form-fields/core": "^2.4.1",
+    "@types/classnames": "^2.2.9",
+    "@types/jquery": "^3.3.31",
+    "@types/react-autosuggest": "9.3.10",
     "@types/react-color": "3.0.1",
-    "@types/react-select": "^2.0.19",
+    "@types/react-select": "^3.0.3",
     "@types/validatorjs": "3.15.0",
     "classnames": "^2.2.6",
-    "date-fns": "2.0.0-alpha.21",
+    "date-fns": "2.0.0",
     "jquery": ">=3.4",
     "material-ui-pickers": "^2.2.4",
     "react-color": ">=2.17.3",
@@ -58,19 +61,23 @@
     "validatorjs": ">=3.15.1"
   },
   "peerDependencies": {
-    "@material-ui/core": ">=4.1.2",
-    "@material-ui/icons": ">=4.2.1",
-    "react": ">=16.8.6"
+    "@material-ui/core": ">=4.0.0",
+    "@material-ui/icons": ">=4.0.0"
   },
   "devDependencies": {
-    "@material-ui/core": ">=4.1.2",
+    "react": "16.9.0",
+    "@material-ui/core": ">=4.3.3",
     "@material-ui/icons": ">=4.2.1",
-    "concurrently": "4.1.0",
-    "husky": "2.5.0",
-    "react": ">=16.8.4",
-    "tslint": "5.18.0",
-    "tslint-eslint-rules": "5.4.0",
-    "tslint-react": "4.0.0",
-    "typescript": "3.5.2"
+    "@typescript-eslint/eslint-plugin": "2.0.0",
+    "@typescript-eslint/parser": "2.0.0",
+    "concurrently": "4.1.2",
+    "husky": "3.0.4",
+    "eslint": "6.2.1",
+    "eslint-config-prettier": "6.1.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-react": "7.14.3",
+    "eslint-plugin-react-hooks": "2.0.1",
+    "prettier": "1.18.2",
+    "typescript": "3.5.3"
   }
 }
