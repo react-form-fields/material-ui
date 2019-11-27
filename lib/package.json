@@ -10,7 +10,7 @@
     "validation",
     "material"
   ],
-  "version": "3.0.0-alpha.2",
+  "version": "3.0.0-alpha.3",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
@@ -67,6 +67,7 @@
   "devDependencies": {
     "@material-ui/core": ">=4.7.0",
     "@material-ui/icons": ">=4.5.1",
+    "@types/react": "16.9.13",
     "@typescript-eslint/eslint-plugin": "2.9.0",
     "@typescript-eslint/parser": "2.9.0",
     "concurrently": "5.0.0",
