@@ -10,3 +10,4 @@
 *.tgz
 *.log
 *.lock
+.old

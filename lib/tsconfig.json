@@ -18,7 +18,6 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "importHelpers": true,
     "skipLibCheck": true
@@ -30,7 +29,7 @@
   ],
   "exclude": [
     "node_modules",
-    "docs",
+    ".old",
     "*.d.ts",
     "components/*.d.ts",
     "decorations/*.d.ts",

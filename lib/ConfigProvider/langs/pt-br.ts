@@ -1,5 +1,5 @@
-import { IConfig } from '@react-form-fields/core/config';
-import coreLangPTBR from '@react-form-fields/core/lang/pt-br';
+import { IConfig } from '@react-form-fields/core/ConfigProvider';
+import coreLangPTBR from '@react-form-fields/core/ConfigProvider/langs/pt-br';
 import * as locale from 'date-fns/locale/pt-BR';
 
 const langPTBR: IConfig = {

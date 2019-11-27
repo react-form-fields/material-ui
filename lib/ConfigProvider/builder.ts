@@ -41,7 +41,7 @@ export default class ConfigBuilder extends CoreConfigBuilder {
       trumbowyg: {
         ...currentConfig,
         config: {
-          ...(resetConfig ? {} : (currentConfig.config || {})),
+          ...(resetConfig ? {} : currentConfig.config || {}),
           ...config
         }
       }

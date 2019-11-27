@@ -4,14 +4,14 @@ export { IConfig } from '@react-form-fields/core/ConfigProvider';
 
 declare module '@react-form-fields/core/ConfigProvider/context' {
   interface IConfig {
-    dateLocale?: Locale;
+    dateLocale?: any;
     dateFormat?: string;
     timeFormat?: string;
     dateTimeFormat?: string;
     dateLabels?: {
       clear: string;
       ok: string;
-      cancel: string
+      cancel: string;
     };
     trumbowyg?: {
       loadLocale?: () => Promise<any>;

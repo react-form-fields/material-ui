@@ -1,5 +1,21 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "autoFix": true,
+      "language": "typescript"
+    },
+    {
+      "autoFix": true,
+      "language": "typescriptreact"
+    }
+  ],
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -15,14 +31,11 @@
     "**/*?.js": {
       "when": "$(basename).tsx"
     },
-    "components/**/*.d.ts": true,
-    "decorators/**/*.d.ts": true,
-    "mask/**/*.d.ts": true,
-    "validator/**/*.d.ts": true,
-    "interfaces/**/*.d.ts": true,
-    "*.d.ts": true,
     "**/*.map": {
       "when": "$(basename)"
     }
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescriptHero.imports.organizeOnSave": true,
+  "typescriptHero.imports.multiLineTrailingComma": false
 }
