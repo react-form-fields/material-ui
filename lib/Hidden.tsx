@@ -10,7 +10,7 @@ const FieldHidden = React.memo((props: IFieldHiddenProps) => {
 
   return (
     <React.Fragment>
-      <input type='hidden' value={props.value} name={props.name} />
+      <input type='hidden' value={props.value ?? ''} name={props.name} />
       {showError && <Typography color='error'>{errorMessage}</Typography>}
     </React.Fragment>
   );
