@@ -48,7 +48,7 @@ const FieldText = React.memo<IProps>(props => {
         ...extraProps,
         multiline,
         value: (maskedValue ?? '').toString(),
-        error: showError && errorMessage,
+        error: showError && !!errorMessage,
         helperText: showError ? errorMessage : helperText,
         onChange: handleChange,
         onBlur: handleBlur,
