@@ -1,6 +1,6 @@
 import { IConfig } from '@react-form-fields/core/config';
 import coreLang from '@react-form-fields/core/lang/en-us';
-import * as locale from 'date-fns/locale/en-US';
+import locale from 'date-fns/locale/en-US';
 
 const langPTBR: IConfig = {
   ...coreLang,

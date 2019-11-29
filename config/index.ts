@@ -2,7 +2,7 @@ import * as coreConfig from '@react-form-fields/core/config';
 
 declare module '@react-form-fields/core/config' {
   interface IConfig {
-    dateLocale?: Locale;
+    dateLocale?: any;
     dateFormat?: string;
     timeFormat?: string;
     dateTimeFormat?: string;
