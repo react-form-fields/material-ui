@@ -1,10 +1,10 @@
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { DatePicker } from '@material-ui/pickers';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
 import dateFnsFormat from 'date-fns/format';
 import dateFnsParse from 'date-fns/parse';
-import DatePicker from 'material-ui-pickers/DatePicker';
 import * as React from 'react';
 
 import { getConfig } from '../config';

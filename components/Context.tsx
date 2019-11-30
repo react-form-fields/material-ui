@@ -1,6 +1,6 @@
 import DateUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { IConfig, setConfig } from '@react-form-fields/core/config';
-import MuiPickersUtilsProvider from 'material-ui-pickers/MuiPickersUtilsProvider';
 import * as React from 'react';
 
 import { getConfig } from '../config';

@@ -1,6 +1,6 @@
+import { TimePicker } from '@material-ui/pickers';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
-import TimePicker from 'material-ui-pickers/TimePicker';
 import * as React from 'react';
 
 import { getConfig } from '../config';

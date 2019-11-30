@@ -1,36 +1,34 @@
+import { CheckboxProps } from '@material-ui/core/Checkbox';
+import { RadioProps } from '@material-ui/core/Radio';
 import { SelectProps } from '@material-ui/core/Select';
 import { SwitchProps } from '@material-ui/core/Switch';
 import { TextFieldProps } from '@material-ui/core/TextField';
+import { DatePickerProps, DateTimePickerProps, TimePickerProps } from '@material-ui/pickers';
 import { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
-import { DatePickerModalProps } from 'material-ui-pickers/DatePicker/DatePickerModal';
-import { DateTimePickerModalProps } from 'material-ui-pickers/DateTimePicker/DateTimePickerModal';
-import { TimePickerModalProps } from 'material-ui-pickers/TimePicker/TimePickerModal';
 import { HTMLAttributes, SyntheticEvent } from 'react';
 import { Props as AutoCompleteProps } from 'react-select/lib/Select';
 
 import { IPropsSelectionBase } from '../components/Abstract/SelectionBase';
 import { IStyledProps } from '../decorators/withStyles';
-import { CheckboxProps } from '@material-ui/core/Checkbox';
-import { RadioProps } from '@material-ui/core/Radio';
 
 export type TextFieldPropsResolver = {
   [K in Exclude<keyof TextFieldProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: TextFieldProps[K]
 };
 
 export type SelectPropsResolver = {
-  [K in Exclude<keyof SelectProps, keyof IPropsFieldBase | keyof IBaseFieldProps | 'displayEmpty' | 'placeholder'>]?: SelectProps[K]
+  [K in Exclude<keyof SelectProps, keyof IPropsFieldBase | keyof IBaseFieldProps | 'placeholder'>]?: SelectProps[K]
 };
 
 export type DatePropsResolver = {
-  [K in Exclude<keyof DatePickerModalProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: DatePickerModalProps[K]
+  [K in Exclude<keyof DatePickerProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: DatePickerProps[K]
 };
 
 export type TimePropsResolver = {
-  [K in Exclude<keyof TimePickerModalProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: TimePickerModalProps[K]
+  [K in Exclude<keyof TimePickerProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: TimePickerProps[K]
 };
 
 export type DateTimePropsResolver = {
-  [K in Exclude<keyof DateTimePickerModalProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: DateTimePickerModalProps[K]
+  [K in Exclude<keyof DateTimePickerProps, keyof IPropsFieldBase | keyof IBaseFieldProps>]?: DateTimePickerProps[K]
 };
 
 export type SwitchPropsResolver = {

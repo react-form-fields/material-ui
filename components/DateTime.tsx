@@ -1,8 +1,8 @@
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { DateTimePicker } from '@material-ui/pickers';
 import FieldCoreBase, { IPropsFieldBase } from '@react-form-fields/core/components/FieldCoreBase';
 import ValidationContextRegister from '@react-form-fields/core/components/ValidationContextRegister';
-import DateTimePicker from 'material-ui-pickers/DateTimePicker';
 import * as React from 'react';
 
 import { getConfig } from '../config';

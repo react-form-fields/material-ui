@@ -52,8 +52,8 @@ export default class FieldSelect extends FieldCoreBase<IProps> {
                   <CircularProgress size={20} />
                 </InputAdornment>
               ),
-              ...extra,
               displayEmpty: !!emptyOption,
+              ...extra,
               value: !value && value !== 0 ? '' : value,
               required: this.isRequired,
               error: !!this.errorMessage,
